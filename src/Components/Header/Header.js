@@ -1,6 +1,7 @@
 import React, {useContext, useState} from 'react'
 
 import './Header.scss'
+// import logo from '/img/logo.png'
 
 function Header(props) {
   // const userAuth = useContext(AuthContext)
@@ -14,7 +15,7 @@ function Header(props) {
     return (
       <div className='in-container'>
 
-          <div className='logo'></div>
+          <img className='logo' src='/img/logo.png' alt='Logo' />
 
           <button
             className='logout-btn'
