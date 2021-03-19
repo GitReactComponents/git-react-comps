@@ -36,6 +36,10 @@ massive({
 // ! comps endpoints
 app.get('/api/comp', ctrlComp.readComp)
 
+// ! logged in comps endpoint
+app.get('/api/member-comp', auth.userOnly, ctrlComp.readComp)
+
+
 // ! posts endpoints
 app.get('/api/posts', ctrlPost.readPosts)
 
