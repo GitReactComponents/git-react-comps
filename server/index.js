@@ -48,6 +48,7 @@ app.post('/api/create', auth.userOnly, ctrlPost.createPost)
 
 // ! posts endpoints
 app.get('/api/posts', ctrlPost.readPosts)
+app.post('/api/posts', ctrlPost.createPost)
 app.delete('/api/posts', ctrl.deletePost)
 
 // ! user endpoints
