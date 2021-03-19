@@ -38,10 +38,15 @@ app.get('/api/comp', ctrlComp.readComp)
 
 // ! logged in comps endpoint
 app.get('/api/member-comp', auth.userOnly, ctrlComp.readComp)
+app.delete('/api/personalpost/:compId', auth.userOnly, ctrlComp.deleteComp)
 
+
+// ! logged in posts endpoint
+app.post('/api/create', auth.userOnly, ctrlPost.createPost)
 
 // ! posts endpoints
 app.get('/api/posts', ctrlPost.readPosts)
 
 // ! user endpoints
 app.post('/api/auth/register', ctrlUser.register)
+app.get('/api/user', auth.userOnly, ctrlUser.getUser)
