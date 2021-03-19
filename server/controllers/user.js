@@ -1,0 +1,61 @@
+const bcrypt = require('bcrypt')
+require('dotenv').config()
+
+module.exports = {
+
+    register: async (req, res) => {
+        const db = req.ap.get('db')
+        const { firstName, lastName, email, password } = req.body
+        const foundUser = await db.get_user_by_email(email)
+        if (foundUser.length > 0) {
+            return res.status(403).send('User already exists. Please')
+        }
+        const salt = bcrypt.genSaltSync(10)
+        const hash = bcrypt.hashSync(password, salt)
+        const [newUser] = await db.add_user([email, hash, firstName, lastName])
+        req.session.user = {
+            userId: newUser.user_id,
+            firstName: newUser.first_name,
+            lastName: newUser.last_name,
+            email: newUser.email,
+            password: newUser.password
+        }
+
+    },
+
+    login: async (req, res) => {
+        const db = req.app.get('db')
+        const { email, password } = req.body
+        const [foundUser] = await db.get_user_by_email(email)
+        if (!foundUser) {
+            return res.status(404).send('Login failed. Please try again.')
+        }
+        const authenticated = bcrypt.compareSync(password, foundUser.password)
+        if (authenticated) {
+            req.session.user = {
+                userId: newUser.user_id,
+                firstName: newUser.first_name,
+                lastName: newUser.last_name,
+                email: newUser.email,
+                password: newUser.password
+            }
+            res.status(200).send(req.user)
+        } else {
+            res.status(401).send('Login failed. Please try again.')
+        }
+    },
+
+    logout: async (req, res) => {
+        req.session.destroy()
+        res.sendStatus(200)
+    },
+
+    getUser: async (req, res) => {
+        if (req.session.user) {
+            res.status(200).send(req.session.user)
+        } else {
+            res.status(404).send('Please Log In')
+        }
+    }
+}
+

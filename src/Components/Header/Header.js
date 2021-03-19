@@ -20,9 +20,9 @@ function Header(props) {
             className='logout-btn'
             type='submit'
             // onClick={handleLogout}
-            >
-              Logout
-            </button>
+          >
+            Logout
+          </button>
 
       </div>
     )}
