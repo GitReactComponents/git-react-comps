@@ -39,10 +39,11 @@ app.get('/api/comp', ctrlComp.readComp)
 // ! logged in comps endpoint
 app.get('/api/member-comp', auth.userOnly, ctrlComp.readComp)
 app.delete('/api/personalpost/:compId', auth.userOnly, ctrlComp.deleteComp)
-
+app.put('/api/personalpost/:compId/', auth.userOnly, ctrlComponents.editComp)
 
 // ! logged in posts endpoint
 app.post('/api/create', auth.userOnly, ctrlPost.createPost)
+app.put('/api/edit/:postId/', auth.userOnly, ctrlPost.editPost)
 
 // ! posts endpoints
 app.get('/api/posts', ctrlPost.readPosts)
@@ -50,3 +51,6 @@ app.get('/api/posts', ctrlPost.readPosts)
 // ! user endpoints
 app.post('/api/auth/register', ctrlUser.register)
 app.get('/api/user', auth.userOnly, ctrlUser.getUser)
+
+// ! deleting user admin account
+app.delete('/api/admin/:adminId', auth.adminOnly, ctrlAdmin.deleteAdmin)
