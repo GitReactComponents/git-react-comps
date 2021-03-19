@@ -1,7 +1,11 @@
 require("dotenv").config();
 const massive = require("massive");
+const express = require("express"),
+  ctrlComp = require("./controllers/comps"),
+  ctrlPost = require("./controllers/posts"),
+  ctrlUser = require("./controllers/user"),
+  auth = require("./middleware/authCheck");
 const session = require("express-session");
-const express = require("express");
 
 const { CONNECTION_STRING, SERVER_PORT, SESSION_SECRET } = process.env;
 
@@ -27,3 +31,22 @@ massive({
     console.log(`Server listening on port ${SERVER_PORT}`);
   });
 });
+
+
+// ! comps endpoints
+app.get('/api/comp', ctrlComp.readComp)
+
+// ! logged in comps endpoint
+app.get('/api/member-comp', auth.userOnly, ctrlComp.readComp)
+app.delete('/api/personalpost/:compId', auth.userOnly, ctrlComp.deleteComp)
+
+
+// ! logged in posts endpoint
+app.post('/api/create', auth.userOnly, ctrlPost.createPost)
+
+// ! posts endpoints
+app.get('/api/posts', ctrlPost.readPosts)
+
+// ! user endpoints
+app.post('/api/auth/register', ctrlUser.register)
+app.get('/api/user', auth.userOnly, ctrlUser.getUser)
