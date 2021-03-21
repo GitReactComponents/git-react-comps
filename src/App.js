@@ -1,15 +1,17 @@
 import Header from './Components/Header/Header'
+import Routes from './Routes'
 
 import './App.scss';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {BrowserRouter as Route, Switch} from 'react-router-dom';
 
 function App() {
   return (
-    <Router>
-      
+    <Route>
+      <Switch>
       <Header />
-
-    </Router>
+        {Routes}
+      </Switch>
+    </Route>
   );
 }
 

@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 import Dropdown from './Dropdown'
 
 import './Header.scss'
-// import logo from '/img/logo.png'
 
 function Header(props) {
   // const userAuth = useContext(AuthContext)
@@ -14,6 +13,22 @@ function Header(props) {
   const handleClick = () => setClick(!click)
   const closeMobileMenu = () => setClick(false)
 
+  const onMouseEnter = () => {
+    if(window.innerWidth < 960){
+      setDropdown(false)
+    }else{
+      setDropdown(true)
+    }
+  }
+
+  const onMouseLeave = () => {
+    if(window.innerWidth < 960){
+      setDropdown(false)
+    }else{
+      setDropdown(false)
+    }
+  }
+
   // const handleLogout = () => {
   //   userAuth.logout()
   // }
@@ -21,7 +36,7 @@ function Header(props) {
 
   const inHeader = () => {
     return (
-      <div className='in-container'>
+      <nav id='in-container'>
         <Link to='/' className='header-logo'>
           <img className='logo' src='/img/logo.png' alt='Logo' />
         </Link> 
@@ -39,7 +54,7 @@ function Header(props) {
               User
             </Link>
           </li>
-          <li className='nav-item'>
+          <li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
             <Link to='/about' className='nav-links' onClick={closeMobileMenu}>
               About <i className='fas fa-caret-down' />
             </Link>
@@ -64,8 +79,7 @@ function Header(props) {
           >
             Logout
           </button>
-
-      </div>
+      </nav>
     )}
 
 
@@ -84,7 +98,7 @@ function Header(props) {
 
 
   return (
-    <div id='header'>
+    <header className='navbar'>
       {inHeader()}
       {/* {!userAuth.user &&
         outHeader()
@@ -92,7 +106,7 @@ function Header(props) {
       {userAuth.user &&
         inHeader()
       } */}
-    </div>
+    </header>
   )
 }
 
