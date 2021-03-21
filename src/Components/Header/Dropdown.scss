@@ -1,0 +1,33 @@
+$main-li-color: #187FFF;
+$secondary-li-color: #5CABFF;
+
+
+.dropdown-menu{
+  width: 220px;
+  position: absolute;
+  top: 80px;
+  list-style: none;
+  text-align: start;
+}
+
+.dropdown-menu li{
+  background: $main-li-color;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover{
+  background: $secondary-li-color;
+}
+
+.dropdown-menu.clicked{
+  display: none;
+}
+
+.dropdown-link{
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: #FFF;
+  padding: 14px;
+}

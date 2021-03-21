@@ -1,0 +1,22 @@
+$main-btn-color: #187FFF;
+$secondary-btn-color: #FFF;
+
+.btn{
+  padding: 10px 22px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  color: $secondary-btn-color;
+  cursor: pointer;
+  background-color: $main-btn-color;
+}
+
+.btn:hover{
+  padding: 8px 20px;
+  transition: all 0.2s ease-in-out;
+  background-color: transparent;
+  color: $secondary-btn-color;
+  border-radius: 7px;
+  border: 2px solid $main-btn-color;
+}

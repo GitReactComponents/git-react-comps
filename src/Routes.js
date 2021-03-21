@@ -7,7 +7,7 @@ import Landing from './Components/Landing'
 export default (
     <Switch>
         <Route exact path="/" component={Landing} />
-        <Route path="/auth/" component={Auth} />
+        <Route path="/auth" component={Auth} />
         <Route path="/header" component={Header} />
     </Switch>
 )
