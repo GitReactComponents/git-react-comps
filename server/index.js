@@ -49,7 +49,7 @@ app.delete('/api/personal-post/:compId', auth.userOnly, ctrlComp.deleteComp)
 // * member posts endpoint
 app.get('/api/member-posts', auth.userOnly, ctrlComp.readAllPosts)
 app.post('/api/create-post', auth.userOnly, ctrlPost.createPost)
-app.put('/api/edit-post/:postId', auth.userOnly, ctrlPost.editPost)
+app.put('/api/edit-post', auth.userOnly, ctrlPost.editPost)
 app.delete('/api/delete-post/:postId', auth.userOnly, ctrlPost.deletePost)
 
 // * user endpoints
