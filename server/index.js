@@ -7,7 +7,7 @@ const express = require("express"),
   auth = require("./middleware/authCheck");
 const session = require("express-session");
 
-const { CONNECTION_STRING, SERVER_PORT, SESSION_SECRET } = process.env;
+const {CONNECTION_STRING, SERVER_PORT, SESSION_SECRET} = process.env;
 
 const app = express();
 
@@ -33,7 +33,7 @@ massive({
 });
 
 
-// ! comps endpoints for non members
+// * comps endpoints for non members
 app.get('/api/comp-nm', ctrlComp.readComp)
 
 // ! logged in comps endpoint
@@ -50,8 +50,9 @@ app.get('/api/posts', ctrlPost.readPosts)
 // app.post('/api/posts', ctrlPost.createPost)
 // app.delete('/api/posts', ctrl.deletePost)
 
-// ! user endpoints
+// * user endpoints
 app.get('/api/user', auth.userOnly, ctrlUser.getUser)
 app.put('/api/edit-user/:userId', auth.userOnly, ctrlUser.editUser)
 app.delete('/api/delete-user/:userId', auth.userOnly, ctrlUser.deleteUser)
 app.post('/api/auth/register', ctrlUser.register)
+

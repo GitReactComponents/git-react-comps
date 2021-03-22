@@ -1,10 +1,10 @@
-import { createContext, useState } from 'react'
+import {createContext, useState} from 'react'
 import axios from 'axios'
 
 
 export const CompContext = createContext()
 
-export const CompProvider = () => {
+export const CompProvider = (props) => {
     const [component, setComponent] = useState({})
 
 
@@ -15,8 +15,3 @@ export const CompProvider = () => {
         </CompContext.Provider>
     )
 }
-
-const CompProvider = CompContext.Provider
-const CompConsumer = CompContext.Consumer 
-
-export { CompProvider, CompConsumer } 
