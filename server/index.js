@@ -33,10 +33,8 @@ massive({
 });
 
 
-// ! comps endpoints
-app.get('/api/comp', ctrlComp.readComp)
-app.post('/api/comp', ctrlComp.createComp)
-app.delete('/api/comp', ctrlComp.deleteComp)
+// ! comps endpoints for non members
+app.get('/api/comp-nm', ctrlComp.readComp)
 
 // ! logged in comps endpoint
 app.get('/api/member-comp', auth.userOnly, ctrlComp.readComp)
@@ -54,5 +52,6 @@ app.get('/api/posts', ctrlPost.readPosts)
 
 // ! user endpoints
 app.get('/api/user', auth.userOnly, ctrlUser.getUser)
+app.put('/api/edit-user/:userId', auth.userOnly, ctrlUser.editUser)
+app.delete('/api/delete-user/:userId', auth.userOnly, ctrlUser.deleteUser)
 app.post('/api/auth/register', ctrlUser.register)
-
