@@ -8,7 +8,6 @@ export const AuthProvider = (props) => {
     const [user, setUser] = useState(null)
     const { push } = useHistory('')
 
-    //axios calls go here
     const getUser = () => {
         axios.get('/api/user')
             .then(({ data }) => {
@@ -17,7 +16,7 @@ export const AuthProvider = (props) => {
     }
     
     const register = () => {
-        axios.post('/api/auth/register', { userName, email, firstName, lastName, password })
+        axios.post('/api/register', { userName, email, firstName, lastName, password })
         .then(({data}) => {
             setUser(data)
             push('/')
@@ -43,7 +42,18 @@ export const AuthProvider = (props) => {
 
     const updateUser = () => {
         axios.put('/api/edit_user', { userId, isMember: true })
-        .then()
+        .then(() => {
+            setUser(...user, data)
+            push('/')
+        })
+    }
+
+    const deleteUser = () => {
+        axios.delete(`api/delete_user/:${user.userId}`)
+        .then(() => {
+            setUser('')
+            push('/')
+        })
     }
 
 

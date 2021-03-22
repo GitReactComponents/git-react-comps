@@ -64,6 +64,13 @@ module.exports = {
         const { userId, isMember } = req.body
         const [updatedUser] = await db.update_user(userId, isMember)
         return res.status(200).send(res.data)
+    },
+
+    deleteUser: async (req, res) => {
+        const db = req.app.get('db')
+        const { userId } = req.query
+        const deletedUser = await db.delet_user(userId)
+        return res.sendStatus(200)
     }
 }
 
