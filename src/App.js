@@ -1,13 +1,23 @@
+import React from 'react'
+import routes from './Routes'
 import Header from './Components/Header/Header'
 
+import About from './Components/Views/About'
+import Contact from './Components/Views/Contact'
+
+
 import './App.scss';
+import {BrowserRouter as Route, Switch} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      
+    <div>
       <Header />
-
+      <Route>
+        <Switch>
+          {routes}
+        </Switch>
+      </Route>
     </div>
   );
 }

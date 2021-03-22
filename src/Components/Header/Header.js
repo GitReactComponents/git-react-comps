@@ -1,9 +1,33 @@
 import React, {useContext, useState} from 'react'
+import Button from './Button'
+import {Link} from 'react-router-dom'
+import Dropdown from './Dropdown'
 
 import './Header.scss'
 
 function Header(props) {
   // const userAuth = useContext(AuthContext)
+  const [click, setClick] = useState(false)
+  const [dropdown, setDropdown] = useState(false)
+
+  const handleClick = () => setClick(!click)
+  const closeMobileMenu = () => setClick(false)
+
+  const onMouseEnter = () => {
+    if(window.innerWidth < 960){
+      setDropdown(false)
+    }else{
+      setDropdown(true)
+    }
+  }
+
+  const onMouseLeave = () => {
+    if(window.innerWidth < 960){
+      setDropdown(false)
+    }else{
+      setDropdown(false)
+    }
+  }
 
   // const handleLogout = () => {
   //   userAuth.logout()
@@ -12,21 +36,47 @@ function Header(props) {
 
   const inHeader = () => {
     return (
-      <div className='in-container'>
-
-          <div className='logo'></div>
-
-          <button
-            className='logout-btn'
-            type='submit'
-            // onClick={handleLogout}
-          >
-            Logout
-          </button>
-
-      </div>
+      <nav id='in-container'>
+        <Link to='/' className='header-logo'>
+          <img className='logo' src='/img/logo.png' alt='Logo' />
+        </Link> 
+        <div className='menu-icon' onClick={handleClick}>
+          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+        </div>
+        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+          <li className='nav-item'>
+            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+              Home
+            </Link>
+          </li>          
+          <li className='nav-item'>
+            <Link to='/user' className='nav-links' onClick={closeMobileMenu}>
+              User
+            </Link>
+          </li>
+          <li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+            <Link to='/about' className='nav-links' onClick={closeMobileMenu}>
+              About <i className='fas fa-caret-down' />
+            </Link>
+            {dropdown && <Dropdown />}
+          </li>
+          <li className='nav-item'>
+            <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>
+              Contact Us
+            </Link>
+          </li>    
+        </ul>
+        <Button />
+      </nav>
     )}
 
+          // <button
+          //   className='logout-btn'
+          //   type='submit'
+          //   // onClick={handleLogout}
+          // >
+          //   Logout
+          // </button>
 
 
     const outHeader = () => {
@@ -43,7 +93,7 @@ function Header(props) {
 
 
   return (
-    <div id='header'>
+    <header className='navbar'>
       {inHeader()}
       {/* {!userAuth.user &&
         outHeader()
@@ -51,7 +101,7 @@ function Header(props) {
       {userAuth.user &&
         inHeader()
       } */}
-    </div>
+    </header>
   )
 }
 

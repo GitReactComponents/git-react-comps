@@ -1,0 +1,40 @@
+$main-li-color: #B60E2A;;
+$secondary-li-color: #ec1337;;
+
+
+.dropdown-menu{
+  width: 200px;
+  position: absolute;
+  top: 9.5vh;
+  right: 19.5vw;
+  list-style: none;
+  text-align: start;
+}
+
+.dropdown-menu li{
+  background: $main-li-color;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover{
+  background: $secondary-li-color;
+}
+
+.dropdown-menu.clicked{
+  display: none;
+}
+
+.dropdown-link{
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: #FFF;
+  padding: 14px;
+}
+
+@media screen and (max-width: 960px) {
+  .fa-caret-down {
+    display: none;
+  }
+}
