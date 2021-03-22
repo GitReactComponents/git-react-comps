@@ -65,23 +65,18 @@ function Header(props) {
               Contact Us
             </Link>
           </li>    
-          <li className='nav-item'>
-            <Link to='/subscribe' className='nav-links' onClick={closeMobileMenu}>
-              Become a Member!
-            </Link>
-          </li>    
         </ul>
         <Button />
-          <button
-            className='logout-btn'
-            type='submit'
-            // onClick={handleLogout}
-          >
-            Logout
-          </button>
       </nav>
     )}
 
+          // <button
+          //   className='logout-btn'
+          //   type='submit'
+          //   // onClick={handleLogout}
+          // >
+          //   Logout
+          // </button>
 
 
     const outHeader = () => {

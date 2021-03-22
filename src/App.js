@@ -1,17 +1,24 @@
+import React from 'react'
+import routes from './Routes'
 import Header from './Components/Header/Header'
-import Routes from './Routes'
+
+import About from './Components/Views/About'
+import Contact from './Components/Views/Contact'
+
 
 import './App.scss';
 import {BrowserRouter as Route, Switch} from 'react-router-dom';
 
 function App() {
   return (
-    <Route>
-      <Switch>
+    <div>
       <Header />
-        {Routes}
-      </Switch>
-    </Route>
+      <Route>
+        <Switch>
+          {routes}
+        </Switch>
+      </Route>
+    </div>
   );
 }
 

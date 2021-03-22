@@ -2,7 +2,7 @@ import React from 'react'
 
 function Subscribe() {
   return (
-    <div>
+    <div className='subscribe'>
       This is the Subscribe Page
     </div>
   )

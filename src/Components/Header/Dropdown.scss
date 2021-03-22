@@ -1,11 +1,12 @@
-$main-li-color: #187FFF;
-$secondary-li-color: #5CABFF;
+$main-li-color: #B60E2A;;
+$secondary-li-color: #ec1337;;
 
 
 .dropdown-menu{
-  width: 220px;
+  width: 200px;
   position: absolute;
-  top: 80px;
+  top: 9.5vh;
+  right: 19.5vw;
   list-style: none;
   text-align: start;
 }
@@ -30,4 +31,10 @@ $secondary-li-color: #5CABFF;
   text-decoration: none;
   color: #FFF;
   padding: 14px;
+}
+
+@media screen and (max-width: 960px) {
+  .fa-caret-down {
+    display: none;
+  }
 }
