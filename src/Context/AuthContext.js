@@ -6,17 +6,17 @@ export const AuthContext = createContext(null)
 
 export const AuthProvider = (props) => {
     const [user, setUser] = useState(null)
-    const {push} = useHistory('')
+    const { push } = useHistory('')
 
     const getUser = () => {
-        axios.get('/api/user')
-            .then(({data}) => {
+        axios.get('/auth/user')
+            .then(({ data }) => {
                 setUser(data)
             })
     }
 
     const register = (userName, email, firstName, lastName, password) => {
-        axios.post('/api/register', { userName, email, firstName, lastName, password })
+        axios.post('/auth/register', { userName, email, firstName, lastName, password })
             .then(({ data }) => {
                 setUser(data)
                 push('/')
@@ -33,7 +33,7 @@ export const AuthProvider = (props) => {
     }
 
     const logout = () => {
-        axios.post('/api/logout')
+        axios.post('/auth/logout')
             .then(() => {
                 setUser('')
                 push('/')
@@ -41,7 +41,7 @@ export const AuthProvider = (props) => {
     }
 
     const updateUser = (user, userId) => {
-        axios.put('/api/edit_user', { userId, isMember: true })
+        axios.put('/auth/edit_user', { userId, isMember: true })
             .then(() => {
                 setUser(...user, data)
                 push('/')
@@ -49,7 +49,7 @@ export const AuthProvider = (props) => {
     }
 
     const deleteUser = (user) => {
-        axios.delete(`api/delete_user/:${user.userId}`)
+        axios.delete(`auth/delete_user/:${user.userId}`)
             .then(() => {
                 setUser('')
                 push('/')
