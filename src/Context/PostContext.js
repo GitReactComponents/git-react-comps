@@ -1,12 +1,10 @@
 import {createContext, useState} from 'react'
-import {useHistory} from 'react-router-dom'
 import axios from 'axios'
 
 export const PostContext = createContext(null)
 
 export const PostProvider = (props) => {
     const [post, setPost] = useState([])
-    const {push} = useHistory('')
 
     const readPosts = () => {
         axios.get('/api/posts-nm').then(({data}) => {
@@ -23,7 +21,6 @@ export const PostProvider = (props) => {
     const createPost = (postText) => {
         axios.post('/api/create-post', {postText}).then(({data}) => {
             setPost(...post, data)
-            push('/')
         }).catch(err => {
             console.log(err)
         })
@@ -32,7 +29,6 @@ export const PostProvider = (props) => {
     const editPost = (postId, postText) => {
         axios.put('/api/edit-post', {postId, postText}).then(({data}) => {
             setPost(...post, data)
-            push('/')
         }).catch(err => {
             console.log(err)
         })
@@ -41,7 +37,6 @@ export const PostProvider = (props) => {
     const deletePost = (postId, userId) => {
         axios.delete(`/api/delete-post/:${postId}/:${userId}`).then(({data}) => {
             setPost(...post, data)
-            push('/')
         })
     }
 
