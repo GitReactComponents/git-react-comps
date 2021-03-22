@@ -42,14 +42,14 @@ app.get('/api/posts-nm', ctrlPost.readPosts)
 // * member comps endpoint
 app.get('/api/member-comp', auth.userOnly, ctrlComp.readAllComp)
 app.post('/api/create-comp', auth.userOnly, ctrlComp.createComp)
-app.delete('/api/personal-post/:compId', auth.userOnly, ctrlComp.deleteComp)
 app.put('/api/personal-post/:compId', auth.userOnly, ctrlComp.editComp)
+app.delete('/api/personal-post/:compId', auth.userOnly, ctrlComp.deleteComp)
 
 // * member posts endpoint
 app.get('/api/member-posts', auth.userOnly, ctrlComp.readAllPosts)
 app.post('/api/create-post', auth.userOnly, ctrlPost.createPost)
 app.put('/api/edit-post/:postId', auth.userOnly, ctrlPost.editPost)
-app.delete('/api/delete-post', auth.userOnly, ctrlPost.deletePost)
+app.delete('/api/delete-post/:postId', auth.userOnly, ctrlPost.deletePost)
 
 // * user endpoints
 app.get('/api/user', auth.userOnly, ctrlUser.getUser)

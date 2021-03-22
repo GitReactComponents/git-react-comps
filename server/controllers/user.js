@@ -5,19 +5,20 @@ module.exports = {
 
     register: async (req, res) => {
         const db = req.ap.get('db')
-        const { firstName, lastName, email, password } = req.body
+        const { userName, firstName, lastName, email, password } = req.body
         const foundUser = await db.get_user_by_email(email)
         if (foundUser.length > 0) {
             return res.status(403).send('User already exists. Please')
         }
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(password, salt)
-        const [newUser] = await db.add_user([email, hash, firstName, lastName])
+        const [newUser] = await db.add_user([userName, email, firstName, lastName, hash])
         req.session.user = {
             userId: newUser.user_id,
+            userName: newUser.userName,
+            email: newUser.email,
             firstName: newUser.first_name,
             lastName: newUser.last_name,
-            email: newUser.email,
             password: newUser.password
         }
 
@@ -56,6 +57,20 @@ module.exports = {
         } else {
             res.status(404).send('Please Log In')
         }
+    },
+
+    editUser: async (req, res) => {
+        const db = req.app.get('db')
+        const { userId, isMember } = req.body
+        const [updatedUser] = await db.update_user(userId, isMember)
+        return res.status(200).send(res.data)
+    },
+
+    deleteUser: async (req, res) => {
+        const db = req.app.get('db')
+        const { userId } = req.query
+        const deletedUser = await db.delet_user(userId)
+        return res.sendStatus(200)
     }
 }
 
