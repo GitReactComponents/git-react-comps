@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { createContext, useState } from 'react'
 import axios from 'axios'
 
 export const AuthContext = createContext(null)
@@ -8,7 +8,8 @@ export const AuthProvider = (props) => {
 
     //axios calls go here
     const getUser = () => {
-        axios.get()
+        axios.get('/api/user')
+        .then()
     }
 
 
@@ -18,13 +19,3 @@ export const AuthProvider = (props) => {
         </AuthContext.AuthProvider>
     )
 }
-
-
-
-
-// const AuthContext = React.createContext()
-
-// const AuthProvider = AuthContext.Provider
-// const AuthConsumer = AuthContext.Consumer
-
-// export { AuthProvider, AuthConsumer }

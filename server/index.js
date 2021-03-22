@@ -33,19 +33,19 @@ massive({
 });
 
 
-// ! comps endpoints
-app.get('/api/comp', ctrlComp.readComp)
-app.post('/api/comp', ctrlComp.createComp)
-app.delete('/api/comp', ctrlComp.deleteComp)
+// ! comps endpoints for non members
+app.get('/api/comp-nm', ctrlComp.readComp)
 
 // ! logged in comps endpoint
 app.get('/api/member-comp', auth.userOnly, ctrlComp.readComp)
 app.delete('/api/personalpost/:compId', auth.userOnly, ctrlComp.deleteComp)
 app.put('/api/personalpost/:compId/', auth.userOnly, ctrlComp.editComp)
 
-// ! logged in posts endpoint
-app.post('/api/create', auth.userOnly, ctrlPost.createPost)
-app.put('/api/edit/:postId/', auth.userOnly, ctrlPost.editPost)
+// ! member comps endpoint
+app.get('/api/member-comp', auth.userOnly, ctrlComp.readAllComp)
+app.post('/api/create-comp', auth.userOnly, ctrlComp.createComp)
+app.delete('/api/personal-post/:compId', auth.userOnly, ctrlComp.deleteComp)
+app.put('/api/personal-post/:compId', auth.userOnly, ctrlComp.editComp)
 
 // ! posts endpoints
 app.get('/api/posts', auth.userOnly, ctrlPost.readPosts)
@@ -54,5 +54,6 @@ app.delete('/api/posts', auth.userOnly, ctrlPost.deletePost)
 
 // ! user endpoints
 app.get('/api/user', auth.userOnly, ctrlUser.getUser)
+app.put('/api/edit-user/:userId', auth.userOnly, ctrlUser.editUser)
+app.delete('/api/delete-user/:userId', auth.userOnly, ctrlUser.deleteUser)
 app.post('/api/auth/register', ctrlUser.register)
-
