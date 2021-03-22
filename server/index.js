@@ -1,6 +1,7 @@
 require("dotenv").config();
 const massive = require("massive");
 const express = require("express"),
+  ctrlAdmin = require("./controllers/admin"),
   ctrlComp = require("./controllers/comps"),
   ctrlPost = require("./controllers/posts"),
   ctrlUser = require("./controllers/user"),
@@ -56,3 +57,24 @@ app.get('/api/user', auth.userOnly, ctrlUser.getUser)
 app.put('/api/edit-user/:userId', auth.userOnly, ctrlUser.editUser)
 app.delete('/api/delete-user/:userId', auth.userOnly, ctrlUser.deleteUser)
 app.post('/api/auth/register', ctrlUser.register)
+
+
+
+
+// * admin endpoints
+app.get('/api/admin-get', auth.adminOnly, ctrlAdmin.getUser)
+app.post('/api/admin-create', auth.adminOnly, ctrlAdmin.create)
+app.put('/api/admin-edit/:id', auth.adminOnly, ctrlAdmin.edit)
+app.delete('/api/admin-delete/:id', auth.adminOnly, ctrlAdmin.delete)
+
+
+
+
+
+
+
+
+
+
+
+
