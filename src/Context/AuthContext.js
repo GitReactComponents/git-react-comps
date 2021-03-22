@@ -6,26 +6,26 @@ export const AuthContext = createContext(null)
 
 export const AuthProvider = (props) => {
     const [user, setUser] = useState(null)
-    const { push } = useHistory('')
+    const {push} = useHistory('')
 
     const getUser = () => {
         axios.get('/api/user')
-            .then(({ data }) => {
+            .then(({data}) => {
                 setUser(data)
             })
     }
     
-    const register = () => {
-        axios.post('/api/register', { userName, email, firstName, lastName, password })
+    const register = (userName, email, firstName, lastName, password) => {
+        axios.post('/api/register', {userName, email, firstName, lastName, password})
         .then(({data}) => {
             setUser(data)
             push('/')
         })
     }
 
-    const login = () => {
-        axios.post('/auth/login', { userName, password })
-            .then(({ data }) => {
+    const login = (userName, password) => {
+        axios.post('/auth/login', {userName, password})
+            .then(({data}) => {
                 setUser(data)
                 push('/')
             })
@@ -40,8 +40,8 @@ export const AuthProvider = (props) => {
         })
     }
 
-    const updateUser = () => {
-        axios.put('/api/edit_user', { userId, isMember: true })
+    const updateUser = (user, data) => {
+        axios.put('/api/edit_user', {user, isMember: true})
         .then(() => {
             setUser(...user, data)
             push('/')
