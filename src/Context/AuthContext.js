@@ -6,11 +6,11 @@ export const AuthContext = createContext(null)
 
 export const AuthProvider = (props) => {
     const [user, setUser] = useState(null)
-    const { push } = useHistory('')
+    const {push} = useHistory('')
 
     const getUser = () => {
         axios.get('/api/user')
-            .then(({ data }) => {
+            .then(({data}) => {
                 setUser(data)
             })
     }
