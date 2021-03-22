@@ -56,4 +56,3 @@ app.get('/api/user', auth.userOnly, ctrlUser.getUser)
 app.put('/api/edit-user/:userId', auth.userOnly, ctrlUser.editUser)
 app.delete('/api/delete-user/:userId', auth.userOnly, ctrlUser.deleteUser)
 app.post('/api/auth/register', ctrlUser.register)
-
