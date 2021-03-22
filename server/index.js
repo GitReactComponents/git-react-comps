@@ -40,7 +40,7 @@ app.get('/api/comp-nm', ctrlComp.readComp)
 app.get('/api/posts-nm', ctrlPost.readPosts)
 
 // ! member comps endpoint
-app.get('/api/member-comp', auth.userOnly, ctrlComp.readComp)
+app.get('/api/member-comp', auth.userOnly, ctrlComp.readAllComp)
 app.post('/api/create-comp', auth.userOnly, ctrlComp.createComp)
 app.delete('/api/personal-post/:compId', auth.userOnly, ctrlComp.deleteComp)
 app.put('/api/personal-post/:compId', auth.userOnly, ctrlComp.editComp)
@@ -56,4 +56,3 @@ app.get('/api/user', auth.userOnly, ctrlUser.getUser)
 app.put('/api/edit-user/:userId', auth.userOnly, ctrlUser.editUser)
 app.delete('/api/delete-user/:userId', auth.userOnly, ctrlUser.deleteUser)
 app.post('/api/auth/register', ctrlUser.register)
-
