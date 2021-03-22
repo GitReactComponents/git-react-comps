@@ -7,7 +7,7 @@ const express = require("express"),
   auth = require("./middleware/authCheck");
 const session = require("express-session");
 
-const { CONNECTION_STRING, SERVER_PORT, SESSION_SECRET } = process.env;
+const {CONNECTION_STRING, SERVER_PORT, SESSION_SECRET} = process.env;
 
 const app = express();
 
@@ -33,26 +33,27 @@ massive({
 });
 
 
-// ! comps endpoints for non members
+// * comps endpoints for non members
 app.get('/api/comp-nm', ctrlComp.readComp)
 
-// ! posts endpoints for non members
+// * posts endpoints for non members
 app.get('/api/posts-nm', ctrlPost.readPosts)
 
-// ! member comps endpoint
+// * member comps endpoint
 app.get('/api/member-comp', auth.userOnly, ctrlComp.readAllComp)
 app.post('/api/create-comp', auth.userOnly, ctrlComp.createComp)
 app.delete('/api/personal-post/:compId', auth.userOnly, ctrlComp.deleteComp)
 app.put('/api/personal-post/:compId', auth.userOnly, ctrlComp.editComp)
 
-// ! member posts endpoint
+// * member posts endpoint
 app.get('/api/member-posts', auth.userOnly, ctrlComp.readAllPosts)
 app.post('/api/create-post', auth.userOnly, ctrlPost.createPost)
 app.put('/api/edit-post/:postId', auth.userOnly, ctrlPost.editPost)
 app.delete('/api/delete-post', auth.userOnly, ctrlPost.deletePost)
 
-// ! user endpoints
+// * user endpoints
 app.get('/api/user', auth.userOnly, ctrlUser.getUser)
 app.put('/api/edit-user/:userId', auth.userOnly, ctrlUser.editUser)
 app.delete('/api/delete-user/:userId', auth.userOnly, ctrlUser.deleteUser)
 app.post('/api/auth/register', ctrlUser.register)
+
