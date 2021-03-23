@@ -1,7 +1,7 @@
 import {createContext, useState} from 'react'
 import axios from 'axios'
 
-export const PostContext = createContext(null)
+export const PostContext = createContext(null);
 
 export const PostProvider = (props) => {
     const [post, setPost] = useState([])
@@ -12,7 +12,33 @@ export const PostProvider = (props) => {
         })
     }    
 
-    
+    const readAllPosts = () => {
+        axios.get('/api/member-posts').then(({data}) => {
+            setPost(...post, data)
+        })
+    }
+
+    const createPost = (postText) => {
+        axios.post('/api/create-post', {postText}).then(({data}) => {
+            setPost(...post, data)
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+
+    const editPost = (postId, postText) => {
+        axios.put('/api/edit-post', {postId, postText}).then(({data}) => {
+            setPost(...post, data)
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+
+    const deletePost = (postId, userId) => {
+        axios.delete(`/api/delete-post/:${postId}/:${userId}`).then(({data}) => {
+            setPost(...post, data)
+        })
+    }
 
     return (
         <PostContext.Provider value={{post, setPost, readPosts, readAllPosts, createPost, editPost, deletePost}}>
