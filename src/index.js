@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {AuthProvider} from './Context/AuthContext'
-// import {CompProvider} from './Context/CompContext'
-// import {PostProvider} from './Context/PostContext'
-import {HashRouter, BrowserRouter} from 'react-router-dom'
+// import {AuthProvider} from './Context/AuthContext';
+// import {CompProvider} from './Context/CompContext';
+// import {PostProvider} from './Context/PostContext';
+import {HashRouter, BrowserRouter} from 'react-router-dom';
 
 const Router = process.env.NODE_ENV === 'development' ? HashRouter : BrowserRouter
 
