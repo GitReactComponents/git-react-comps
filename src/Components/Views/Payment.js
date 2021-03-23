@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import {loadStripe} from '@stripe/stripe-js'
 // import {useForm} from 'react-hook-form'
 
-import './SCSS/Payment.scss'
+// import './SCSS/Payment.scss'
 
 const stripePromise = loadStripe('pk_test_51ITboKGYQXVvJTOKktB52oAUVbuF7NmgznknaRgBiLBZicHBI8uIK9N3lG0iUH53V2B8jpYWTnUA8IhhaebnXMHF00fkKhe5mV')
 

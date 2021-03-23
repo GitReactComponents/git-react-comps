@@ -1,5 +1,6 @@
 module.exports = {
   payment: async (req, res) => {
+    const DOMAIN = 'http://localhost:3000/#/'
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: [
@@ -15,8 +16,8 @@ module.exports = {
         },
       ],
       mode: 'payment',
-      success_url: 'http://localhost:3000/#/?success=true',
-      cancel_url: 'http://localhost:3000/#/?canceled=true'
+      success_url: `${DOMAIN}?success=true`,
+      cancel_url: `${DOMAIN}?canceled=true`
     })
   }
 }

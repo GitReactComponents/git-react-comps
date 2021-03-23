@@ -1,4 +1,7 @@
 require("dotenv").config();
+// const path = require('path')
+// const bodyParser = require('body-parser')
+// const postCharge = require('./stripe')
 const massive = require("massive");
 const express = require("express"),
   ctrlAdmin = require("./controllers/admin"),
@@ -13,6 +16,25 @@ const stripe = require('stripe')('pk_test_51ITboKGYQXVvJTOKktB52oAUVbuF7Nmgznkna
 const {CONNECTION_STRING, SERVER_PORT, SESSION_SECRET} = process.env;
 
 const app = express();
+// const router = express.Router
+
+// router.post('/stripe/charge', postCharge)
+// router.all('*', (_, res) => 
+//   res.json({message: 'please make a post request to /stripe/charge'})
+// )
+
+// app.use((_, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*')
+//   res.header(
+//     'Access-Control-Allow-Headers',
+//     'Origin, X-Requested-With, Content-Type, Accept'
+//   )
+//   next()
+// })
+
+// app.use(bodyParser.json())
+// app.use('/api', router)
+// app.use(express.static(path.join(__dirname, '../build')))
 
 app.use(express.json());
 app.use(
