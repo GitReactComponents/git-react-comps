@@ -6,26 +6,26 @@ export const AuthContext = createContext(null)
 
 export const AuthProvider = (props) => {
     const [user, setUser] = useState(null)
-    const {push} = useHistory('')
+    const { push } = useHistory('')
 
     const getUser = () => {
-        axios.get('/api/user')
-            .then(({data}) => {
+        axios.get('/api/auth/user')
+            .then(({ data }) => {
                 setUser(data)
             })
     }
-    
+
     const register = (userName, email, firstName, lastName, password) => {
-        axios.post('/api/register', {userName, email, firstName, lastName, password})
-        .then(({data}) => {
-            setUser(data)
-            push('/')
-        })
+        axios.post('/api/auth/register', { userName, email, firstName, lastName, password })
+            .then(({ data }) => {
+                setUser(data)
+                push('/')
+            })
     }
 
     const login = (userName, password) => {
-        axios.post('/auth/login', {userName, password})
-            .then(({data}) => {
+        axios.post('/api/auth/login', { userName, password })
+            .then(({ data }) => {
                 setUser(data)
                 push('/')
             })
@@ -33,27 +33,27 @@ export const AuthProvider = (props) => {
     }
 
     const logout = () => {
-        axios.post('/api/logout')
-        .then(() => {
-            setUser('')
-            push('/')
-        })
+        axios.post('/api/auth/logout')
+            .then(() => {
+                setUser('')
+                push('/')
+            })
     }
 
-    const updateUser = (user, data) => {
-        axios.put('/api/edit_user', {user, isMember: true})
-        .then(() => {
-            setUser(...user, data)
-            push('/')
-        })
+    const updateUser = (user, userId) => {
+        axios.put('/api/auth/edit_user', { userId, isMember: true })
+            .then(() => {
+                setUser(...user, data)
+                push('/')
+            })
     }
 
-    const deleteUser = () => {
-        axios.delete(`api/delete_user/:${user.userId}`)
-        .then(() => {
-            setUser('')
-            push('/')
-        })
+    const deleteUser = (user) => {
+        axios.delete(`/api/`auth/delete_user/:${user.userId}`)
+            .then(() => {
+                setUser('')
+                push('/')
+            })
     }
 
 

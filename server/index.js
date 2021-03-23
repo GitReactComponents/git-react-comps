@@ -53,28 +53,15 @@ app.put('/api/edit-post/:postId', auth.userOnly, ctrlPost.editPost)
 app.delete('/api/delete-post/:postId', auth.userOnly, ctrlPost.deletePost)
 
 // * user endpoints
-app.get('/api/user', auth.userOnly, ctrlUser.getUser)
-app.put('/api/edit-user/:userId', auth.userOnly, ctrlUser.editUser)
-app.delete('/api/delete-user/:userId', auth.userOnly, ctrlUser.deleteUser)
+app.get('/api/auth/user', auth.userOnly, ctrlUser.getUser)
 app.post('/api/auth/register', ctrlUser.register)
-
-
-
+app.post('/api/auth/login', ctrlUser.login)
+app.post('/api/auth/logout', ctrlUser.logout)
+app.put('/api/auth/edit_user', auth.userOnly, ctrlUser.editUser)
+app.delete('/api/auth/delete_user/:userId', auth.userOnly, ctrlUser.deleteUser)
 
 // * admin endpoints
 app.get('/api/admin-get', auth.adminOnly, ctrlAdmin.getUser)
 app.post('/api/admin-create', auth.adminOnly, ctrlAdmin.create)
 app.put('/api/admin-edit/:id', auth.adminOnly, ctrlAdmin.edit)
 app.delete('/api/admin-delete/:id', auth.adminOnly, ctrlAdmin.delete)
-
-
-
-
-
-
-
-
-
-
-
-
