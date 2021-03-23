@@ -45,11 +45,6 @@ $white: #FFFFFF;
   font-size: 2rem;
 }
 
-// .fa-firstdraft {
-//   margin-left: 0.5rem;
-//   font-size: 1.6rem;
-// }
-
 .nav-menu {
   display: grid;
   grid-template-columns: repeat(5, auto);
@@ -90,6 +85,10 @@ $white: #FFFFFF;
 .menu-icon {
   display: none;
 }
+
+
+
+
 
 @media screen and (max-width: 960px) {
   .NavbarItems {

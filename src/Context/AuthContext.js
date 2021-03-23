@@ -9,14 +9,14 @@ export const AuthProvider = (props) => {
     const { push } = useHistory('')
 
     const getUser = () => {
-        axios.get('/auth/user')
+        axios.get('/api/auth/user')
             .then(({ data }) => {
                 setUser(data)
             })
     }
 
     const register = (userName, email, firstName, lastName, password) => {
-        axios.post('/auth/register', { userName, email, firstName, lastName, password })
+        axios.post('/api/auth/register', { userName, email, firstName, lastName, password })
             .then(({ data }) => {
                 setUser(data)
                 push('/')
@@ -24,7 +24,7 @@ export const AuthProvider = (props) => {
     }
 
     const login = (userName, password) => {
-        axios.post('/auth/login', { userName, password })
+        axios.post('/api/auth/login', { userName, password })
             .then(({ data }) => {
                 setUser(data)
                 push('/')
@@ -33,7 +33,7 @@ export const AuthProvider = (props) => {
     }
 
     const logout = () => {
-        axios.post('/auth/logout')
+        axios.post('/api/auth/logout')
             .then(() => {
                 setUser('')
                 push('/')
@@ -41,7 +41,7 @@ export const AuthProvider = (props) => {
     }
 
     const updateUser = (user, userId) => {
-        axios.put('/auth/edit_user', { userId, isMember: true })
+        axios.put('/api/auth/edit_user', { userId, isMember: true })
             .then(() => {
                 setUser(...user)
                 push('/')
@@ -49,7 +49,7 @@ export const AuthProvider = (props) => {
     }
 
     const deleteUser = (user) => {
-        axios.delete(`auth/delete_user/:${user.userId}`)
+        axios.delete(`/api/`auth/delete_user/:${user.userId}`)
             .then(() => {
                 setUser('')
                 push('/')
