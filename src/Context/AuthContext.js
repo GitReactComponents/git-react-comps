@@ -43,7 +43,7 @@ export const AuthProvider = (props) => {
     const updateUser = (user, userId) => {
         axios.put('/api/auth/edit_user', { userId, isMember: true })
             .then(() => {
-                setUser(...user, data)
+                setUser(...user)
                 push('/')
             })
     }
