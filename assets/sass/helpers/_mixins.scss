@@ -1,0 +1,13 @@
+@mixin sectionPadding {
+  padding: 60px 0;
+}
+
+@mixin fullImage {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+@mixin transition13{
+  transition: (all 0.13s ease-out 0s);
+}

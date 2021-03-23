@@ -1,6 +1,4 @@
-$main-li-color: #B60E2A;;
-$secondary-li-color: #ec1337;;
-
+@import 'helpers/variables';
 
 .dropdown-menu{
   width: 200px;
@@ -12,12 +10,12 @@ $secondary-li-color: #ec1337;;
 }
 
 .dropdown-menu li{
-  background: $main-li-color;
+  background: $red-dark;
   cursor: pointer;
 }
 
 .dropdown-menu li:hover{
-  background: $secondary-li-color;
+  background: $red-light;
 }
 
 .dropdown-menu.clicked{
