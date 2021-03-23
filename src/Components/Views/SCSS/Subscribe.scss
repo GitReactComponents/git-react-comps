@@ -1,24 +1,54 @@
-$form-text-color: #b4b5bb;
+@import 'helpers/variables';
 
-body{
+
+body {
   overflow: hidden;
 }
 
-.subscribe{
+.form-container {
+  height: 100%;
+  width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
+
+.form-flex-container {
+  display: flex;
+}
+
+.side {
+  flex: 1;
+}
+
+
+.side:first-child {
+  flex-direction: column;
+  margin-right: 2.5vw;
+}
+
+.bottom {
+  margin-top: 3vh;
+}
+
+
 
 .errorMsg {
   max-width: 350px;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #f21e08;
+  color: $error-text-color;
   padding: 2px 0;
   margin-top: 2px;
   font-size: 14px;
   font-weight: 300;
+}
+
+.errorMsg strong{
+  font-size: 18px;
 }
 
 .form-control {
@@ -29,7 +59,7 @@ body{
 }
 
 .form-control label {
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: center;
   color: $form-text-color;
@@ -37,10 +67,11 @@ body{
 }
 
 .form-control input[type='text'],
-.form-control input[type='password'] {
-  width: 90%;
+.form-control input[type='password'],
+.form-control input[type='date'] {
+  width: 85%;
   padding: 5px;
-  margin-bottom: 1vh;
+  margin-bottom: 3vh;
 }
 
 button {
@@ -49,12 +80,19 @@ button {
 }
 
 @media screen and (max-width: 600px) {
+
   .subscribe {
-    width: 90%;
+    width: 100%;
   }
 
   .errorMsg {
     max-width: 100%;
+  }
+
+  .form-flex-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .form-control {
@@ -62,7 +100,8 @@ button {
   }
 
   .form-control input[type='text'],
-  .form-control input[type='password'] {
+  .form-control input[type='password'],
+  .form-control input[type='date'] {
     width: inherit;
   }
 }

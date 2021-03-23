@@ -39,7 +39,7 @@ function Header(props) {
       <nav id='in-container'>
         <Link to='/' className='header-logo'>
           <img className='logo' src='/img/logo.png' alt='Logo' />
-        </Link> 
+        </Link>
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
@@ -48,7 +48,7 @@ function Header(props) {
             <Link to='/' className='nav-links' onClick={closeMobileMenu}>
               Home
             </Link>
-          </li>          
+          </li>
           <li className='nav-item'>
             <Link to='/user' className='nav-links' onClick={closeMobileMenu}>
               User
