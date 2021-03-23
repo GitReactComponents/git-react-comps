@@ -7,35 +7,30 @@ export const CompContext = createContext(null)
 export const CompProvider = (props) => {
   const [component, setComponent] = useState({})
 
-  // app.get('/api/posts-nm', ctrlPost.readPosts)
+// app.get('/api/comp-nm', ctrlComp.readComp)
 const getNmComps = () => {
-  axios.get('./api/comp-nm').then((res) => {
+  axios.get('/api/comp-nm').then((res) => {
     setComponent(res.data)
   }).catch(err => console.log(err))
 }
 
 // app.get('/api/member-comp', auth.userOnly, ctrlComp.readAllComp)
-const getMemberPosts = () => {
-  axios.get('./api/member-comp', {}).then(({}) => {
-
-  }).catch()
+const getMemberComp = () => {
+  axios.get('/api/member-comp').then((res) => {
+    setComponent(res.data)
+  }).catch(err => console.log(err))
 } 
 
 // app.post('/api/create-comp', auth.userOnly, ctrlComp.createComp)
-const createComp = () => {
-  axios.post('/api/create-comp').then(() => {
-    })
+const createComp = (pic, title, code, desc) => {
+  axios.post('/api/create-comp', {pic, title, code, desc}).then(({data}) => {
+    setComponent(data)
+  }).catch(err => console.log(err))
   } 
 
-// app.put('/api/personal-post/:compId', auth.userOnly, ctrlComp.editComp)
-const personalPost = () => {
-  axios.put(`/api/personal-post/:compId`, {}).then(({}) => {
-  })
-} 
-
-// app.delete('/api/personal-post/:compId', auth.userOnly, ctrlComp.deleteComp)
-const deletePersonalPost = (compId) => {
-  axios.delete(`/api/personal-post/:compId`).then(() => {
+// app.delete('/api/delete-comp/:compId', auth.userOnly, ctrlComp.deleteComp)
+const deleteComp = (compId) => {
+  axios.delete(`/api/delete-comp/:compId`).then(() => {
   }).catch(err => console.log(err))
 } 
 
