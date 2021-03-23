@@ -30,7 +30,9 @@ const createComp = (pic, title, code, desc) => {
 
 // app.delete('/api/delete-comp/:compId', auth.userOnly, ctrlComp.deleteComp)
 const deleteComp = (compId) => {
-  axios.delete(`/api/delete-comp/:compId`).then(() => {
+  axios.delete(`/api/delete-comp/:compId`).then(res => {
+    console.log(res.data)
+    setComponent(res.data)
   }).catch(err => console.log(err))
 } 
 
