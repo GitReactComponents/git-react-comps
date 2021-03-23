@@ -39,14 +39,14 @@ function Subscribe() {
               name='username'
               ref={register({
                 required: true,
-                pattern: /^(?=.*[a-zA-Z]{3,})(?=.*[\d]{0,})[a-zA-Z0-9]{3,15}$/gi
+                pattern: /^(?=.*[a-zA-Z]{3,})(?=.*[\d]{0,})[a-zA-Z0-9]{3,20}$/gi
               })}
             />
             {errors.username && errors.username.type === 'required' && (
               <p className='errorMsg'>How else you gonna log in silly?</p>
             )}
             {errors.username && errors.username.type === 'pattern' && (
-              <p className='errorMsg'>Username must be 3-15 characters</p>
+              <p className='errorMsg'>Username must be 3-20 characters</p>
             )}
           </div>
           <div className='form-control'>
