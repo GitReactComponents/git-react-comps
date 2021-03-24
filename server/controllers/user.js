@@ -6,7 +6,7 @@ module.exports = {
     register: async (req, res) => {
         const db = req.ap.get('db')
         const { userName, firstName, lastName, email, password } = req.body
-        const foundUser = await db.get_user_by_email(email)
+        const foundUser = await db.auth_db.get_user_by_email(email)
         if (foundUser.length > 0) {
             return res.status(403).send('User already exists. Please')
         }
@@ -27,7 +27,7 @@ module.exports = {
     login: async (req, res) => {
         const db = req.app.get('db')
         const { email, password } = req.body
-        const [foundUser] = await db.get_user_by_email(email)
+        const [foundUser] = await db.auth_db.get_user_by_email(email)
         if (!foundUser) {
             return res.status(404).send('Login failed. Please try again.')
         }
@@ -51,7 +51,7 @@ module.exports = {
         res.sendStatus(200)
     },
 
-    getUser: async (req, res) => {
+    getUser: (req, res) => {
         if (req.session.user) {
             res.status(200).send(req.session.user)
         } else {
@@ -62,14 +62,14 @@ module.exports = {
     editUser: async (req, res) => {
         const db = req.app.get('db')
         const { userId, isMember } = req.body
-        const [updatedUser] = await db.update_user(userId, isMember)
-        return res.status(200).send(res.data)
+        const [updatedUser] = await db.auth_db.update_user(userId, isMember)
+        return res.status(200).send(updatedUser)
     },
 
     deleteUser: async (req, res) => {
         const db = req.app.get('db')
         const { userId } = req.query
-        const deletedUser = await db.delet_user(userId)
+        const deletedUser = await db.auth_db.delet_user(userId)
         return res.sendStatus(200)
     }
 }

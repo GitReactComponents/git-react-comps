@@ -1,16 +1,40 @@
 require("dotenv").config();
+// const path = require('path')
+// const bodyParser = require('body-parser')
+// const postCharge = require('./stripe')
 const massive = require("massive");
 const express = require("express"),
   ctrlAdmin = require("./controllers/admin"),
   ctrlComp = require("./controllers/comps"),
   ctrlPost = require("./controllers/posts"),
   ctrlUser = require("./controllers/user"),
+  ctrlPayment = require('./controllers/payments')
   auth = require("./middleware/authCheck");
 const session = require("express-session");
+const stripe = require('stripe')('pk_test_51ITboKGYQXVvJTOKktB52oAUVbuF7NmgznknaRgBiLBZicHBI8uIK9N3lG0iUH53V2B8jpYWTnUA8IhhaebnXMHF00fkKhe5mV')
 
 const {CONNECTION_STRING, SERVER_PORT, SESSION_SECRET} = process.env;
 
 const app = express();
+// const router = express.Router
+
+// router.post('/stripe/charge', postCharge)
+// router.all('*', (_, res) => 
+//   res.json({message: 'please make a post request to /stripe/charge'})
+// )
+
+// app.use((_, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*')
+//   res.header(
+//     'Access-Control-Allow-Headers',
+//     'Origin, X-Requested-With, Content-Type, Accept'
+//   )
+//   next()
+// })
+
+// app.use(bodyParser.json())
+// app.use('/api', router)
+// app.use(express.static(path.join(__dirname, '../build')))
 
 app.use(express.json());
 app.use(
@@ -64,3 +88,5 @@ app.post('/api/admin-create', auth.adminOnly, ctrlAdmin.create)
 app.put('/api/admin-edit/:id', auth.adminOnly, ctrlAdmin.edit)
 app.delete('/api/admin-delete/:id', auth.adminOnly, ctrlAdmin.delete)
 
+// * payment endpoint
+app.post('/api/create-checkout-session', ctrlPayment.payment)
