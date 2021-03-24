@@ -1,7 +1,4 @@
-$main-header-color: #222222;
-$nav-menu-pop: #242222;
-$secondary-nav-links: #B60E2A;;
-$white: #FFFFFF;
+@import 'helpers/variables';
 
 #header{
   margin: 0;
@@ -19,7 +16,7 @@ $white: #FFFFFF;
 
 .logo{
   height: 10vh;
-  width: 20vw;
+  width: 25vw;
   margin-left: 2vw;
 }
 
@@ -69,7 +66,7 @@ $white: #FFFFFF;
 }
 
 .nav-links:hover {
-  background-color: $secondary-nav-links;
+  background-color: $red-light;
   border-radius: 4px;
   transition: all 0.2s ease-out;
 }
@@ -87,16 +84,13 @@ $white: #FFFFFF;
 }
 
 
-
-
-
 @media screen and (max-width: 960px) {
   .NavbarItems {
     position: relative;
   }
 
   .logo{
-    width: 35vw;
+    min-width: 70vw;
     margin-left: 4vw;
   }
 
@@ -109,14 +103,14 @@ $white: #FFFFFF;
     bottom: 0;
     left: -100%;
     opacity: 1;
-    transition: all 0.5s ease;
+    transition: all 0.5s ease-in-out;
   }
 
   .nav-menu.active {
     background: $nav-menu-pop;
     left: 0;
     opacity: 1;
-    transition: all 0.5s ease;
+    transition: all 0.5s ease-in-out;
     z-index: 1;
   }
 
@@ -128,7 +122,7 @@ $white: #FFFFFF;
   }
 
   .nav-links:hover {
-    background-color: $secondary-nav-links;
+    background-color: $red-light;
     border-radius: 0;
   }
 
@@ -154,7 +148,7 @@ $white: #FFFFFF;
     margin: 2rem auto;
     border-radius: 4px;
     width: 80%;
-    background: $secondary-nav-links;
+    background: $red-light;
     text-decoration: none;
     color: $white;
     font-size: 1.5rem;
@@ -162,11 +156,20 @@ $white: #FFFFFF;
 
   .nav-links-mobile:hover {
     background: $white;
-    color: $secondary-nav-links;
+    color: $red-light;
     transition: 250ms;
   }
 
   button {
     display: none;
+  }
+}
+
+
+
+@media screen and (max-width: 408px) {
+  .logo{
+    width: 80vw;
+    margin-left: 4vw;
   }
 }
