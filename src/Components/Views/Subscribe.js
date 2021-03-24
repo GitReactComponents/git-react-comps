@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import {useForm} from 'react-hook-form'
+
 
 import './SCSS/Subscribe.scss'
 
@@ -7,11 +8,15 @@ import './SCSS/Subscribe.scss'
 function Subscribe() {
   const {register, handleSubmit, errors} = useForm()
 
+
+
+
+
   const onSubmit = (data) => {
     console.log(data)
   }
 
-// TODO: Need to complete regex on form below
+
   return (
     <div className='subscribe'>
       <form className='form-container' onSubmit={handleSubmit(onSubmit)}>
@@ -70,7 +75,7 @@ function Subscribe() {
                 name='email' 
                 ref={register({
                   required: true,
-                  pattern: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,14})?$/
+                  pattern: /^([a-z\d.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,14})?$/
                 })} 
               />
               {errors.email && errors.email.type === "required" && (
@@ -85,6 +90,7 @@ function Subscribe() {
               <input 
                 type='text'
                 name='username'
+                placeholder='Your login'
                 ref={register({
                   required: true,
                   pattern: /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$/                  

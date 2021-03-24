@@ -49,7 +49,7 @@ export const AuthProvider = (props) => {
     }
 
     const deleteUser = (user) => {
-        axios.delete(`/api/`auth/delete_user/:${user.userId}`)
+        axios.delete(`/api/auth/delete_user/:${user.userId}`)
             .then(() => {
                 setUser('')
                 push('/')

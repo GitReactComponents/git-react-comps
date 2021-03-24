@@ -1,14 +1,15 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import {BrowserRouter as Route, Switch, withRouter} from 'react-router-dom';
 import routes from './Routes'
 import Header from './Components/Header/Header'
 // import CreateComponent from './Components/CompDisplay/CreateComponent'
-
 import './App.scss';
-import {BrowserRouter as Route, Switch} from 'react-router-dom';
 
 function App() {
+
+
   return (
-    <div>
+    <>
       <Header />
       {/* <CreateComponent /> */}
       <Route>
@@ -16,8 +17,8 @@ function App() {
           {routes}
         </Switch>
       </Route>
-    </div>
+    </>
   );
 }
 
-export default App;
+export default withRouter(App);
