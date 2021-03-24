@@ -2,6 +2,8 @@ import React, {useContext, useState} from 'react'
 import Button from './Button'
 import {Link} from 'react-router-dom'
 import Dropdown from './Dropdown'
+import {useSpring, animated as a} from 'react-spring'
+
 
 import './Header.scss'
 
@@ -9,9 +11,24 @@ function Header(props) {
   // const userAuth = useContext(AuthContext)
   const [click, setClick] = useState(false)
   const [dropdown, setDropdown] = useState(false)
+  const [slide, setSlide] = useState(false)
+
+  const [modal, setModal] = useState(false)
+
+  const displayProps = useSpring({
+    opacity: click ? 1 : 0,
+    marginTop: click ? 0 : -500
+  })
+
+
+
+
+
 
   const handleClick = () => setClick(!click)
   const closeMobileMenu = () => setClick(false)
+
+
 
   const onMouseEnter = () => {
     if(window.innerWidth < 960){
@@ -27,6 +44,10 @@ function Header(props) {
     }else{
       setDropdown(false)
     }
+  }
+
+  const toggleSlide = () => {
+    setSlide(true)
   }
 
   // const handleLogout = () => {
@@ -66,7 +87,7 @@ function Header(props) {
             </Link>
           </li>    
         </ul>
-        <Button />
+        <Button onClick={displayProps} click={click} />
       </nav>
     )}
 

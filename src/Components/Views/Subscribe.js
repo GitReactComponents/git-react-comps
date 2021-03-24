@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import {useForm} from 'react-hook-form'
+
 
 import './SCSS/Subscribe.scss'
 
@@ -7,11 +8,15 @@ import './SCSS/Subscribe.scss'
 function Subscribe() {
   const {register, handleSubmit, errors} = useForm()
 
+
+
+
+
   const onSubmit = (data) => {
     console.log(data)
   }
 
-// TODO: Need to complete regex on form below
+
   return (
     <div className='subscribe'>
       <form className='form-container' onSubmit={handleSubmit(onSubmit)}>
@@ -62,6 +67,24 @@ function Subscribe() {
               />
             </div>
           </div>
+<<<<<<< HEAD
+          <div className='form-control'>
+            <label>Username:</label>
+            <input 
+              type='text'
+              name='username'
+              ref={register({
+                required: true,
+                pattern: /^(?=.*[a-zA-Z]{3,})(?=.*[\d]{0,})[a-zA-Z0-9]{3,20}$/gi
+              })}
+            />
+            {errors.username && errors.username.type === 'required' && (
+              <p className='errorMsg'>How else you gonna log in silly?</p>
+            )}
+            {errors.username && errors.username.type === 'pattern' && (
+              <p className='errorMsg'>Username must be 3-20 characters</p>
+            )}
+=======
           <div className='side account'>
             <div className='form-control'>
               <label>Email:</label>
@@ -70,7 +93,7 @@ function Subscribe() {
                 name='email' 
                 ref={register({
                   required: true,
-                  pattern: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,14})?$/
+                  pattern: /^([a-z\d.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,14})?$/
                 })} 
               />
               {errors.email && errors.email.type === "required" && (
@@ -85,6 +108,7 @@ function Subscribe() {
               <input 
                 type='text'
                 name='username'
+                placeholder='Your login'
                 ref={register({
                   required: true,
                   pattern: /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$/                  
@@ -121,6 +145,7 @@ function Subscribe() {
                 <p className='errorMsg'><strong>Must Contain:</strong>1 uppercase letter,<br/>1 lowercase letter,<br/>1 number,<br/> and 1 special character.</p>
               )}
             </div>
+>>>>>>> 53a648230b3498d0d62b2c42ee24cddf2e7e8573
           </div>
         </div>
           <div className='bottom'>

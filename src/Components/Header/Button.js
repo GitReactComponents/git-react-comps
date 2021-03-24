@@ -1,18 +1,29 @@
 import React, {useState} from 'react'
+import Subscribe from '../Views/Subscribe'
+// import Modal from '../Modal/Modal'
+
+
 import './Button.scss'
-import {Link} from 'react-router-dom'
 
 // TODO: Finish slide motion
 
-function Button() {
+function Button(props) {
 
-  const [click, setClick] = useState(false)
+
 
   return (
-    <div className={click ? 'reg-page active' : 'reg-page'}>
-      <Link to='subscribe'>
-        <button className='btn'>Become a Member!</button>
-      </Link>
+    // <div className={click ? 'reg-page active' : 'reg-page'}>
+    <div className='reg-container'>
+      <div className='btn-container'>
+        <button className='btn' onClick={props.displayProps}>
+          Become a Member!
+        </button>
+      </div>
+      {
+        props.click && (
+          <Subscribe />
+        )
+      }
     </div>
   )
 }
