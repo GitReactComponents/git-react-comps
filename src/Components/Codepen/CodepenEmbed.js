@@ -1,13 +1,14 @@
 import { PrefillEmbed, PrefillLang, useCodePenEmbed, stripIndent } from 'react-codepen-prefill-embed';
+const jsonData = require('../../../server/components.json')
 
 const CodepenEmbed = () => {
   useCodePenEmbed();
   return (
     <PrefillEmbed
       className="codepen"
-      penTitle="My sweet demo"
+      penTitle="Demo pen"
       embedHeight="400"
-      themeId="31205"
+      themeId="37806"
       editable
       description="Renders a barebones React component"
       tags={['react', 'react-docs-demo']}
@@ -23,24 +24,17 @@ const CodepenEmbed = () => {
     >
       <PrefillLang lang="html">
         {stripIndent`
-            <div id="root"></div>
-        `}
+          ${jsonData[0].html}
+          `}
       </PrefillLang>
       <PrefillLang lang="scss">
         {stripIndent`
-            $bg: #eee;
-            body {
-              background: $bg; 
-            }
+            
         `}
       </PrefillLang>
       <PrefillLang lang="babel">
         {stripIndent`
-          const App = () => <h1>Hello</h1>;
-          ReactDOM.render(
-            <App/>,
-            document.getElementById('root')
-          );
+          
         `}
       </PrefillLang>
     </PrefillEmbed>
