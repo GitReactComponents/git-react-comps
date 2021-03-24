@@ -10,7 +10,6 @@ function App() {
   return (
     <div>
       <Header />
-      {/* <CreateComponent /> */}
       <Route>
         <Switch>
           {routes}
