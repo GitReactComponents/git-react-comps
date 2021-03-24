@@ -1,0 +1,24 @@
+@import 'helpers/variables';
+
+.compTile {
+  background-color: $white;
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.compImage {
+  width: 394px;
+  height:144px;
+  border: $red-light solid 3px;
+}
+
+.compTileName {
+  font-size: 30px;
+  height: 50px;
+  width:400px;
+  text-align: center;
+}
