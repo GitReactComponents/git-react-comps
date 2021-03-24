@@ -1,8 +1,9 @@
-import React, {useContext, useState} from 'react'
+import React, { useContext, useState } from 'react'
 import Button from './Button'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Dropdown from './Dropdown'
-import {useSpring, animated as a} from 'react-spring'
+import { useSpring, animated as a } from 'react-spring'
+import Subscribe from '../Views/Subscribe'
 
 
 import './Header.scss'
@@ -20,28 +21,24 @@ function Header(props) {
     marginTop: click ? 0 : -500
   })
 
-
-
-
-
-
-  const handleClick = () => setClick(!click)
+  const changeClick = (e) => {
+    setClick(!click)
+    console.log(click)
+  }
   const closeMobileMenu = () => setClick(false)
 
-
-
   const onMouseEnter = () => {
-    if(window.innerWidth < 960){
+    if (window.innerWidth < 960) {
       setDropdown(false)
-    }else{
+    } else {
       setDropdown(true)
     }
   }
 
   const onMouseLeave = () => {
-    if(window.innerWidth < 960){
+    if (window.innerWidth < 960) {
       setDropdown(false)
-    }else{
+    } else {
       setDropdown(false)
     }
   }
@@ -54,14 +51,13 @@ function Header(props) {
   //   userAuth.logout()
   // }
 
-
   const inHeader = () => {
     return (
       <nav id='in-container'>
         <Link to='/' className='header-logo'>
           <img className='logo' src='/img/logo.png' alt='Logo' />
         </Link>
-        <div className='menu-icon' onClick={handleClick}>
+        <div className='menu-icon' onClick={changeClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
@@ -85,31 +81,37 @@ function Header(props) {
             <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>
               Contact Us
             </Link>
-          </li>    
+          </li>
         </ul>
-        <Button onClick={displayProps} click={click} />
-      </nav>
-    )}
-
-          // <button
-          //   className='logout-btn'
-          //   type='submit'
-          //   // onClick={handleLogout}
-          // >
-          //   Logout
-          // </button>
-
-
-    const outHeader = () => {
-      return (
-        <div className='out-container'>
-          <div className='intro'>
-            <h3>Welcome to</h3>
-            <h2 className='logo'>logo</h2>
+          <Button onClick={changeClick} />
+          <div className='subscribeContainer'>
+            {
+              click && <Subscribe />
+            }
           </div>
+      </nav>
+    )
+  }
+
+  // <button
+  //   className='logout-btn'
+  //   type='submit'
+  //   // onClick={handleLogout}
+  // >
+  //   Logout
+  // </button>
+
+
+  const outHeader = () => {
+    return (
+      <div className='out-container'>
+        <div className='intro'>
+          <h3>Welcome to</h3>
+          <h2 className='logo'>logo</h2>
         </div>
-      )
-    }
+      </div>
+    )
+  }
 
 
 

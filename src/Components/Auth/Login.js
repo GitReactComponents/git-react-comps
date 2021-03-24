@@ -34,7 +34,7 @@ function Login() {
             type='text'
             autoComplete='username'
             placeholder='Enter Username'
-            value={email}
+            value={userName}
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
