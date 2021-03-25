@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, {useContext, useState} from 'react'
+import {Link} from 'react-router-dom'
 import Button from './Button'
-import { Link } from 'react-router-dom'
 import Dropdown from './Dropdown'
-import { useSpring, animated as a } from 'react-spring'
-import Subscribe from '../Views/Subscribe'
 
+
+import Subscribe from '../Views/Subscribe'
 
 import './Header.scss'
 
@@ -12,19 +12,18 @@ function Header(props) {
   // const userAuth = useContext(AuthContext)
   const [click, setClick] = useState(false)
   const [dropdown, setDropdown] = useState(false)
-  const [slide, setSlide] = useState(false)
 
-  const [modal, setModal] = useState(false)
+  // const [slide, setSlide] = useState(false)
 
-  const displayProps = useSpring({
-    opacity: click ? 1 : 0,
-    marginTop: click ? 0 : -500
-  })
 
-  const changeClick = (e) => {
-    setClick(!click)
-    console.log(click)
-  }
+
+
+
+
+
+
+  const handleClick = () => setClick(!click)
+
   const closeMobileMenu = () => setClick(false)
 
   const onMouseEnter = () => {
@@ -43,9 +42,9 @@ function Header(props) {
     }
   }
 
-  const toggleSlide = () => {
-    setSlide(true)
-  }
+  // const toggleSlide = () => {
+  //   setSlide(true)
+  // }
 
   // const handleLogout = () => {
   //   userAuth.logout()
@@ -83,13 +82,29 @@ function Header(props) {
             </Link>
           </li>
         </ul>
-          <Button onClick={changeClick} />
-          <div className='subscribeContainer'>
-            {
-              click && <Subscribe />
-            }
-          </div>
+        <div className='reg-btn-container'>
+          <Button click={click} />
+        </div>
       </nav>
+    )}
+
+          // <button
+          //   className='logout-btn'
+          //   type='submit'
+          //   // onClick={handleLogout}
+          // >
+          //   Logout
+          // </button>
+
+
+    const outHeader = () => {
+      return (
+        <div className='out-container'>
+          <div className='intro'>
+            <h3>Welcome to</h3>
+            <h2 className='logo'>logo</h2>
+          </div>
+      </div>
     )
   }
 

@@ -8,14 +8,9 @@ import './SCSS/Subscribe.scss'
 function Subscribe() {
   const {register, handleSubmit, errors} = useForm()
 
-
-
-
-
   const onSubmit = (data) => {
     console.log(data)
   }
-
 
   return (
     <div className='subscribe'>

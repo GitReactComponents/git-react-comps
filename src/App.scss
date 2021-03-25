@@ -3,6 +3,9 @@
 * {
   margin: 0;
   padding: 0;
+
+
+  box-sizing: border-box;
 }
 
 .about, .contact, .favorites, .home, .subscribe, .upload, .user{
@@ -13,4 +16,24 @@
   justify-content: center;
   font-size: 2rem;
   background-color: $page-background-color;
+}
+
+.subscribe{
+  display: flex;
+
+
+  z-index: 3;
+
+  height: 50vh;
+  min-width: 25vw;
+
+
+  margin-right: 80vw;
+
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border-radius: 25px;
+
+  background-color: $nav-menu-pop;
 }
