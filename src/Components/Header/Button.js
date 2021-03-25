@@ -44,7 +44,7 @@ function Button(props) {
       <button className='btn' onClick={() => setModal(!modal)}>
         Become a Member!
       </button>
-      <Slide direction="up" in={modal} mountOnEnter unmountOnExit>
+      <Slide direction="down" in={modal} timeout={700} mountOnEnter unmountOnExit>
         <section className={classes.modalSpace}>
           {modal && <Subscribe />}
         </section>

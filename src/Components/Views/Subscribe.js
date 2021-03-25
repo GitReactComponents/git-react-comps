@@ -1,6 +1,11 @@
 import React, {useRef} from 'react'
 import {useForm} from 'react-hook-form'
+import {TextField} from '@material-ui/core'
 
+import 'date-fns';
+import Grid from '@material-ui/core/Grid';
+import DateFnsUtils from '@date-io/date-fns';
+import {MuiPickersUtilsProvider, KeyboardDatePicker} from '@material-ui/pickers';
 
 import './SCSS/Subscribe.scss'
 
@@ -12,11 +17,20 @@ function Subscribe() {
     console.log(data)
   }
 
+
+  const [selectedDate, setSelectedDate] = React.useState(new Date());
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
+
+
+
   return (
     <div className='subscribe'>
       <form className='form-container' onSubmit={handleSubmit(onSubmit)}>
-      <div className='form-flex-container'>
-          <div className='side info'>
+        <div className='grid-container'>
+          {/* <div className='side'> */}
             <div className='form-control'>
               <label>First Name:</label>
               <input
@@ -51,18 +65,26 @@ function Subscribe() {
                 <p className='errorMsg'>Name must be alpha characters</p>
               )}
             </div>
-            <div className='form-control'>
-              <label>Birthday:</label>
-              <input
-                type='date' 
-                name='birthday' 
-                ref={register({
-                  required: false
-                })}
-              />
-            </div>
-          </div>
-          <div className='side account'>
+            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <Grid container justify="space-around">
+              <div className='form-control'>
+                <label>Birthday:</label>
+                  <KeyboardDatePicker
+                    className='birthday-picker'
+                    margin="normal"
+                    id="date-picker-dialog"
+                    format="MM/dd/yyyy"
+                    value={selectedDate}
+                    onChange={handleDateChange}
+                    KeyboardButtonProps={{
+                      'aria-label': 'change date',
+                    }}
+                  />
+                </div>
+              </Grid>
+            </MuiPickersUtilsProvider>
+          {/* </div> */}
+          {/* <div className='side'> */}
             <div className='form-control'>
               <label>Email:</label>
               <input 
@@ -85,7 +107,7 @@ function Subscribe() {
               <input 
                 type='text'
                 name='username'
-                placeholder='Your login'
+                placeholder='3-20 alphanumeric'
                 ref={register({
                   required: true,
                   pattern: /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$/                  
@@ -119,16 +141,16 @@ function Subscribe() {
                 </p>
               )}
               {errors.password && errors.password.type === "pattern" && (
-                <p className='errorMsg'><strong>Must Contain:</strong>1 uppercase letter,<br/>1 lowercase letter,<br/>1 number,<br/> and 1 special character.</p>
+                <p className='errorMsg'>Must Contain:<br/> 1 uppercase letter,<br/>1 lowercase letter,<br/>1 number,<br/>1 special character.</p>
               )}
             </div>
-          </div>
+          {/* </div> */}
         </div>
-          <div className='bottom'>
+          {/* <div className='bottom'> */}
             <div className='form-control'>
-            <button type='submit'>Create Account</button>
+              <button type='submit' className='submit-btn'>Create Account</button>
             </div>
-          </div>
+          {/* </div> */}
       </form>
     </div>
   )

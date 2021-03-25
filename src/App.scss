@@ -5,7 +5,7 @@
   padding: 0;
 
 
-  box-sizing: border-box;
+  // box-sizing: border-box;
 }
 
 .about, .contact, .favorites, .home, .subscribe, .upload, .user{
@@ -20,13 +20,10 @@
 
 .subscribe{
   display: flex;
-
-
   z-index: 3;
 
-  height: 50vh;
+  height: 65vh;
   min-width: 25vw;
-
 
   margin-right: 80vw;
 
@@ -35,5 +32,7 @@
   font-size: 2rem;
   border-radius: 25px;
 
-  background-color: $nav-menu-pop;
+  border: 2px solid $red-dark;
+  box-shadow: 0 4px 7px 1px $reverse-shadow;
+  background-color: $modal-background;
 }
