@@ -24,10 +24,6 @@
     "react-hook-form": "^6.15.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
-<<<<<<< HEAD
-    "react-spring": "^9.0.0",
-=======
->>>>>>> 29ea148160b3a1b72f3b044199b2dda00f89934d
     "stripe": "^8.139.0",
     "web-vitals": "^1.0.1"
   },

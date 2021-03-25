@@ -8,11 +8,11 @@ export const CompProvider = (props) => {
   const [component, setComponent] = useState({})
 
   // app.get('/api/comp-nm', ctrlComp.readComp)
-  const getNmComps = () => {
-    axios.get('/api/comp-nm').then((res) => {
-      setComponent(res.data)
-    }).catch(err => console.log(err))
-  }
+  // const getNmComps = () => {
+  //   axios.get('/api/comp-nm').then((res) => {
+  //     setComponent(res.data)
+  //   }).catch(err => console.log(err))
+  // }
 
   // app.get('/api/member-comp', auth.userOnly, ctrlComp.readAllComp)
   const getMemberComp = () => {

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-
+import Subscribe from '../Views/Subscribe'
 // import Modal from '../Modal/Modal'
 import {Slide} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';

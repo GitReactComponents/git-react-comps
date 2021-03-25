@@ -56,7 +56,7 @@ function Header(props) {
         <Link to='/' className='header-logo'>
           <img className='logo' src='/img/logo.png' alt='Logo' />
         </Link>
-        <div className='menu-icon' onClick={changeClick}>
+        <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
@@ -97,21 +97,21 @@ function Header(props) {
           // </button>
 
 
-    const outHeader = () => {
-      return (
-        <div className='out-container'>
-          <div className='intro'>
-            <h3>Welcome to</h3>
-            <h2 className='logo'>logo</h2>
-          </div>
-      </div>
-    )
-  }
+    // const outHeader = () => {
+    //   return (
+    //     <div className='out-container'>
+    //       <div className='intro'>
+    //         <h3>Welcome to</h3>
+    //         <h2 className='logo'>logo</h2>
+    //       </div>
+    //   </div>
+    // )
+  // }
 
   // <button
   //   className='logout-btn'
   //   type='submit'
-  //   // onClick={handleLogout}
+    // onClick={handleLogout}
   // >
   //   Logout
   // </button>
