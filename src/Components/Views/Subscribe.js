@@ -2,6 +2,9 @@ import React, {useRef} from 'react'
 import {useForm} from 'react-hook-form'
 import {TextField} from '@material-ui/core'
 
+import {createMuiTheme} from "@material-ui/core";
+import {makeStyles, ThemeProvider} from '@material-ui/core/styles';
+
 import 'date-fns';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
@@ -10,8 +13,47 @@ import {MuiPickersUtilsProvider, KeyboardDatePicker} from '@material-ui/pickers'
 import './SCSS/Subscribe.scss'
 
 
+
+// TODO: Figure out how to change calendar colors
+
+
+const defaultMaterialTheme = createMuiTheme({
+  palette: {
+    primary: 'red'
+  }
+})
+
+
+
+const useStyles = makeStyles({
+  root: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    borderRadius: 3,
+    border: 0,
+    textEmphasisColor: 'white',
+    height: 28,
+    width: 155,
+    padding: '0 30px',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    marginLeft: 10,
+    marginTop: 11
+  },
+  label: {
+    textTransform: 'capitalize',
+  },
+});
+
+
+
+
+
 function Subscribe(props) {
   const {register, handleSubmit, errors} = useForm()
+
+  const classes= useStyles()
 
   const onSubmit = (data) => {
     console.log(data)
@@ -66,24 +108,37 @@ function Subscribe(props) {
             )}
           </div>
 
-          <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <Grid container justify="space-around">
-              <div className='form-control'>
-                <label>Birthday:</label>
-                  <KeyboardDatePicker
-                    className='birthday-picker'
-                    margin="normal"
-                    id="date-picker-dialog"
-                    format="MM/dd/yyyy"
-                    value={selectedDate}
-                    onChange={handleDateChange}
-                    KeyboardButtonProps={{
-                      'aria-label': 'change date',
-                    }}
-                  />
-              </div>
-            </Grid>
-          </MuiPickersUtilsProvider>
+
+            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+              <Grid container justify="space-around">
+                <div className='form-control'>
+                  <label>Birthday:</label>
+
+
+
+
+                  <ThemeProvider theme={defaultMaterialTheme}>
+                    <KeyboardDatePicker
+                      classes={{
+                        root: classes.root,
+                        label: classes.label
+                      }}
+                      margin="normal"
+                      id="date-picker-dialog"
+                      format="MM/dd/yyyy"
+                      value={selectedDate}
+                      onChange={handleDateChange}
+                      KeyboardButtonProps={{
+                        'aria-label': 'change date',
+                      }}
+                      />
+                      </ThemeProvider>
+
+
+
+                </div>
+              </Grid>
+            </MuiPickersUtilsProvider>
 
           <div className='form-control'>
             <label>Email:</label>

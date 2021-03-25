@@ -17,10 +17,6 @@ function Login() {
 
   return (
     <div>
-
-      This is the login page
-
-
       <form id='login-container' onSubmit={handleLogin}>
 
         <div className='intro info'>

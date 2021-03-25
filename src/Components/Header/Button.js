@@ -4,6 +4,9 @@ import Subscribe from '../Views/Subscribe'
 import {Slide} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 
+// ! Temporary
+import Login from '../Auth/Login'
+
 import './Button.scss'
 
 
@@ -46,6 +49,7 @@ function Button() {
         <Slide direction="down" in={modal} timeout={700} mountOnEnter unmountOnExit>
           <section className={classes.modalSpace}>
             {modal ? <Subscribe /> : <Subscribe />}
+            {/* {modal ? <Login /> : <Login />} */}
           </section>
         </Slide>
       </div>

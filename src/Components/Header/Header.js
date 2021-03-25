@@ -56,38 +56,44 @@ function Header(props) {
   const inHeader = () => {
     return (
       <nav id='in-container'>
+
         <Link to='/' className='header-logo'>
-          <img className='logo' src='/img/logo.png' alt='Logo' />
+          <img className='logo' src='/img/logo.png' alt='Git-React-Comps Logo' />
         </Link>
-        <div className='menu-icon' onClick={handleClick}>
-          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-        </div>
-        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          <li className='nav-item'>
-            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-              Home
-            </Link>
-          </li>
-          <li className='nav-item'>
-            <Link to='/user' className='nav-links' onClick={closeMobileMenu}>
-              User
-            </Link>
-          </li>
-          <li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-            <Link to='/about' className='nav-links' onClick={closeMobileMenu}>
-              About <i className='fas fa-caret-down' />
-            </Link>
-            {dropdown && <Dropdown />}
-          </li>
-          <li className='nav-item'>
-            <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>
-              Contact Us
-            </Link>
-          </li>    
-        </ul>
-        <div className='reg-btn-container'>
-          <Button />
-        </div>
+
+
+        <section className='right-section'>
+          <div className='menu-icon' onClick={handleClick}>
+            <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+          </div>
+          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+            <li className='nav-item'>
+              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                Home
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link to='/user' className='nav-links' onClick={closeMobileMenu}>
+                User
+              </Link>
+            </li>
+            <li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+              <Link to='/about' className='nav-links' onClick={closeMobileMenu}>
+                Learn More <i className='fas fa-caret-down' />
+              </Link>
+              {dropdown && <Dropdown />}
+            </li>
+            <li className='nav-item'>
+              <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>
+                Contact Us
+              </Link>
+            </li>    
+          </ul>
+        </section>
+
+        <section className='reg-btn-container'>
+            <Button />
+        </section>
       </nav>
     )}
 
