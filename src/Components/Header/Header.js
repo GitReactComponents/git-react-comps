@@ -86,7 +86,7 @@ function Header(props) {
           </li>    
         </ul>
         <div className='reg-btn-container'>
-          <Button click={click} />
+          <Button />
         </div>
       </nav>
     )}
