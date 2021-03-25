@@ -38,7 +38,7 @@ export const CompProvider = (props) => {
   }
 
   return (
-    <CompContext.Provider value={{ component, }}>
+    <CompContext.Provider value={{component, getMemberComp, createComp, deleteComp}}>
       {props.children}
     </CompContext.Provider>
   )
