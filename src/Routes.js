@@ -8,6 +8,7 @@ import Home from './Components/Views/Home'
 import Subscribe from './Components/Views/Subscribe'
 import Upload from './Components/Views/Upload'
 import User from './Components/Views/User'
+import Payment from './Components/Views/Payment'
 
 // import Landing from './Components/Landing'
 
@@ -22,6 +23,7 @@ export default (
             <Route path="/subscribe" component={Subscribe} />
             <Route path="/upload" component={Upload} />
             <Route path="/user" component={User} />
+            <Route path="/payment" component={Payment}/>
         </Switch>
     </HashRouter>
 )
