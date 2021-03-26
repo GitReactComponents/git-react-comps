@@ -4,6 +4,7 @@ import Button from './Button'
 import Dropdown from './Dropdown'
 
 
+
 import Subscribe from '../Views/Subscribe'
 
 import './Header.scss'
@@ -91,8 +92,8 @@ function Header(props) {
           </ul>
         </section>
 
-        <section className='reg-btn-container'>
-            <Button />
+        <section className='header-btn-container'>
+          <Button />
         </section>
       </nav>
     )}

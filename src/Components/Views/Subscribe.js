@@ -17,11 +17,12 @@ import './SCSS/Subscribe.scss'
 // TODO: Figure out how to change calendar colors
 
 
-const defaultMaterialTheme = createMuiTheme({
-  palette: {
-    primary: 'red'
-  }
-})
+// const defaultMaterialTheme = createMuiTheme({
+//   palette: {
+//     main: 'red',
+//     primary: 'red'
+//   }
+// })
 
 
 
@@ -30,7 +31,7 @@ const useStyles = makeStyles({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    background: '#FFFFFF ',
     borderRadius: 3,
     border: 0,
     textEmphasisColor: 'white',
@@ -117,7 +118,7 @@ function Subscribe(props) {
 
 
 
-                  <ThemeProvider theme={defaultMaterialTheme}>
+                  {/* <ThemeProvider theme={defaultMaterialTheme}> */}
                     <KeyboardDatePicker
                       classes={{
                         root: classes.root,
@@ -132,7 +133,7 @@ function Subscribe(props) {
                         'aria-label': 'change date',
                       }}
                       />
-                      </ThemeProvider>
+                      {/* </ThemeProvider> */}
 
 
 

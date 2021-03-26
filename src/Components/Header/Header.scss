@@ -11,12 +11,12 @@ body{
 }
 
 #in-container{
-  height: 15vh;
+  height: 18vh;
   width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.4em;
+  font-size: 1.5em;
   border-bottom: 2px solid $red-dark;
   background-color: $main-header-color;
 }
@@ -30,13 +30,18 @@ body{
   // flex-wrap: wrap;
 }
 
-.reg-btn-container{
-  height: 50%;
-  // display: flex;
+.header-btn-container{
+  height: 80%;
+  width: 18vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
+
+
 .logo{
-  height: 10vh;
+  height: 13vh;
   width: 25vw;
   margin-left: 2vw;
 }
@@ -66,8 +71,8 @@ body{
 .nav-menu {
   position: relative;
   bottom: 0;
-  height: 100%;
-  width: 31vw;
+  height: 97%;
+  width: 55vw;
   display: grid;
   grid-template-columns: repeat(5, auto);
   grid-gap: 10px;

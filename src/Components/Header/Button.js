@@ -13,13 +13,13 @@ import './Button.scss'
 const useStyles = makeStyles((theme) => ({
   button: {
     height: 65,
-    width: 180
+    width: 10
   },
   wrapper: {
     width: 180 + theme.spacing(1.5),
   },
   modalSpace: {
-    width: 0,
+    width: 200,
     height: 750,
     display: 'flex',
     alignItems: 'center',
@@ -29,31 +29,52 @@ const useStyles = makeStyles((theme) => ({
 
 
 function Button() {
-  const [modal, setModal] = useState(false)
+  const [loginModal, setLoginModal] = useState(false)
+  const [regModal, setRegModal] = useState(false)
 
   const classes = useStyles()
 
-  const handleChange = () => {
-    setModal((modal) => !modal)
+  const handleLoginModal = () => {
+    setLoginModal((modal) => !modal)
+  }
+
+  const handleRegModal = () => {
+    setRegModal((modal) => !modal)
   }
 
 
 
 
   return (
-    <div className={classes.button}>
-      <div className={classes.wrapper}>
-        <button className='btn' onClick={() => handleChange()}>
-          Become a Member!
-        </button>
-        <Slide direction="down" in={modal} timeout={700} mountOnEnter unmountOnExit>
-          <section className={classes.modalSpace}>
-            {modal ? <Subscribe /> : <Subscribe />}
-            {/* {modal ? <Login /> : <Login />} */}
-          </section>
-        </Slide>
+    <section>
+      <div className={classes.button}>
+        <div className={classes.wrapper}>
+          <button className='btn login' onClick={() => handleLoginModal()}>
+            Login
+          </button>
+          <Slide direction="left" in={loginModal} timeout={500} mountOnEnter unmountOnExit>
+            <section className={classes.modalSpace}>
+              {loginModal ? <Login /> : <Login />}
+            </section>
+          </Slide>
+        </div>
       </div>
-    </div>
+
+
+
+      <div className={classes.button}>
+        <div className={classes.wrapper}>
+          <button className='btn' onClick={() => handleRegModal()}>
+            Become a Member!
+          </button>
+          <Slide direction="down" in={regModal} timeout={700} mountOnEnter unmountOnExit>
+            <section className={classes.modalSpace}>
+              {regModal ? <Subscribe /> : <Subscribe />}
+            </section>
+          </Slide>
+        </div>
+      </div>
+    </section>
   )
 }
 
