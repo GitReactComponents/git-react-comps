@@ -70,7 +70,7 @@ function Subscribe(props) {
 
 
   return (
-    <div className='subscribe'>
+    <dialog className='subscribe'>
       <form className='form-container' onSubmit={handleSubmit(onSubmit)}>
         <div className='grid-container'>
 
@@ -207,7 +207,7 @@ function Subscribe(props) {
             <button type='submit' className='submit-btn' onClick={props.toggle}>Create Account</button>
           </div>
       </form>
-    </div>
+    </dialog>
   )
 }
 
