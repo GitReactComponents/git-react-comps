@@ -1,21 +1,47 @@
 @import 'helpers/variables';
 
+body{
+  width: 100vw;
+  height: 100vh;
+}
+
+
 #header{
   margin: 0;
 }
 
 #in-container{
-  height: 15vh;
+  height: 18vh;
   width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.4em;
+  font-size: 1.5em;
+  border-bottom: 2px solid $red-dark;
   background-color: $main-header-color;
 }
 
+.right-section{
+  height: 100%;
+  width: 75%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: -20px;
+  // flex-wrap: wrap;
+}
+
+.header-btn-container{
+  height: 80%;
+  width: 18vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+
+
 .logo{
-  height: 10vh;
+  height: 13vh;
   width: 25vw;
   margin-left: 2vw;
 }
@@ -43,26 +69,30 @@
 }
 
 .nav-menu {
+  position: relative;
+  bottom: 0;
+  height: 97%;
+  width: 55vw;
   display: grid;
   grid-template-columns: repeat(5, auto);
   grid-gap: 10px;
   list-style: none;
   text-align: center;
-  width: 70vw;
-  justify-content: end;
-  margin-right: 2rem;
+  justify-items: center;
+  align-items: end;
+  align-content: end;
+  // margin-right: 2rem;
 }
 
 .nav-item {
   display: flex;
-  align-items: center;
-  height: 80px;
+  align-items: flex-end;
 }
 
 .nav-links {
-  color: $white;
+  color: $off-white;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.5px 0px;
 }
 
 .nav-links:hover {
@@ -72,7 +102,7 @@
 }
 
 .fa-bars {
-  color: $white;
+  color: $off-white;
 }
 
 .nav-links-mobile {
@@ -85,6 +115,7 @@
 
 
 @media screen and (max-width: 960px) {
+
   .NavbarItems {
     position: relative;
   }
@@ -108,6 +139,7 @@
 
   .nav-menu.active {
     background: $nav-menu-pop;
+    align-items: center;
     left: 0;
     opacity: 1;
     transition: all 0.5s ease-in-out;

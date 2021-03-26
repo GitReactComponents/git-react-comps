@@ -1,0 +1,30 @@
+@import 'helpers/variables';
+
+
+#login-container{
+  height: 40vh;
+  width: 100vw;
+
+
+  background-color: $modal-background;
+  color: $off-white;
+  z-index: 2;
+}
+
+.login-form{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-info{
+
+}
+
+.input-fields{
+  align-self: center;
+}
+
