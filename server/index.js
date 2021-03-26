@@ -7,9 +7,8 @@ const express = require("express"),
   ctrlUser = require("./controllers/user"),
   stripeCtrl = require('./controllers/payments')
   auth = require("./middleware/authCheck");
-  stripeCtrl = require('./controllers/stripeController')
 const session = require("express-session");
-const stripe = ('stripe')(process.env.SECRET_KEY)
+const stripe = require('stripe')(process.env.SECRET_KEY)
 
 const {CONNECTION_STRING, SERVER_PORT, SESSION_SECRET} = process.env;
 
@@ -42,6 +41,7 @@ massive({
 app.get('/api/comp-nm', ctrlComp.readComp)
 
 // * posts endpoints for non members
+app.get('/api/post-nm', ctrlPost.readPost)
 
 // * member comps endpoint
 app.get('/api/member-comp', auth.userOnly, ctrlComp.readAllComp)
@@ -55,7 +55,7 @@ app.put('/api/edit-post/:postId', auth.userOnly, ctrlPost.editPost)
 app.delete('/api/delete-post/:postId', auth.userOnly, ctrlPost.deletePost)
 
 // * user endpoints
-app.get('/auth/user', auth.userOnly, ctrlUser.getUser)
+app.get('/auth/user', ctrlUser.getUser)
 app.post('/auth/register', ctrlUser.register)
 app.post('/auth/login', ctrlUser.login)
 app.post('/auth/logout', ctrlUser.logout)

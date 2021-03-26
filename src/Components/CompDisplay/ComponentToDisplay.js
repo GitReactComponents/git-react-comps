@@ -4,8 +4,7 @@ import Post from './../Post/Post'
 function ComponentToDisplay() {
   return (
     <div>
-      
-      <Post/>
+      {/* <Post/> */}
     </div>
   )
 }

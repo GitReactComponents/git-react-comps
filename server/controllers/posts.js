@@ -1,8 +1,14 @@
 module.exports = {
-    readPosts: (req, res) => {
+    readAllPosts: (req, res) => {
         const db = req.app.get('db')
         db.post_db.get_post().then(posts => {
             res.status(200).send(posts)
+        })
+    },
+    readPost: (req, res) => {
+        const db = req.app.get('db')
+        db.post_db.get_post_by_id(component_id).then(post => {
+            res.status(200).send(post)
         })
     },
     createPost: (req, res) => {
