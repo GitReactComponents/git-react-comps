@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import {AuthProvider} from './Context/AuthContext';
-// import {CompProvider} from './Context/CompContext';
+import {CompProvider} from './Context/CompContext';
 // import {PostProvider} from './Context/PostContext';
 import {HashRouter, BrowserRouter} from 'react-router-dom';
 
@@ -14,11 +14,11 @@ ReactDOM.render(
   <React.StrictMode>
     <Router> 
       {/* <AuthProvider> */}
-        {/* <CompProvider> */}
+        <CompProvider>
           {/* <PostProvider> */}
             <App />
           {/* </PostProvider> */}
-        {/* </CompProvider> */}
+        </CompProvider>
       {/* </AuthProvider> */}
     </Router>
   </React.StrictMode>,

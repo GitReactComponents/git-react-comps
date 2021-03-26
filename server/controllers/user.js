@@ -4,7 +4,7 @@ require('dotenv').config()
 module.exports = {
 
     register: async (req, res) => {
-        const db = req.ap.get('db')
+        const db = req.app.get('db')
         const { userName, firstName, lastName, email, password } = req.body
         const foundUser = await db.auth_db.get_user_by_email(email)
         if (foundUser.length > 0) {
@@ -12,7 +12,7 @@ module.exports = {
         }
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(password, salt)
-        const [newUser] = await db.add_user([userName, email, firstName, lastName, hash])
+        const [newUser] = await db.auth_db.add_user([userName, email, firstName, lastName, hash])
         req.session.user = {
             userId: newUser.user_id,
             userName: newUser.userName,
