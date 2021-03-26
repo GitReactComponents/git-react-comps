@@ -27,20 +27,18 @@ function Header(props) {
 
   const closeMobileMenu = () => setClick(false)
 
-
-
   const onMouseEnter = () => {
-    if(window.innerWidth < 960){
+    if (window.innerWidth < 960) {
       setDropdown(false)
-    }else{
+    } else {
       setDropdown(true)
     }
   }
 
   const onMouseLeave = () => {
-    if(window.innerWidth < 960){
+    if (window.innerWidth < 960) {
       setDropdown(false)
-    }else{
+    } else {
       setDropdown(false)
     }
   }
@@ -53,7 +51,6 @@ function Header(props) {
   //   userAuth.logout()
   // }
 
-
   const inHeader = () => {
     return (
       <nav id='in-container'>
@@ -61,6 +58,37 @@ function Header(props) {
         <Link to='/' className='header-logo'>
           <img className='logo' src='/img/logo.png' alt='Git-React-Comps Logo' />
         </Link>
+<<<<<<< HEAD
+        <div className='menu-icon' onClick={handleClick}>
+          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+        </div>
+        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+          <li className='nav-item'>
+            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+              Home
+            </Link>
+          </li>
+          <li className='nav-item'>
+            <Link to='/user' className='nav-links' onClick={closeMobileMenu}>
+              User
+            </Link>
+          </li>
+          <li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+            <Link to='/about' className='nav-links' onClick={closeMobileMenu}>
+              About <i className='fas fa-caret-down' />
+            </Link>
+            {dropdown && <Dropdown />}
+          </li>
+          <li className='nav-item'>
+            <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>
+              Contact Us
+            </Link>
+          </li>
+        </ul>
+        <div className='reg-btn-container'>
+          <Button click={click} />
+        </div>
+=======
 
 
         <section className='right-section'>
@@ -95,6 +123,7 @@ function Header(props) {
         <section className='header-btn-container'>
           <Button />
         </section>
+>>>>>>> 4885e97de6abc894ab5a396091ba7a816ade8928
       </nav>
     )}
 
@@ -107,16 +136,36 @@ function Header(props) {
           // </button>
 
 
-    const outHeader = () => {
-      return (
-        <div className='out-container'>
-          <div className='intro'>
-            <h3>Welcome to</h3>
-            <h2 className='logo'>logo</h2>
-          </div>
+    // const outHeader = () => {
+    //   return (
+    //     <div className='out-container'>
+    //       <div className='intro'>
+    //         <h3>Welcome to</h3>
+    //         <h2 className='logo'>logo</h2>
+    //       </div>
+    //   </div>
+    // )
+  // }
+
+  // <button
+  //   className='logout-btn'
+  //   type='submit'
+    // onClick={handleLogout}
+  // >
+  //   Logout
+  // </button>
+
+
+  const outHeader = () => {
+    return (
+      <div className='out-container'>
+        <div className='intro'>
+          <h3>Welcome to</h3>
+          <h2 className='logo'>logo</h2>
         </div>
-      )
-    }
+      </div>
+    )
+  }
 
 
 
