@@ -1,53 +1,12 @@
 import React, {useContext, useState} from 'react'
 import {Link} from 'react-router-dom'
 import Button from './Button'
-import Dropdown from './Dropdown'
 
-
-
-import Subscribe from '../Views/Subscribe'
 
 import './Header.scss'
 
 function Header(props) {
   // const userAuth = useContext(AuthContext)
-  const [click, setClick] = useState(false)
-  const [dropdown, setDropdown] = useState(false)
-
-  // const [slide, setSlide] = useState(false)
-
-
-
-
-
-
-
-
-  const handleClick = () => setClick(!click)
-
-  const closeMobileMenu = () => setClick(false)
-
-
-
-  const onMouseEnter = () => {
-    if(window.innerWidth < 960){
-      setDropdown(false)
-    }else{
-      setDropdown(true)
-    }
-  }
-
-  const onMouseLeave = () => {
-    if(window.innerWidth < 960){
-      setDropdown(false)
-    }else{
-      setDropdown(false)
-    }
-  }
-
-  // const toggleSlide = () => {
-  //   setSlide(true)
-  // }
 
   // const handleLogout = () => {
   //   userAuth.logout()
