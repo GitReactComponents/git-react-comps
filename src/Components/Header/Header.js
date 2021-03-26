@@ -57,40 +57,30 @@ function Header(props) {
   const inHeader = () => {
     return (
       <nav id='in-container'>
-
-        <Link to='/' className='header-logo'>
+      
+      <Link to='/'>
           <img className='logo' src='/img/logo.png' alt='Git-React-Comps Logo' />
-        </Link>
+      </Link>
 
+        <div className='navbar'>
 
-        <section className='right-section'>
-          <div className='menu-icon' onClick={handleClick}>
-            <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+          <Link to='/' className='nav-link'>Home</Link>
+          <Link to='/about' className='nav-link'>About</Link>
+
+          <div className='subnav'>
+            <button className='subnavbtn'><span>Options </span> 
+              <i className='fa fa-caret-down'></i>
+            </button>
+            <div className='subnav-content'>
+              <Link to='/user'>Edit User</Link>
+              <Link to='/upload'>Upload Comps</Link>
+              <Link to='/favorites'>Your Favorites</Link>
+            </div>
           </div>
-          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-            <li className='nav-item'>
-              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                Home
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link to='/user' className='nav-links' onClick={closeMobileMenu}>
-                User
-              </Link>
-            </li>
-            <li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-              <Link to='/about' className='nav-links' onClick={closeMobileMenu}>
-                Learn More <i className='fas fa-caret-down' />
-              </Link>
-              {dropdown && <Dropdown />}
-            </li>
-            <li className='nav-item'>
-              <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>
-                Contact Us
-              </Link>
-            </li>    
-          </ul>
-        </section>
+
+          <Link to='/contact' className='nav-link'>Contact Us</Link>
+
+        </div>
 
         <section className='header-btn-container'>
           <Button />
@@ -121,7 +111,7 @@ function Header(props) {
 
 
   return (
-    <header className='navbar'>
+    <header className='main-header'>
       {inHeader()}
       {/* {!userAuth.user &&
         outHeader()
