@@ -4,54 +4,78 @@ import Subscribe from '../Views/Subscribe'
 import {Slide} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 
+// ! Temporary
+import Login from '../Auth/Login'
+
 import './Button.scss'
 
-// TODO: Finish slide motion
+
 const useStyles = makeStyles((theme) => ({
   button: {
     height: 65,
-    width: 180
+    width: 10
   },
   wrapper: {
     width: 180 + theme.spacing(1.5),
   },
   modalSpace: {
-    width: 0,
-    height: 800,
+    width: 200,
+    height: 750,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-
   }
 }));
 
 
-function Button(props) {
-  const [modal, setModal] = useState(false)
+function Button() {
+  const [loginModal, setLoginModal] = useState(false)
+  const [regModal, setRegModal] = useState(false)
 
   const classes = useStyles()
 
-  const handleChange = () => {
-    setModal((prev) => !prev)
+  const handleLoginModal = () => {
+    setLoginModal((modal) => !modal)
+  }
+
+  const handleRegModal = () => {
+    setRegModal((modal) => !modal)
   }
 
 
 
 
   return (
-  <div className={classes.button}>
-    <div className={classes.wrapper}>
-      <button className='btn' onClick={() => setModal(!modal)}>
-        Become a Member!
-      </button>
-      <Slide direction="down" in={modal} timeout={700} mountOnEnter unmountOnExit>
-        <section className={classes.modalSpace}>
-          {modal && <Subscribe />}
-        </section>
-      </Slide>
-    </div>
-  </div>
-)
+    <section>
+      <div className={classes.button}>
+        <div className={classes.wrapper}>
+          <button className='btn login' onClick={() => handleLoginModal()}>
+            Login
+          </button>
+          <Slide direction="left" in={loginModal} timeout={500} mountOnEnter unmountOnExit>
+            <section className={classes.modalSpace}>
+              {loginModal ? <Login /> : <Login />}
+            </section>
+          </Slide>
+        </div>
+      </div>
+
+
+
+      <div className={classes.button}>
+        <div className={classes.wrapper}>
+          <button className='btn' onClick={() => handleRegModal()}>
+            Become a Member!
+          </button>
+          <Slide direction="down" in={regModal} timeout={700} mountOnEnter unmountOnExit>
+            <section className={classes.modalSpace}>
+              {regModal ? <Subscribe /> : <Subscribe />}
+            </section>
+          </Slide>
+        </div>
+      </div>
+    </section>
+  )
 }
 
 export default Button
