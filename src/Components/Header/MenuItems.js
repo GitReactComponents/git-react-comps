@@ -1,9 +1,6 @@
+import Subscribe from "../Views/Subscribe";
+
 export const MenuItems = [
-  {
-    title: 'Become a Member',
-    path: '/subscribe',
-    cName: 'dropdown-link'
-  },
   {
     title: 'Upload',
     path: '/upload',

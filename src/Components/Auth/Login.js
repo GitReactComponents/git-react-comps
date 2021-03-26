@@ -1,6 +1,24 @@
 import React, {useState, useContext} from 'react'
 import {AuthContext} from '../../Context/AuthContext'
 
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+
+import './Login.scss'
+
+
+const styles = {
+  root: {
+    background: "transparent"
+  },
+  input: {
+    color: "white"
+  }
+};
+
+
+
 function Login() {
   const [userName, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -16,19 +34,15 @@ function Login() {
 
 
   return (
-    <div>
-
-      This is the login page
-
-
-      <form id='login-container' onSubmit={handleLogin}>
+    <div id='login-container'>
+      <form className='login-form' onSubmit={handleLogin}>
 
         <div className='intro info'>
           <h3>Member Login</h3>
         </div>        
 
-        <section>
-          <input
+        <section className='input-fields'>
+          <TextField
             autoFocus
             className='entry-text'
             type='text'
@@ -37,7 +51,7 @@ function Login() {
             value={userName}
             onChange={(e) => setUsername(e.target.value)}
           />
-          <input
+          <TextField
             className='entry-text'
             type='password'
             autoComplete='current-password'

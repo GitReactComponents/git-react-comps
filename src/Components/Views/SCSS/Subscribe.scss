@@ -5,63 +5,64 @@ body {
   overflow: hidden;
 }
 
+.grid-container {
+  height: 80%;
+  width: 100%;
+  display: grid;
+  justify-content: space-evenly;
+  justify-items: end;
+  align-content: space-around;
+  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1.5fr 1.5fr 1.5fr;
+  gap: 0px .8em;
+  grid-template-areas:
+    ". ."
+    ". ."
+    ". .";
+    margin-top: 2vh;
+}
+
 .form-container {
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  // justify-content: center;
+  // align-items: center;
 }
 
-.form-flex-container {
-  display: flex;
-}
-
-.side {
-  flex: 1;
-}
-
-
-.side:first-child {
-  flex-direction: column;
-  margin-right: 2.5vw;
-}
 
 .bottom {
   margin-top: 3vh;
 }
 
 
-
 .errorMsg {
-  max-width: 350px;
+  max-width: 200px;
   text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
   color: $error-text-color;
   padding: 2px 0;
-  margin-top: 2px;
+  // margin-top: 2px;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 200;
 }
 
 .errorMsg strong{
   font-size: 18px;
+  margin-right: -25px;
 }
 
 .form-control {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
   margin-bottom: 10px;
 }
 
 .form-control label {
   width: 100%;
-  display: flex;
-  justify-content: center;
   color: $form-text-color;
   margin-bottom: 5px;
 }
@@ -71,11 +72,21 @@ body {
 .form-control input[type='date'] {
   width: 85%;
   padding: 5px;
-  margin-bottom: 3vh;
+}
+
+.submit-btn{
+  width: 10vw;
+  height: 6vh;
+  border: none;
+  border-radius: 40%;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background-color: $red-dark;
+  color: $off-white;
 }
 
 button {
-  max-width: 150px;
+  // max-width: 150px;
   padding: 5px 10px;
 }
 
@@ -83,13 +94,15 @@ button {
 
   .subscribe {
     width: 100%;
+    
   }
 
   .errorMsg {
     max-width: 100%;
   }
 
-  .form-flex-container {
+  .grid-container {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -103,5 +116,15 @@ button {
   .form-control input[type='password'],
   .form-control input[type='date'] {
     width: inherit;
+  }
+
+  .submit-btn{
+    width: 10vw;
+    height: 6vh;
+    border: none;
+    border-radius: 40%;
+    font-size: 1em;
+    background-color: $red-dark;
+    color: $off-white;
   }
 }
