@@ -1,4 +1,4 @@
-import CompContext from '../../Context/CompContext'
+import {CompContext} from '../../Context/CompContext'
 import {useState, useContext, useEffect} from 'react'
 import ComponentTile from '../CompDisplay/ComponentTile'
 
@@ -13,9 +13,9 @@ const ComponentLibrary = () => {
 
   return (
     <div>
-      {compDisplay.component.map((comp) => {
-        return <ComponentTile key={component_id} comp={comp} />
-      })}
+      {/* {compDisplay.component.map((comp) => {
+        return <ComponentTile key={comp.component_id} comp={comp} />
+      })} */}
     </div>
   )
 }

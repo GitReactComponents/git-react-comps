@@ -7,9 +7,8 @@ const express = require("express"),
   ctrlUser = require("./controllers/user"),
   stripeCtrl = require('./controllers/payments')
   auth = require("./middleware/authCheck");
-  stripeCtrl = require('./controllers/stripeController')
 const session = require("express-session");
-const stripe = ('stripe')(process.env.SECRET_KEY)
+const stripe = require('stripe')(process.env.SECRET_KEY)
 
 const {CONNECTION_STRING, SERVER_PORT, SESSION_SECRET} = process.env;
 
@@ -30,7 +29,7 @@ massive({
   connectionString: CONNECTION_STRING,
   ssl: { rejectUnauthorized: false },
 }).then((db) => {
-  app.set(db);
+  app.set('db', db);
   console.log("db connected");
   app.listen(SERVER_PORT, () => {
     console.log(`Server listening on port ${SERVER_PORT}`);
@@ -56,7 +55,7 @@ app.delete('/api/delete-post/:postId', auth.userOnly, ctrlPost.deletePost)
 
 // * user endpoints
 app.get('/auth/user', auth.userOnly, ctrlUser.getUser)
-app.post('/auth/register', ctrlUser.register)
+app.post('/api/auth/register', ctrlUser.register)
 app.post('/auth/login', ctrlUser.login)
 app.post('/auth/logout', ctrlUser.logout)
 app.put('/auth/edit_user', auth.userOnly, ctrlUser.editUser)
@@ -69,4 +68,4 @@ app.delete('/auth/delete_user/:userId', auth.userOnly, ctrlUser.deleteUser)
 // app.delete('/api/admin-delete/:id', auth.adminOnly, ctrlAdmin.delete)
 
 // * stripe endpoint
-app.post('/api/payment', stripeCtrl.makePayment)
+// app.post('/api/payment', stripeCtrl.makePayment)
