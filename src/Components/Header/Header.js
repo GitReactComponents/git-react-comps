@@ -58,37 +58,6 @@ function Header(props) {
         <Link to='/' className='header-logo'>
           <img className='logo' src='/img/logo.png' alt='Git-React-Comps Logo' />
         </Link>
-<<<<<<< HEAD
-        <div className='menu-icon' onClick={handleClick}>
-          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-        </div>
-        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          <li className='nav-item'>
-            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-              Home
-            </Link>
-          </li>
-          <li className='nav-item'>
-            <Link to='/user' className='nav-links' onClick={closeMobileMenu}>
-              User
-            </Link>
-          </li>
-          <li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-            <Link to='/about' className='nav-links' onClick={closeMobileMenu}>
-              About <i className='fas fa-caret-down' />
-            </Link>
-            {dropdown && <Dropdown />}
-          </li>
-          <li className='nav-item'>
-            <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>
-              Contact Us
-            </Link>
-          </li>
-        </ul>
-        <div className='reg-btn-container'>
-          <Button click={click} />
-        </div>
-=======
 
 
         <section className='right-section'>
@@ -123,7 +92,6 @@ function Header(props) {
         <section className='header-btn-container'>
           <Button />
         </section>
->>>>>>> 4885e97de6abc894ab5a396091ba7a816ade8928
       </nav>
     )}
 
