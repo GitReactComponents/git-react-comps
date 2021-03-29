@@ -1,5 +1,5 @@
 import {createMuiTheme} from '@material-ui/core'
-import {grey} from '@material-ui/core/colors'
+
 
 
 const theme = createMuiTheme({
@@ -12,7 +12,7 @@ const theme = createMuiTheme({
       },
     },
     shape: {
-      borderRadius: 7,
+      borderRadius: 25,
     },
     spacing: 5
 })
@@ -21,52 +21,52 @@ theme.props = {
   MuiInputLabel: {
     shrink: true,
   },
-  MuiInput: {
+  MuiOutlinedInput: {
     disableUnderline: true,
   },
   MuiTextField: {
     variant: 'outlined',
+    borderRadius: 20,
   },
 }
 
 theme.overrides = {
-  MuiInputLabel: {
-    root: {
-    }
-  },
   MuiOutlinedInput: {
     root: {
-      backgroundColor: '#f0f3f3',
-      color: '#0001f0',
+      backgroundColor: '#F0F3F3',
+      color: '#0001F0',
       fontSize: '15px',
       fontWeight: '550',
       fontFamily: 'Comic Sans MS',
-      top: theme.spacing(2),
-      border: `1px solid ${grey[500]}`,
+      top: theme.spacing(1.5),
+      border: `2px solid #FFEBEE`,
       padding: theme.spacing(1),
-      outline: `1px solid ${theme.palette.primary.main}`,
       '&$focused': {
-        border: `1px solid ${theme.palette.primary.main}`,
-        outline: `1px solid ${theme.palette.primary.main}`
+        border: `2px solid ${theme.palette.primary.main}`,
+        // outline: `1px solid ${theme.palette.primary.main}`
       },
     },
+    input: {
+      textAlign: 'center'
+    }
   },
-  MuiInput: {
-    root: {
-      top: theme.spacing(2),
-      border: `1px solid ${grey[500]}`,
-      padding: theme.spacing(1),
-      // outline: `1px solid ${theme.palette.secondary.main}`,
-      outline: `1px solid ${theme.palette.primary.main}`,
-      '&$focused': {
-        border: `1px solid ${theme.palette.primary.main}`,
-        outline: `1px solid ${theme.palette.primary.main}`
-      }
-    },
-  },
+  // MuiInputBase: {
+  //   root: {
+  //     top: theme.spacing(2),
+  //     // border: `1px solid ${grey[500]}`,
+  //     // borderRadius: 20,
+  //     padding: theme.spacing(1),
+  //     // outline: `1px solid ${theme.palette.secondary.main}`,
+  //     // outline: `1px solid ${theme.palette.primary.main}`,
+  //     '&$focused': {
+  //       // border: `1px solid ${theme.palette.primary.main}`,
+  //       // outline: `1px solid ${theme.palette.primary.main}`
+  //     }
+  //   },
+  // },
   MuiInputLabel: {
     root: {
-      backGround: `${theme.palette.secondary.main}`,
+      // backGround: `${theme.palette.primary.main}`,
 
       // ! TEST LATER
       textTransform: 'uppercase',

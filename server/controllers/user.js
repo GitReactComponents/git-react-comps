@@ -5,20 +5,21 @@ module.exports = {
 
     register: async (req, res) => {
         const db = req.app.get('db')
-        const { userName, firstName, lastName, email, password } = req.body
+        const { firstName, lastName, birthday, email, userName, password } = req.body
         const foundUser = await db.auth_db.get_user_by_email(email)
         if (foundUser.length > 0) {
             return res.status(403).send('User already exists. Please')
         }
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(password, salt)
-        const [newUser] = await db.auth_db.add_user([userName, email, firstName, lastName, hash])
+        const [newUser] = await db.auth_db.add_user([firstName, lastName, birthday, email, userName, hash])
         req.session.user = {
             userId: newUser.user_id,
-            userName: newUser.userName,
-            email: newUser.email,
             firstName: newUser.first_name,
             lastName: newUser.last_name,
+            birthday: newUser.birthday,
+            email: newUser.email,
+            userName: newUser.userName,
             password: newUser.password
         }
     },
