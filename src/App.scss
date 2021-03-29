@@ -9,6 +9,19 @@
   // box-sizing: border-box;
 }
 
+body {
+  overflow: hidden;
+}
+
+.main-header { 
+  height: 18vh;
+  max-width: 100vw;
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+  font-family: 'Courgette', cursive;
+}
+
+
 .login, dialog{
   position: relative;
   right: 0;
@@ -17,7 +30,7 @@
 
 .subscribe, dialog{
   position: relative;
-  margin-right: 81.5vw;
+  margin-right: 70vw;
 }
 
 .about, .contact, .favorites, .home, .subscribe, .upload, .user{

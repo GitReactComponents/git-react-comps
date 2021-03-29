@@ -4,11 +4,12 @@ DROP TABLE users;
 
 CREATE TABLE IF NOT EXISTS users (
     user_id SERIAL PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    email VARCHAR(50) NOT NULL UNIQUE,
     first_name VARCHAR(50),
     last_name VARCHAR(50),
-    password VARCHAR(5000),
+    birthday VARCHAR(50),
+    email VARCHAR(50) NOT NULL UNIQUE,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(500),
     is_admin BOOLEAN
 );
 

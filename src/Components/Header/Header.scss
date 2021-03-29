@@ -1,8 +1,8 @@
 @import 'helpers/variables';
 
+
 *{
   box-sizing: border-box;
-  font-family: 'Courgette', cursive;
 }
 
 body{
@@ -10,9 +10,9 @@ body{
 }
 
 #in-container{
-  height: 18vh;
-  width: 100vw;
-  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  max-width: 100%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,8 +30,7 @@ body{
 
 .navbar{
   height: 100%;
-  min-width: 55vw;
-  overflow: hidden;
+  width: 55vw;
   display: flex;
   justify-content: space-evenly;
   align-items: flex-end;
@@ -45,9 +44,6 @@ body{
   padding: 5px 0px;
 }
 
-.subnav{
-  overflow: hidden;
-}
 
 .subnav .subnavbtn{
   font-size: 34px;
@@ -100,7 +96,8 @@ body{
 
 
 .header-btn-container{
-  width: 13.5vw;
+  // min-height: 5vh;
+  width: 20vw;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
