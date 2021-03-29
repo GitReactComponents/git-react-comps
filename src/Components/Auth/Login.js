@@ -48,7 +48,7 @@ function Login() {
             <ThemeProvider theme={theme} className='input-fields'>
               <section>
                 <TextField
-                  autoFocus
+                  autoFocus={true}
                   placeholder='Enter Username'
                   type='text'
                   autoComplete='username'

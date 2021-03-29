@@ -63,7 +63,7 @@ function Subscribe(props) {
             <div className='form-control'>
               <h4>First Name:</h4>
               <FormInput
-                autoFocus='true'
+                autoFocus={true}
                 inputRef={register} 
                 name='firstName'
                 type='text'
