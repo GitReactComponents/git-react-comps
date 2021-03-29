@@ -22,26 +22,27 @@ module.exports = {
             userName: newUser.userName,
             password: newUser.password
         }
-
     },
 
     login: async (req, res) => {
         const db = req.app.get('db')
         const { email, password } = req.body
         const [foundUser] = await db.auth_db.get_user_by_email(email)
+        console.log(foundUser)
         if (!foundUser) {
             return res.status(404).send('Login failed. Please try again.')
         }
         const authenticated = bcrypt.compareSync(password, foundUser.password)
         if (authenticated) {
             req.session.user = {
-                userId: newUser.user_id,
-                firstName: newUser.first_name,
-                lastName: newUser.last_name,
-                email: newUser.email,
-                password: newUser.password
+                userId: foundUser.user_id,
+                userName: foundUser.username,
+                firstName: foundUser.first_name,
+                lastName: foundUser.last_name,
+                email: foundUser.email,
+                password: foundUser.password
             }
-            res.status(200).send(req.user)
+            res.status(200).send(req.session.user)
         } else {
             res.status(401).send('Login failed. Please try again.')
         }

@@ -7,7 +7,7 @@ export const PostProvider = (props) => {
     const [post, setPost] = useState([])
 
     const readPosts = () => {
-        axios.get('/api/posts-nm').then(({data}) => {
+        axios.get('/api/post-nm').then(({data}) => {
             setPost(...post, data)
         })
     }    
