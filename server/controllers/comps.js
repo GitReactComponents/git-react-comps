@@ -1,3 +1,8 @@
+const nodemailer = require('nodemailer')
+
+const {EMAIL, PASSWORD} = process.env;
+
+
 module.exports = {
 
   readAllComp: async (req, res) => {
@@ -16,6 +21,14 @@ module.exports = {
     const db = req.app.get('db')
     const newComp = await db.comps_db.create_comp(component_type, component_image, component_info, userId, username)
     res.status(200).send(newComp)
+    await transporter.sendMail(
+      {
+        from: req.session.user.email,
+        to: `${EMAIL}`,
+        subject: `New Component Submission`,
+        text: `this is a test`
+      }
+    )
   },
 
   deleteComp: async (req, res) => {
