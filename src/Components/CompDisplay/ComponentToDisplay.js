@@ -1,9 +1,14 @@
-import React from 'react'
+import React, {useContext}from 'react'
+import CompContext from '../../Context/CompContext'
+import ComponentToDisplay from '../Codepen/CodepenEmbed'
 
-function ComponentToDisplay() {
+const ComponentToDisplay = () => {
+  const compContext = useContext(CompContext)
+
   return (
     <div>
-      
+      <CodepenEmbed />
+      {/* Post Component Goes Here */}
     </div>
   )
 }
