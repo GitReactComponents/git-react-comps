@@ -25,6 +25,5 @@ CREATE TABLE IF NOT EXISTS  posts (
     post_id SERIAL PRIMARY KEY,
     component_id INT REFERENCES components(component_id),
     user_id INT REFERENCES users(user_id),
-    username VARCHAR(50) REFERENCES users(username),
     post_text VARCHAR(1500)
 );

@@ -41,6 +41,7 @@ massive({
 app.get('/api/comp-nm', ctrlComp.readComp)
 
 // * posts endpoints for non members
+// app.get('/api/post-nm', ctrlPost.readPost)
 
 // * member comps endpoint
 app.get('/api/member-comp', auth.userOnly, ctrlComp.readAllComp)
@@ -48,9 +49,9 @@ app.post('/api/create-comp', auth.userOnly, ctrlComp.createComp)
 app.delete('/api/delete-comp/:compId', auth.userOnly, ctrlComp.deleteComp)
 
 // * member posts endpoint
-// app.get('/api/member-posts', auth.userOnly, ctrlComp.readAllPosts)
+app.get('/api/member-posts', auth.userOnly, ctrlPost.readAllPosts)
 app.post('/api/create-post', auth.userOnly, ctrlPost.createPost)
-app.put('/api/edit-post/:postId', auth.userOnly, ctrlPost.editPost)
+// app.put('/api/edit-post/:postId', auth.userOnly, ctrlPost.editPost)
 app.delete('/api/delete-post/:postId', auth.userOnly, ctrlPost.deletePost)
 
 // * user endpoints
@@ -68,4 +69,4 @@ app.delete('/auth/delete_user/:userId', auth.userOnly, ctrlUser.deleteUser)
 // app.delete('/api/admin-delete/:id', auth.adminOnly, ctrlAdmin.delete)
 
 // * stripe endpoint
-// app.post('/api/payment', stripeCtrl.makePayment)
+app.post('/api/payment', stripeCtrl.makePayment)

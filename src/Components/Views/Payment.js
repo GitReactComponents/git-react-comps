@@ -17,7 +17,7 @@ const Payment = () => {
         <StripeCheckout
         token={onToken}
         stripeKey={REACT_APP_STRIPE_KEY}
-        amount={1000}
+        amount={399}
         />
       </div>
     </div>
