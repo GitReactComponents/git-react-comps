@@ -9,7 +9,7 @@ module.exports = {
         currency: 'usd',
         source: token.id,
         description: 'One-Time Membership',
-        api_key: process.env.SECRET_KEY
+        apiKey: process.env.SECRET_KEY
       }, 
       (err, charge) => {
         if (err) {

@@ -8,7 +8,7 @@ const Post = () => {
 
   const postContext = useContext(PostContext)
 
-  // * call functions in PostContext using the above "posts".function-name in PostContext
+  // * call functions in PostContext using the above "postContext".function-name in PostContext
 
   useEffect(() => {
     postContext.readAllPosts()
