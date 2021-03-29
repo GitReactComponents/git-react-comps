@@ -1,13 +1,9 @@
 import React, {useState} from 'react'
 import Subscribe from '../Views/Subscribe'
-// import Modal from '../Modal/Modal'
+import Login from '../Auth/Login'
 import {Slide} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-
-
-// ! Temporary
-import Login from '../Auth/Login'
 
 import './Button.scss'
 
@@ -101,7 +97,7 @@ function Button() {
                 className='btn' 
                 onClick={() => handleRegModal()}
                 disabled={loginModal ? true : false}
-                >
+              >
                 Become a Member!
               </button>
                 <Slide direction="down" in={regModal} timeout={700} mountOnEnter unmountOnExit>
