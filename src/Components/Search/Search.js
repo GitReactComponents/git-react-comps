@@ -17,15 +17,16 @@ if (input.length > 0){
 }
 
 return (
-<div>{() => {
-  <div>
-    <input
-    type='text'
-    placeholder='Search Components'
-    onChange={handleChange}
-    value{input}/>
+  <div>{() => {
+   <div>
+      <input
+      type='text'
+      placeholder='Search Components'
+      onChange={handleChange}
+      value={input}/>
+    </div>
+  }}
   </div>
-}}
-</div>
+)
 
 export default Search

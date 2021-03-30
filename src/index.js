@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import {AuthProvider} from './Context/AuthContext';
+import {AuthProvider} from './Context/AuthContext';
 import {CompProvider} from './Context/CompContext';
-// import {PostProvider} from './Context/PostContext';
+import {PostProvider} from './Context/PostContext';
 import {HashRouter, BrowserRouter} from 'react-router-dom';
 
 const Router = process.env.NODE_ENV === 'development' ? HashRouter : BrowserRouter
@@ -13,13 +13,13 @@ const Router = process.env.NODE_ENV === 'development' ? HashRouter : BrowserRout
 ReactDOM.render(
   <React.StrictMode>
     <Router> 
-      {/* <AuthProvider> */}
+      <AuthProvider>
         <CompProvider>
-          {/* <PostProvider> */}
+          <PostProvider>
             <App />
-          {/* </PostProvider> */}
+          </PostProvider>
         </CompProvider>
-      {/* </AuthProvider> */}
+      </AuthProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root'),

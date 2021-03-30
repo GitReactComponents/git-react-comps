@@ -1,14 +1,10 @@
-import React, {useContext}from 'react'
-import CompContext from '../../Context/CompContext'
-import ComponentToDisplay from '../Codepen/CodepenEmbed'
+import React from 'react'
+import Post from './../Post/Post'
 
 const ComponentToDisplay = () => {
-  const compContext = useContext(CompContext)
-
   return (
     <div>
-      <CodepenEmbed />
-      {/* Post Component Goes Here */}
+      {/* <Post/> */}
     </div>
   )
 }

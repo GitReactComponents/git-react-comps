@@ -1,35 +1,34 @@
 import React, {useState, useContext} from 'react'
 import {AuthContext} from '../../Context/AuthContext'
 
-import PropTypes from "prop-types";
-import {withStyles} from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
+import {ThemeProvider, TextField} from '@material-ui/core'
+import theme from '../../theme'
 
 import './Login.scss'
 
 
-const styles = {
-  root: {
-    background: "#f2f2f2",
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: 53
-  },
-  input: {
-    color: "#000000",
-    width: 170,
-  }
-};
+// const styles = {
+//   root: {
+//     background: "#f2f2f2",
+//     display: 'flex',
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     margin: 53
+//   },
+//   input: {
+//     color: "#000000",
+//     width: 170,
+//   }
+// };
 
 
 
-function Login(props) {
-  const {classes} = props
+function Login() {
+  const userAuth = useContext(AuthContext)
+  console.log(userAuth)
 
   const [userName, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const userAuth = useContext(AuthContext)
 
   const handleLogin = (e) => {
     e.preventDefault()
@@ -43,55 +42,49 @@ function Login(props) {
   return (
     <dialog className='login'>
       <div id='login-container'>
-        <form className='login-form' onSubmit={handleLogin}>
 
-          <div className='intro info'>
-            <h3>Member Login</h3>
-          </div>        
+        <h3>Member Login</h3>
 
+          <form className='login-form' onSubmit={handleLogin}>
 
-          
-          <section className='input-fields'>
-            <TextField
-              autoFocus
-              placeholder='Enter Username'
-              type='text'
-              className={classes.root}
-              InputProps={{
-                className: classes.input
-              }}
-              autoComplete='username'
-              value={userName}
-              onChange={(e) => setUsername(e.target.value)}
-              />
-            <TextField
-              className='entry-text'
-              type='password'
-              className={classes.root}
-              InputProps={{
-                className: classes.input
-              }}
-              autoComplete='current-password'
-              placeholder='Enter Password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              />
-          </section>
+            <ThemeProvider theme={theme} className='input-theme'>
+              <section>
+                <TextField
+                  autoFocus={true}
+                  placeholder='Enter Username'
+                  type='text'
+                  autoComplete='username'
+                  value={userName}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </section>
+            <br />
+              <section>
+                <TextField
+                className='entry-text'
+                type='password'
+                autoComplete='current-password'
+                placeholder='Enter Password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                />
+              </section>
+            </ThemeProvider>
+        </form>
 
             <button 
               className='login-btn' 
               type='submit'>
                 Login
             </button>
-        </form>
 
       </div>
     </dialog>
   )
 }
 
-Login.propTypes = {
-  classes: PropTypes.object.isRequired
-};
+// Login.propTypes = {
+//   classes: PropTypes.object.isRequired
+// };
 
-export default withStyles(styles)(Login)
+export default Login
