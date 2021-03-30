@@ -17,6 +17,7 @@ export const CompProvider = (props) => {
   // app.get('/api/member-comp', auth.userOnly, ctrlComp.readAllComp)
   const getMemberComp = () => {
     console.log('hit')
+    console.log(component)
     axios.get('/api/member-comp').then((res) => {
       console.log(res.data)
       setComponent(res.data)

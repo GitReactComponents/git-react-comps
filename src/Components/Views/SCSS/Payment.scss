@@ -1,0 +1,64 @@
+@import 'helpers/variables';
+
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+.checkout-box {
+  background-color: $off-white;
+  width: 25vw;
+  height: 65vh;
+  border-radius: 30px;
+}
+
+.checkout-btn {
+  background-color: $off-white;
+  width: 185px;
+  font-family: 'Courgette';
+  font-size: 15px;
+  border-radius: 30px;
+  border: $off-white;
+  transition-duration: 0.4s;
+  display: flex;
+  justify-content: center;
+}
+
+.checkout-btn:hover {
+  background-color: $white;
+}
+
+.product {
+  height: 175px;
+  width: 25vw;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 17vw;
+  height: 135px;
+  border-radius: 30px;
+}
+
+.description {
+  margin-left: 13%;
+  height: 175px;
+  width: 20vw;
+  font-family: 'Courgette';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.dsc-text {
+  font-size: 17px;
+}
+
+.footer {
+  height: 105px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
