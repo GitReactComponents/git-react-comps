@@ -15,8 +15,8 @@ export const AuthProvider = (props) => {
             })
     }
 
-    const register = (firstName, lastName, birthday, email, userName, password) => {
-        axios.post('/api/auth/register', {firstName, lastName, birthday, email, userName, password})
+    const register = (firstName, lastName, birthday, email, username, password) => {
+        axios.post('/api/auth/register', {firstName, lastName, birthday, email, username, password})
             .then(({data}) => {
                 setUser(data)
                 push('/')
@@ -58,8 +58,8 @@ export const AuthProvider = (props) => {
 
 
     return (
-        <AuthContext.AuthProvider value={{user, getUser, setUser, login, logout, register, updateUser, deleteUser}}>
+        <AuthContext.Provider value={{user, getUser, setUser, login, logout, register, updateUser, deleteUser}}>
             {props.children}
-        </AuthContext.AuthProvider>
+        </AuthContext.Provider>
     )
 }

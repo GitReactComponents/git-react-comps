@@ -12,9 +12,10 @@ import './Button.scss'
 const useLoginStyles = makeStyles((theme) => ({
   button: {
     height: '130px',
-    width: '18vw',
+    width: '15vw',
     position: 'absolute',
-    top: '2%'
+    top: '2%',
+    right: '1%',
   },
   wrapper: {
     width: 180 + theme.spacing(1.5),
@@ -33,9 +34,10 @@ const useLoginStyles = makeStyles((theme) => ({
 const useRegStyles = makeStyles((theme) => ({
   button: {
     maxHeight: '100px',
-    width: '18vw',
+    width: '15vw',
     position: 'absolute',
-    top: '9%'
+    top: '9%',
+    right: '1%',
   },
   wrapper: {
     width: 180 + theme.spacing(1.5),

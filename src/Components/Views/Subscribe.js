@@ -3,12 +3,15 @@ import 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
 
 import {useForm, FormProvider} from 'react-hook-form'
-import FormInput from '../Views/controls/input/index'
+import FormInput from './inputController/index'
 
 import {ThemeProvider} from '@material-ui/core'
 import theme from '../../theme'
 import Grid from '@material-ui/core/Grid';
+
 import {MuiPickersUtilsProvider, KeyboardDatePicker} from '@material-ui/pickers';
+
+
 
 import {AuthContext} from '../../Context/AuthContext'
 
@@ -18,12 +21,13 @@ import './SCSS/Subscribe.scss'
 function Subscribe(props) {
   
   const userAuth = useContext(AuthContext)
+  console.log(userAuth)
 
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [birthday, setBirthday] = useState(new Date())
   const [email, setEmail] = useState('')
-  const [userName, setUserName] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
   const methods = useForm({})
@@ -33,13 +37,13 @@ function Subscribe(props) {
 
   const onSubmit = (data) => {
     console.log(data)
-    // userAuth.register(firstName, lastName, birthday, email, userName, password)
-    // setFirstName('')
-    // setLastName('')
-    // setBirthday('')
-    // setEmail('')
-    // setUserName('')
-    // setPassword('')
+    userAuth.register(data.firstName, data.lastName, data.birthday, data.email, data.username, data.password)
+    setFirstName('')
+    setLastName('')
+    setBirthday('')
+    setEmail('')
+    setUsername('')
+    setPassword('')
   }
 
 
@@ -151,8 +155,8 @@ function Subscribe(props) {
                   inputRef={register} 
                   name='username'
                   type='text'
-                  value={userName}
-                  onChange={(e) => setUserName(e.target.value)}
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   placeholder='3-20 alphanumeric'
                   // ref={register({
                   //   required: true,
@@ -175,7 +179,7 @@ function Subscribe(props) {
                   type='password'
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder='1 of a, A, 1, !'
+                  placeholder='1 of - a, A, 1, !'
                   // ref={register({
                   //   required: true,
                   //   minLength: 6,

@@ -4,29 +4,30 @@ require('dotenv').config()
 module.exports = {
 
     register: async (req, res) => {
+        console.log(req.body)
         const db = req.app.get('db')
-        const { firstName, lastName, birthday, email, userName, password } = req.body
+        const {firstName, lastName, birthday, email, username, password} = req.body
         const foundUser = await db.auth_db.get_user_by_email(email)
         if (foundUser.length > 0) {
             return res.status(403).send('User already exists. Please')
         }
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(password, salt)
-        const [newUser] = await db.auth_db.add_user([firstName, lastName, birthday, email, userName, hash])
+        const [newUser] = await db.auth_db.add_user([firstName, lastName, birthday, email, username, hash])
         req.session.user = {
             userId: newUser.user_id,
             firstName: newUser.first_name,
             lastName: newUser.last_name,
             birthday: newUser.birthday,
             email: newUser.email,
-            userName: newUser.userName,
+            username: newUser.username,
             password: newUser.password
         }
     },
 
     login: async (req, res) => {
         const db = req.app.get('db')
-        const { email, password } = req.body
+        const {email, password} = req.body
         const [foundUser] = await db.auth_db.get_user_by_email(email)
         console.log(foundUser)
         if (!foundUser) {
@@ -71,7 +72,7 @@ module.exports = {
     deleteUser: async (req, res) => {
         const db = req.app.get('db')
         const { userId } = req.query
-        const deletedUser = await db.auth_db.delet_user(userId)
+        const deletedUser = await db.auth_db.delete_user(userId)
         return res.sendStatus(200)
     }
 }
