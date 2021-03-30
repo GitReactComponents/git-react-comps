@@ -1,14 +1,14 @@
-import * as React from 'react'
+import {useContext, useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 
 
 const CategoryLibrary = () => {
 
-  const compContext = React.useContext(CompContext)
-  const [category, setCategory] = React.useState('')
+  const compContext = useContext(CompContext)
+  const [category, setCategory] = useState('')
   const {catName} = useParams()
 
-  React.useEffect(() => {
+  useEffect(() => {
     compContext
   }, catName)
 

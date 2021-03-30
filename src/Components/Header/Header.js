@@ -19,9 +19,6 @@ function Header(props) {
       
       <Link to='/'>
           <img className='logo' src='/img/logo.png' alt='Git-React-Comps Logo' />
-<<<<<<< HEAD
-        </Link>
-=======
       </Link>
 
         <div className='navbar'>
@@ -39,7 +36,6 @@ function Header(props) {
               <Link to='/favorites'>Your Favorites</Link>
             </div>
           </div>
->>>>>>> 51e347350b98bd225dab2a7bc1f198ab8016d663
 
           <Link to='/contact' className='nav-link'>Contact Us</Link>
 
