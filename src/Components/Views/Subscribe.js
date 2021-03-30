@@ -1,8 +1,11 @@
 import React, {useState, useContext} from 'react'
+import Payment from './Payment'
+
 import 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
 
 import {useForm, FormProvider} from 'react-hook-form'
+import {ErrorMessage} from '@hookform/error-message'
 import FormInput from './inputController/index'
 
 import {ThemeProvider} from '@material-ui/core'
@@ -21,7 +24,6 @@ import './SCSS/Subscribe.scss'
 function Subscribe(props) {
   
   const userAuth = useContext(AuthContext)
-  console.log(userAuth)
 
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
@@ -30,30 +32,31 @@ function Subscribe(props) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  const methods = useForm({})
-  const {register, handleSubmit, errors} = methods
-
+  
+  const methods = useForm({
+    criteriaMode: 'all'
+  });
+  
+  const {register, handleSubmit, errors} = methods;
   
 
   const onSubmit = (data) => {
-    console.log(data)
-    userAuth.register(data.firstName, data.lastName, data.birthday, data.email, data.username, data.password)
-    setFirstName('')
-    setLastName('')
-    setBirthday('')
-    setEmail('')
-    setUsername('')
-    setPassword('')
-  }
-
-
-
-
+    userAuth.register(data.firstName, data.lastName, data.birthday, data.email, data.username, data.password);
+    setFirstName('');
+    setLastName('');
+    setBirthday('');
+    setEmail('');
+    setUsername('');
+    setPassword('');
+  };
 
 
   const handleDateChange = (date) => {
     setBirthday(date);
   };
+
+
+  
 
 
   return (
@@ -68,16 +71,18 @@ function Subscribe(props) {
               <h4>First Name:</h4>
               <FormInput
                 autoFocus={true}
-                inputRef={register} 
+                inputRef={register({
+                  required: 'This input is required',
+                  pattern: {
+                    value: /^[a-zA-Z0-9]+$/,
+                    message: 'Thats not your name!'
+                  }
+                })}
                 name='firstName'
                 type='text'
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                // ref={register({
-                //   required: true,
-                //   pattern: /^[a-zA-Z0-9]+$/
-                // })}
-                />
+              />
               {/* {errors.firstName && errors.firstName.type === 'required' && (
                 <p className='errorMsg'>Name is required</p>
                 )}
@@ -203,7 +208,7 @@ function Subscribe(props) {
           </div>
             
           <div className='form-control'>
-            <button type='submit' className='submit-btn' onClick={handleSubmit(onSubmit)}>Create Account</button>
+            <button type='submit' className='submit-btn'>Create Account</button>
           </div>
 
         </form>

@@ -18,6 +18,7 @@ export const AuthProvider = (props) => {
     const register = (firstName, lastName, birthday, email, username, password) => {
         axios.post('/api/auth/register', {firstName, lastName, birthday, email, username, password})
             .then(({data}) => {
+                console.log('context', data.birthday)
                 setUser(data)
                 push('/')
             })
