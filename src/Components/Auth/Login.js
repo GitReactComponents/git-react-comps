@@ -24,9 +24,11 @@ import './Login.scss'
 
 
 function Login() {
+  const userAuth = useContext(AuthContext)
+  console.log(userAuth)
+
   const [userName, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const userAuth = useContext(AuthContext)
 
   const handleLogin = (e) => {
     e.preventDefault()
@@ -45,10 +47,10 @@ function Login() {
 
           <form className='login-form' onSubmit={handleLogin}>
 
-            <ThemeProvider theme={theme} className='input-fields'>
+            <ThemeProvider theme={theme} className='input-theme'>
               <section>
                 <TextField
-                  autoFocus
+                  autoFocus={true}
                   placeholder='Enter Username'
                   type='text'
                   autoComplete='username'
