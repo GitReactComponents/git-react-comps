@@ -7,30 +7,19 @@ const express = require("express"),
   ctrlUser = require("./controllers/user"),
   stripeCtrl = require('./controllers/payments')
   auth = require("./middleware/authCheck");
+  mailCtrl = require('./controllers/mailer')
 const session = require("express-session");
 const stripe = require('stripe')(process.env.SECRET_KEY)
-const nodemailer = require('nodemailer')
-const bodyParser = require('body-parser')
-const exphbs = require('express-handlebars')
 
-const {CONNECTION_STRING, SERVER_PORT, SESSION_SECRET, EMAIL, PASSWORD} = process.env;
+
+const {CONNECTION_STRING, SERVER_PORT, SESSION_SECRET} = process.env;
 
 const app = express();
 
-let transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 587,
-  service: 'gmail',
-  requireTLS: true,
-  auth: {
-    user: EMAIL,
-    password: PASSWORD
-  }
-})
+
 
 app.set('stripe', stripe)
 app.use(express.json());
-app.set('transporter', transporter)
 app.use(
   session({
     secret: SESSION_SECRET,
@@ -61,6 +50,11 @@ app.get('/api/comp-nm', ctrlComp.readComp)
 app.get('/api/member-comp', auth.userOnly, ctrlComp.readAllComp)
 app.post('/api/create-comp', auth.userOnly, ctrlComp.createComp)
 app.delete('/api/delete-comp/:compId', auth.userOnly, ctrlComp.deleteComp)
+
+
+//mailer endpoint
+app.post('/api/mail', mailCtrl.sendEmailComp)
+app.post('/api/mail/contact', mailCtrl.sendEmailContact)
 
 // * member posts endpoint
 // app.get('/api/member-posts', auth.userOnly, ctrlComp.readAllPosts)

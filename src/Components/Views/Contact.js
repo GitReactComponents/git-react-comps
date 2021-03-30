@@ -1,83 +1,56 @@
 import React from 'react'
+import axios from 'axios'
+import './SCSS/Contact.scss'
 
-function Contact() {
-  return (
-    <div className='contact'>
-class App extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      name: "",
-      email: "",
-      concerns: ""
-    };
-    
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  };
-  
-  handleChange(e){
-    switch(e.target.id){
-      case "name":
-        this.setState({
-          name: e.target.value
-        });
-        break;
-      case "email":
-        this.setState({
-          email: e.target.value
-        });
-        break;
-      case "concerns":
-        this.setState({
-          concerns: e.target.value
-        });
-        break;
-      default:
-        console.log("Error!");
+
+class Contact extends React.Component {
+
+  constructor(){
+    super()
+    this.state={
+      name:'',
+      email: '',
+      message: ''
     }
   }
   
-  handleSubmit(e){
-    e.preventDefault();
-    alert(`Thanks for your submission, ${this.state.name}. We will\n be right with you shortly.`);
+  changeHandler = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+  sendEmail = async (e) => {
+    e.preventDefault(e)
+    const {name, email, message} = this.state
+    try{
+      await axios.post ('/api/mail/contact', {name, email, message})
+      alert ('email sent')
+    }
+    catch {alert ('failed to send email')}
   }
-  
+
   render(){
-    return(
-      <div className="centered">
-        <h2>Contact Form</h2>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Name:
-            <input id="name" type="text"
-              value={this.state.name}
-              onChange={this.handleChange} 
-              placeHolder="name"/>
-          </label>
-          <label>
-            Email:
-            <input id="email" type="email" 
-              value={this.state.email}
-              onChange={this.handleChange}
-              placeHolder="email"/>
-          </label>
-          <label>
-            Concerns:
-            <textarea id="concerns"
-              value={this.state.concerns}
-              placeHolder="Please type out what you want to say..."
-              onChange={this.handleChange} />
-          </label>
-          <input type="submit"
-            value="Submit"/>
-        </form>
-      </div>  
-    );
-  }
-};
+    return <div className='contact'>
+    
+      <form onSubmit={this.sendEmail} className="entry">
+    <h1>Contact Us</h1>
+    <div className="form-set">
+      <label for="name">Name</label>
+      <input value={this.state.name} onChange={this.changeHandler} name="name" type="text" placeholder="Name"/>
+    </div>    
+    <div className="form-set">
+      <label for="email">Email</label>
+      <input value={this.state.email} onChange={this.changeHandler} name="email" type="text" placeholder="Email"/>
+        <div className="form-set">
+        <label for="message">Message</label>
+        <textarea value={this.state.message} onChange={this.changeHandler} name="message" type="text" placeholder="message"/>
+        </div>
+        </div>
+    <div className="actions">
+      <button type="submit">Submit</button>
     </div>
-  )
-}
+  </form>
+   </div>}}
 
 export default Contact
