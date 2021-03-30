@@ -1,8 +1,10 @@
 INSERT INTO users (
-    username,
-    email,
     first_name,
     last_name,
+    birthday,
+    email,
+    username,
     password
 )
-VALUES ($1, $2, $3, $4, $5)
+VALUES ($1, $2, $3, $4, $5, $6)
+RETURNING *;

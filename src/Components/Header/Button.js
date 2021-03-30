@@ -11,14 +11,17 @@ import './Button.scss'
 
 const useLoginStyles = makeStyles((theme) => ({
   button: {
-    height: 65,
-    width: 10
+    height: '130px',
+    width: '15vw',
+    position: 'absolute',
+    top: '2%',
+    right: '1%',
   },
   wrapper: {
     width: 180 + theme.spacing(1.5),
   },
   modalSpace: {
-    width: 300,
+    width: 350,
     height: 700,
     display: 'flex',
     alignItems: 'center',
@@ -30,8 +33,11 @@ const useLoginStyles = makeStyles((theme) => ({
 
 const useRegStyles = makeStyles((theme) => ({
   button: {
-    height: 65,
-    width: 10
+    maxHeight: '100px',
+    width: '15vw',
+    position: 'absolute',
+    top: '9%',
+    right: '1%',
   },
   wrapper: {
     width: 180 + theme.spacing(1.5),
@@ -75,7 +81,6 @@ function Button() {
     <ClickAwayListener onClickAway={clickAway}>
       <section>
           <div className={loginClasses.button}>
-            <div className={loginClasses.wrapper}>
               <button 
                 className='btn login-modal' 
                 onClick={() => handleLoginModal()}
@@ -83,6 +88,7 @@ function Button() {
                 >
                 Login
               </button>
+            <div className={loginClasses.wrapper}>
               <Slide direction="left" in={loginModal} timeout={500} mountOnEnter unmountOnExit>
                 <section className={loginClasses.modalSpace}>
                   {loginModal ? <Login /> : <Login />}
@@ -92,7 +98,6 @@ function Button() {
           </div>
 
           <div className={regClasses.button}>
-            <div className={regClasses.wrapper}>
               <button 
                 className='btn' 
                 onClick={() => handleRegModal()}
@@ -100,6 +105,7 @@ function Button() {
               >
                 Become a Member!
               </button>
+            <div className={regClasses.wrapper}>
                 <Slide direction="down" in={regModal} timeout={700} mountOnEnter unmountOnExit>
                   <section className={regClasses.modalSpace}>
                     {regModal ? <Subscribe /> : <Subscribe />}
