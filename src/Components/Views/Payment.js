@@ -1,17 +1,23 @@
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
 import Url from '../../Url'
+// import {useHistory} from 'react'
+// import Header from '../Header/Header'
 
 import './SCSS/Payment.scss'
 
 const { REACT_APP_STRIPE_KEY } = process.env;
 
 const Payment = (props) => {
+  // const {push} = useHistory()
   const onToken = (token) => {
     console.log({ token });
     axios
       .post("/api/payment", { token, amount: 399 })
-      .then((res) => alert("success"))
+      .then((res) => {
+        // push('/')
+        
+      })
       .catch((err) => console.log(err));
   };
   return (
@@ -25,7 +31,7 @@ const Payment = (props) => {
         >
           <div className='checkout-box'>
             <div className='product'>
-            <img className='image' src={props.Url.URL}/>
+            <img className='image' src=''/>
             </div>
             <div className='description'>
               <h3 className='dsc-text'>By purchasing this membership, you will have unlimited access

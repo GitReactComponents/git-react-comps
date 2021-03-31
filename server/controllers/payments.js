@@ -30,7 +30,7 @@ module.exports = {
         amount,
         currency: "usd",
         source: token.id,
-        description: "this is a test",
+        description: "One-Time Membership",
       },
       (err, charge) => {
         if (err) {
