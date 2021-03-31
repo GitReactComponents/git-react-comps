@@ -12,8 +12,9 @@ module.exports = {
   },
 
   readCompType: async (req, res) => {
+    const {component_type} = req.params
     const db = req.app.get('db')
-    const comps = await db.comps_db.get_comp_type()
+    const comps = await db.comps_db.get_comp_type(component_type)
     res.status(200).send(comps)
   },
 
