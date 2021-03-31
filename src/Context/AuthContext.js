@@ -20,7 +20,7 @@ export const AuthProvider = (props) => {
             .then(({data}) => {
                 console.log('context', data.birthday)
                 setUser(data)
-                push('/')
+                push('/payment')
             })
     }
 
