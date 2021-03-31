@@ -8,22 +8,20 @@ import ComponentTile from './ComponentTile'
 
 const ComponentCategories = (props) => {
   const compContext = useContext(CompContext)
-  console.log(compContext)
 
   const [landingComponents, setLandingComponents] = useState([])
 
   useEffect(() => {
-    console.log(landingComponents)
-    console.log(compContext.component)
-    compContext.getMemberComp()
+    compContext.getCompType(compContext.compType)
     setLandingComponents(compContext.component)
   })
 
 
   return (
     <div>
-      {landingComponents}
-      <ComponentTile/>
+      {landingComponents.map(({component_image, component_description}) => {
+        return <ComponentTile component_image={component_image} component_description={component_description}/>
+      })}
     </div>
   )
 }
