@@ -1,0 +1,32 @@
+@import 'helpers/variables';
+
+form{
+  color: $off-white;
+}
+
+.contact{
+  width: 60vw;
+}
+
+.labels{
+  float: left;
+}
+
+select{
+  height: 2rem;
+}
+
+.input-style{
+  width: 20rem;
+  height: 2rem;
+}
+
+.message-area{
+  width: 20rem;
+  height: 10rem;
+  margin-top: .5rem;
+}
+
+.actions{
+  float: right;
+}
