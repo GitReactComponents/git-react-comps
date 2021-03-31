@@ -5,7 +5,6 @@ function Favorites() {
   return (
     <div className='favorites'>
       <div>This is the Favorites Page</div>
-      <ComponentTitle />
     </div>
   )
 }
