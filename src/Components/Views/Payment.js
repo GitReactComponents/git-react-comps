@@ -1,27 +1,51 @@
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
+import Url from '../../Url'
+// import {useHistory} from 'react'
+// import Header from '../Header/Header'
+
+import './SCSS/Payment.scss'
 
 const { REACT_APP_STRIPE_KEY } = process.env;
 
-const Payment = () => {
+const Payment = (props) => {
+  // const {push} = useHistory()
   const onToken = (token) => {
     console.log({ token });
     axios
-      .post("/api/payment", { token, amount: 100 })
-      .then((res) => alert("success"))
+      .post("/api/payment", { token, amount: 399 })
+      .then((res) => {
+        // push('/')
+        
+      })
       .catch((err) => console.log(err));
-  }
+  };
   return (
-    <div>
-      <div>
+    <div className='payment'>
         <StripeCheckout
-        token={onToken}
-        stripeKey={REACT_APP_STRIPE_KEY}
-        amount={399}
-        />
-      </div>
+          name='Membership'
+          token={onToken}
+          stripeKey={REACT_APP_STRIPE_KEY}
+          amount={399}
+          allowRememberMe={false}
+        >
+          <div className='checkout-box'>
+            <div className='product'>
+            <img className='image' src=''/>
+            </div>
+            <div className='description'>
+              <h3 className='dsc-text'>By purchasing this membership, you will have unlimited access
+              to view, select and comment on any component that you would like. You will also have the 
+              ability to upload your own components, if you so choose. This purchase will go towards 
+              further research and development of the site, so thank you!</h3>
+            </div>
+            <div className='footer'>
+              <button className='checkout-btn'>Checkout $3.99</button>
+            </div>
+          </div>
+        </StripeCheckout>
     </div>
-  )
+  );
 };
 
-export default Payment
+export default Payment;

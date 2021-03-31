@@ -1,8 +1,8 @@
-const CategoryTile = () => {
-
+const CategoryTile = (props) => {
+  
   return (
     <div>
-
+      <div>{props.category}</div>
     </div>
   )
 }
