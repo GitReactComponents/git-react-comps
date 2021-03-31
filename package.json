@@ -44,6 +44,7 @@
     "react-spring": "^9.0.0",
     "react-stripe-checkout": "^2.6.3",
     "stripe": "^8.139.0",
+    "styled-components": "^5.2.3",
     "uuid": "^8.3.2",
     "web-vitals": "^1.0.1"
   },
