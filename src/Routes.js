@@ -5,10 +5,12 @@ import About from './Components/Views/About'
 import Contact from './Components/Views/Contact'
 import Favorites from './Components/Views/Favorites'
 import Home from './Components/Views/Home'
+import Payment from './Components/Views/Payment'
 import Subscribe from './Components/Views/Subscribe'
 import Upload from './Components/Views/Upload'
 import User from './Components/Views/User'
-import ComponentLibrary from './Components/Views/ComponentLibrary'
+import CategoryLibrary from './Components/CompDisplay/CategoryLibrary'
+
 
 // import Landing from './Components/Landing'
 
@@ -21,9 +23,16 @@ export default (
             <Route path="/contact" component={Contact} />
             <Route path="/favorites" component={Favorites} />
             <Route path="/subscribe" component={Subscribe} />
+            <Route path='/payment' component={Payment}/>
             <Route path="/upload" component={Upload} />
             <Route path="/user" component={User} />
-            <Route path="/complib" component={ComponentLibrary} />
+            <Route path="/components" component={CategoryLibrary} />
         </Switch>
     </HashRouter>
 )
+
+
+
+
+
+

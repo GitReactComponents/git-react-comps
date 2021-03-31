@@ -11,7 +11,7 @@ class Upload extends React.Component {
       title: '',
       html: '',
       scss: '',
-      js: ''
+      js: '',
     }
   }
   
@@ -23,7 +23,7 @@ class Upload extends React.Component {
 
   sendEmail = async (e) => {
     e.preventDefault(e)
-    const {type, title, html, scss, js} = this.state
+    const {type, title, html, scss, js, screenshot} = this.state
     try{
       await axios.post ('/api/mail', {type, title, html, scss, js})
       alert ('email sent')
@@ -32,14 +32,14 @@ class Upload extends React.Component {
   }
 
   render(){
-    return <div>
+    return <div className='upload'>
     
-      <form onSubmit={this.sendEmail} className="upload">
+      <form onSubmit={this.sendEmail} className="upload-form">
     <h1>Submit Component</h1>
     <div className="form-set">
-      <label for="type">Component Type</label><span className="required"> (Required)</span>
-      <select value={this.state.type} onChange={this.changeHandler} name="type">
-        <option>Select</option>
+      <label for="type">Component Type</label>
+      <select value={this.state.type} onChange={this.changeHandler} name="type" required>
+        <option value='' select disabled>--Select--</option>
         <option>Button</option>
         <option>Card</option>
         <option>Footer</option>
@@ -53,25 +53,21 @@ class Upload extends React.Component {
       </select>
     </div>
     <div className="form-set">
-      <label for="title">Title</label><span className="required"> (Required)</span>
-      <input type="text" value={this.state.title} name='title' onChange={this.changeHandler} placeholder="Title"/>
+      <label for="title">Title</label>
+      <input className='input-style' type="text" value={this.state.title} name='title' onChange={this.changeHandler} placeholder="Title (e.g., Button with Animation, Contact Form, etc." required/>
     </div>    
     <div className="form-set">
       <label for="HTML">HTML</label>
-      <input type="text" value={this.state.html} name='html' onChange={this.changeHandler} placeholder="HTML Code"/>
+      <input className='input-style' type="text" value={this.state.html} name='html' onChange={this.changeHandler} placeholder="HTML Code"/>
         <div className="form-set">
         <label for="scss">SCSS</label>
-        <input type="text" value={this.state.scss} name='scss' onChange={this.changeHandler} placeholder="SCSS Code"/>
+        <input className='input-style' type="text" value={this.state.scss} name='scss' onChange={this.changeHandler} placeholder="SCSS Code"/>
         </div>
               <div className="form-set">
-              <label for="js">JS</label>
-              <input type="text" value={this.state.js} name='js' onChange={this.changeHandler} placeholder="JS Code"/>
+              <label for="js">Javascript</label>
+              <input className='input-style' type="text" value={this.state.js} name='js' onChange={this.changeHandler} placeholder="Javascript Code"/>
               </div>
-                    <div className="form-set">
-                    <label for="file">Screenshot of Component</label>
-                    <input type="file" name="file"/>
                     </div>
-    </div>
     <div className="actions">
       <button type="submit">Submit</button>
     </div>

@@ -16,11 +16,11 @@ module.exports = {
       to: 'gitreactcomps@gmail.com',
       subject: 'New Comp Submission',
        html: 
-            `     <h1 style='font-weight:bolder;'>${title}</h1>
-                  <h3 style='font-weight:bolder;'>${type}</h3>
-                  <h3 style='font-weight:bolder;'>${html}</h3>
-                  <h3 style='font-weight:bolder;'>${scss}</h3>
-                  <h3 style='font-weight:bolder;'>${js}</h3>`
+            `     <h4 style='font-weight:bolder;'>'Type:' ${type}</h4>
+                  <h4 style='font-weight:bolder;'>'Title:' ${title}</h4>
+                  <h4 style='font-weight:bolder;'>'HTML:' ${html}</h4>
+                  <h4 style='font-weight:bolder;'>'SCSS:' ${scss}</h4>
+                  <h4 style='font-weight:bolder;'>'JS:' ${js}</h4>`
     }
           transporter.sendMail( message, function( err ) {
             if (err) {
@@ -44,9 +44,9 @@ sendEmailContact: async (req, res) => {
       to: 'gitreactcomps@gmail.com',
       subject: 'Contact Us Request',
        html: 
-            `     <h1 style='font-weight:bolder;'>${name}</h1>
-                  <h3 style='font-weight:bolder;'>${email}</h3>
-                  <h3 style='font-weight:bolder;'>${message}</h3>`
+            `     <h4 style='font-weight:bolder;'>'Name: '${name}</h4>
+                  <h4 style='font-weight:bolder;'>'Email: '${email}</h4>
+                  <h4 style='font-weight:bolder;'>'Message: '${message}</h4>`
     }
           transporter.sendMail( contactMessage, function( err ) {
             if (err) {

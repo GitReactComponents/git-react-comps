@@ -7,9 +7,9 @@ const ComponentLibrary = () => {
 
   // const [readComps, setReadComps] = useState([])
 
-  useEffect(() => {
-    compDisplay.getMemberComp()
-  }, [])
+  // useEffect(() => {
+  //   compDisplay.getMemberComp()
+  // }, [])
 
   return (
     <div>

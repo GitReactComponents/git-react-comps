@@ -1,14 +1,14 @@
-@import 'helpers/variables';
-
-select {
-  margin-left: .5rem;
+.input-style{
+  width: 20rem;
+  height: 2rem;
 }
 
-input {
-  margin-left: .5rem;
-  display: block;
+label{
+  float: left;
+  width: 20rem;
+  font-size: 25px;
 }
 
-.upload{
-  
+select{
+  height: 2rem;
 }

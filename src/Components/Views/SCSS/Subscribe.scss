@@ -1,9 +1,6 @@
 @import 'helpers/variables';
 
 
-body {
-  overflow: hidden;
-}
 
 .form-container {
   height: 100%;
@@ -14,6 +11,10 @@ body {
   align-items: center;
   align-content: space-around;
 }
+
+// .input-rounded {
+//   border-radius: 20px;
+// }
 
 .grid-container {
   height: 80%;
@@ -26,11 +27,11 @@ body {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1.5fr 1.5fr 1.5fr;
   gap: 0px .8em;
+  margin-top: 2vh;
   grid-template-areas:
     ". ."
     ". ."
     ". .";
-    margin-top: 2vh;
 }
 
 

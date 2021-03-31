@@ -36,15 +36,15 @@ class Contact extends React.Component {
       <form onSubmit={this.sendEmail} className="entry">
     <h1>Contact Us</h1>
     <div className="form-set">
-      <label for="name">Name</label>
-      <input value={this.state.name} onChange={this.changeHandler} name="name" type="text" placeholder="Name"/>
+      <label className='labels' for="name">Name</label>
+      <input className='input-style' value={this.state.name} onChange={this.changeHandler} name="name" type="text" placeholder="Name" required/>
     </div>    
     <div className="form-set">
-      <label for="email">Email</label>
-      <input value={this.state.email} onChange={this.changeHandler} name="email" type="text" placeholder="Email"/>
+      <label className='labels' for="email">Email</label>
+      <input className='input-style' value={this.state.email} onChange={this.changeHandler} name="email" type="email" placeholder="Email" required/>
         <div className="form-set">
-        <label for="message">Message</label>
-        <textarea value={this.state.message} onChange={this.changeHandler} name="message" type="text" placeholder="message"/>
+        <label className='labels' for="message">Message</label>
+        <textarea className='message-area' value={this.state.message} onChange={this.changeHandler} name="message" type="text" placeholder="Message" required/>
         </div>
         </div>
     <div className="actions">
