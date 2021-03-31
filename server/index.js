@@ -7,12 +7,16 @@ const express = require("express"),
   ctrlUser = require("./controllers/user"),
   stripeCtrl = require('./controllers/payments'),
   auth = require("./middleware/authCheck");
+  mailCtrl = require('./controllers/mailer')
 const session = require("express-session");
 const stripe = require('stripe')(process.env.SECRET_KEY)
+
 
 const {CONNECTION_STRING, SERVER_PORT, SESSION_SECRET} = process.env;
 
 const app = express();
+
+
 
 app.set('stripe', stripe)
 app.use(express.json());
@@ -47,6 +51,11 @@ app.get('/api/comp-nm/:component_id', ctrlComp.readComp)
 app.get('/api/member-comp', auth.userOnly, ctrlComp.readAllComp)
 app.post('/api/create-comp', auth.userOnly, ctrlComp.createComp)
 app.delete('/api/delete-comp/:compId', auth.userOnly, ctrlComp.deleteComp)
+
+
+//mailer endpoint
+app.post('/api/mail', mailCtrl.sendEmailComp)
+app.post('/api/mail/contact', mailCtrl.sendEmailContact)
 
 // * member posts endpoint
 app.get('/api/member-posts', auth.userOnly, ctrlPost.readAllPosts)
