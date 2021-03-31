@@ -1,20 +1,20 @@
 module.exports = {
 
   readAllComp: async (req, res) => {
-    const db = req.app.get('db')
-    const comps = await db.comps_db.get_all_comps
-    res.status(200).send(comps)
+    const db = req.app.get('db');
+    const comps = await db.comps_db.get_all_comps();
+    res.status(200).send(comps);
   },
 
   readCompType: async (req, res) => {
     const db = req.app.get('db')
-    const comps = await db.comps_db.get_comp_type
+    const comps = await db.comps_db.get_comp_type()
     res.status(200).send(comps)
   },
 
   readComp: async (req, res) => {
     const db = req.app.get('db')
-    const comp = await db.comps_db.get_all_comps(component_id)
+    const comp = await db.comps_db.get_comp(component_id)
     res.status(200).send(comp)
   }, 
 

@@ -38,7 +38,7 @@ massive({
 
 
 // * comps endpoints for non members
-app.get('/api/comp-nm', ctrlComp.readComp)
+app.get('/api/comp-nm/:component_id', ctrlComp.readComp)
 
 // * posts endpoints for non members
 // app.get('/api/post-nm', ctrlPost.readPost)
