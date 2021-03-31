@@ -9,6 +9,10 @@ import Payment from './Components/Views/Payment'
 import Subscribe from './Components/Views/Subscribe'
 import Upload from './Components/Views/Upload'
 import User from './Components/Views/User'
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 
 // import Landing from './Components/Landing'
 
@@ -27,3 +31,9 @@ export default (
         </Switch>
     </HashRouter>
 )
+
+
+
+
+
+

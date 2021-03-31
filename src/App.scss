@@ -16,8 +16,6 @@ body {
 .main-header { 
   height: 18vh;
   max-width: 100vw;
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
   font-family: 'Courgette', cursive;
 }
 
@@ -25,7 +23,7 @@ body {
 .login, dialog{
   position: relative;
   right: 0;
-  margin-right: 3.4vw;
+  margin-right: 3.1vw;
 }
 
 .subscribe, dialog{
@@ -57,7 +55,7 @@ body {
   color: $off-white;
 
   border: 2px solid $off-white;
-  box-shadow: 0 4px 7px 1px $reverse-shadow;
+  box-shadow: 0 0 10px $reverse-shadow;
   background-color: $modal-background;
 }
 
@@ -77,13 +75,4 @@ body {
   border: 2px solid $red-dark;
   box-shadow: 0 4px 7px 1px $reverse-shadow;
   background-color: $modal-background;
-}
-
-
-
-.contact{
-  height: 90%;
-  width: 90%;
-  
-  background-color: $main-header-color;
 }

@@ -1,9 +1,14 @@
 import React from 'react'
+import CodepenEmbed from '../Codepen/CodepenEmbed'
 import Post from './../Post/Post'
 
-function ComponentToDisplay() {
+const ComponentToDisplay = () => {
   return (
     <div>
+<<<<<<< HEAD
+=======
+      <CodepenEmbed />
+>>>>>>> main
       <Post/>
     </div>
   )

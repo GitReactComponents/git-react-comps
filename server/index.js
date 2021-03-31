@@ -5,7 +5,7 @@ const express = require("express"),
   ctrlComp = require("./controllers/comps"),
   ctrlPost = require("./controllers/posts"),
   ctrlUser = require("./controllers/user"),
-  stripeCtrl = require('./controllers/payments')
+  stripeCtrl = require('./controllers/payments'),
   auth = require("./middleware/authCheck");
 const session = require("express-session");
 const stripe = require('stripe')(process.env.SECRET_KEY)
@@ -38,7 +38,7 @@ massive({
 
 
 // * comps endpoints for non members
-app.get('/api/comp-nm', ctrlComp.readComp)
+app.get('/api/comp-nm/:component_id', ctrlComp.readComp)
 
 // * posts endpoints for non members
 // app.get('/api/post-nm', ctrlPost.readPost)
@@ -55,12 +55,12 @@ app.post('/api/create-post', auth.userOnly, ctrlPost.createPost)
 app.delete('/api/delete-post/:postId', auth.userOnly, ctrlPost.deletePost)
 
 // * user endpoints
-app.get('/auth/user', auth.userOnly, ctrlUser.getUser)
+app.get('/api/auth/user', auth.userOnly, ctrlUser.getUser)
 app.post('/api/auth/register', ctrlUser.register)
-app.post('/auth/login', ctrlUser.login)
-app.post('/auth/logout', ctrlUser.logout)
-app.put('/auth/edit_user', auth.userOnly, ctrlUser.editUser)
-app.delete('/auth/delete_user/:userId', auth.userOnly, ctrlUser.deleteUser)
+app.post('/api/auth/login', ctrlUser.login)
+app.post('/api/auth/logout', ctrlUser.logout)
+// app.put('/auth/edit_user', auth.userOnly, ctrlUser.editUser)
+app.delete('/api/auth/delete_user', auth.userOnly, ctrlUser.deleteUser)
 
 // * admin endpoints
 // app.get('/api/admin-get', auth.adminOnly, ctrlAdmin.getUser)

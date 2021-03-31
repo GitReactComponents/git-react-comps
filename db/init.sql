@@ -15,17 +15,17 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS  components (
     component_id SERIAL PRIMARY KEY,
-    username VARCHAR(20) REFERENCES users(username),
+    username VARCHAR(20),
     component_type VARCHAR(50),
-    component_image JSON,
+    component_image TEXT,
     component_description TEXT,
-    component_info TEXT
+    component_info JSON
 );
 
 CREATE TABLE IF NOT EXISTS  posts (
     post_id SERIAL PRIMARY KEY,
     component_id INT REFERENCES components(component_id),
     user_id INT REFERENCES users(user_id),
-    username VARCHAR(20) REFERENCES users(username),
+    username VARCHAR(20),
     post_text VARCHAR(1500)
 );

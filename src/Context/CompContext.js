@@ -24,6 +24,14 @@ export const CompProvider = (props) => {
     }).catch(err => console.log(err))
   }
 
+  const getCompType = (component_type) => {
+    console.log('hit')
+    axios.get(`/api/member-comp/:${component_type}`).then((res) => {
+      console.log(res.data)
+      setComponent(res.data)
+    }).catch(err => console.log(err))
+  }
+
   // app.post('/api/create-comp', auth.userOnly, ctrlComp.createComp)
   const createComp = (component_type, component_image, component_info, userId, username) => {
     axios.post('/api/create-comp', { component_type, component_image, component_info, userId, username })
@@ -41,7 +49,7 @@ export const CompProvider = (props) => {
   }
 
   return (
-    <CompContext.Provider value={{component, getMemberComp, createComp, deleteComp}}>
+    <CompContext.Provider value={{component, getMemberComp, getCompType, createComp, deleteComp}}>
       {props.children}
     </CompContext.Provider>
   )
