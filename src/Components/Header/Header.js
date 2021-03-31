@@ -1,4 +1,5 @@
 import React, {useContext, useState} from 'react'
+import {AuthContext} from '../../Context/AuthContext'
 import {Link} from 'react-router-dom'
 import Button from './Button'
 
@@ -6,11 +7,11 @@ import Button from './Button'
 import './Header.scss'
 
 function Header(props) {
-  // const userAuth = useContext(AuthContext)
+  const userAuth = useContext(AuthContext)
 
-  // const handleLogout = () => {
-  //   userAuth.logout()
-  // }
+  const handleLogout = () => {
+    userAuth.logout()
+  }
 
 
   const inHeader = () => {
@@ -40,29 +41,48 @@ function Header(props) {
           <Link to='/contact' className='nav-link'>Contact Us</Link>
 
         </div>
+      
+          <section className='header-btn-container'>
+            <button
+              className='logout-btn'
+              type='submit'
+              onClick={handleLogout}
+              >
+              Logout
+            </button>
+          </section>
 
-        <section className='header-btn-container'>
-          <Button />
-        </section>
       </nav>
     )}
 
-          // <button
-          //   className='logout-btn'
-          //   type='submit'
-          //   // onClick={handleLogout}
-          // >
-          //   Logout
-          // </button>
 
 
     const outHeader = () => {
       return (
-        <div className='out-container'>
+        <div id='out-container'>
           <div className='intro'>
             <h3>Welcome to</h3>
-            <h2 className='logo'>logo</h2>
           </div>
+
+            <Link to='/'>
+              <img className='logo' src='/img/logo.png' alt='Git-React-Comps Logo' />
+            </Link>
+          <div className='navbar'>
+
+          <Link to='/' className='nav-link'>Home</Link>
+
+            <Link to='/about' className='nav-link'>About</Link>
+            
+
+            <Link to='/contact' className='nav-link'>Contact Us</Link>
+
+          </div>
+
+
+
+          <section className='header-btn-container'>
+            <Button />
+          </section>
         </div>
       )
     }
@@ -71,13 +91,12 @@ function Header(props) {
 
   return (
     <header className='main-header'>
-      {inHeader()}
-      {/* {!userAuth.user &&
+      {!userAuth.user &&
         outHeader()
       }
       {userAuth.user &&
         inHeader()
-      } */}
+      }
     </header>
   )
 }

@@ -21,10 +21,32 @@ body{
   background-color: $main-header-color;
 }
 
+#out-container{
+  height: 100%;
+  max-width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5em;
+  border-bottom: 2px solid $red-dark;
+  background-color: $main-header-color;
+}
+
 .logo{
   height: 13vh;
   width: 25vw;
   margin-left: 2vw;
+}
+
+.intro{
+  height: 90%;
+  width: 9vw;
+  color: $off-white;
+  margin-left: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 
@@ -42,6 +64,23 @@ body{
   text-align: center;
   text-decoration: none;
   padding: 5px 0px;
+}
+
+.logout-btn{
+  height: 5.8vh;
+  width: 50%;
+  align-self: flex-end;
+  margin-right: 10%;
+  padding: .7rem 1rem;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  font-size: 24px;
+  font-weight: 700;
+  color: $off-white;
+  cursor: pointer;
+  background-color: $red-dark;
+  font-family: 'Courgette', cursive;
 }
 
 

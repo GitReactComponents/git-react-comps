@@ -1,10 +1,7 @@
 import React, {useState} from 'react'
-// import Post from '../Post/Post'
 import ReactSpringBtn from '../CompDisplay/ReactSpringBtn'
 import ComponentCategories from '../CompDisplay/ComponentCategories'
 import CategoryTile from '../CompDisplay/CategoryTile'
-
-// import {useChain, animated} from 'react-spring'
 
 
 
