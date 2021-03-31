@@ -10,7 +10,6 @@ import Subscribe from './Components/Views/Subscribe'
 import Upload from './Components/Views/Upload'
 import User from './Components/Views/User'
 
-
 // import Landing from './Components/Landing'
 
 export default (

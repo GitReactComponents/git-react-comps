@@ -1,4 +1,6 @@
 import React from 'react'
+// import Post from '../Post/Post'
+import ComponentCategories from '../CompDisplay/ComponentCategories'
 // import {useChain, animated} from 'react-spring'
 import CategoryTile from '../CompDisplay/CategoryTile'
 
