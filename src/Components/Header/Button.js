@@ -21,11 +21,11 @@ const useLoginStyles = makeStyles((theme) => ({
     width: 180 + theme.spacing(1.5),
   },
   modalSpace: {
-    width: 350,
+    width: '20vw',
     height: 700,
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-start',
   }
 }))
 
@@ -43,7 +43,7 @@ const useRegStyles = makeStyles((theme) => ({
     width: 180 + theme.spacing(1.5),
   },
   modalSpace: {
-    width: 200,
+    width: 50,
     height: 750,
     display: 'flex',
     alignItems: 'center',

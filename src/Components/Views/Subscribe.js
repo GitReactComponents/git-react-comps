@@ -1,20 +1,20 @@
-import React, {useState, useContext} from 'react'
-import Payment from './Payment'
-
-import 'date-fns';
-import DateFnsUtils from '@date-io/date-fns';
+import React, {useState, useContext, Fragment} from 'react'
+// import Payment from './Payment'
+import 'date-fns'
+import DateFnsUtils from '@date-io/date-fns'
 
 import {useForm, FormProvider} from 'react-hook-form'
-import {ErrorMessage} from '@hookform/error-message'
+
 import FormInput from './inputController/index'
+
+import {ErrorMessage} from '@hookform/error-message'
+import _ from "lodash/fp";
+
 
 import {ThemeProvider} from '@material-ui/core'
 import theme from '../../theme'
-import Grid from '@material-ui/core/Grid';
 
-import {MuiPickersUtilsProvider, KeyboardDatePicker} from '@material-ui/pickers';
-
-
+import {MuiPickersUtilsProvider, DatePicker} from '@material-ui/pickers'
 
 import {AuthContext} from '../../Context/AuthContext'
 
@@ -27,7 +27,9 @@ function Subscribe(props) {
 
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
-  const [birthday, setBirthday] = useState(new Date())
+
+  const [birthday, setBirthday] = useState(Date())
+
   const [email, setEmail] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -41,6 +43,8 @@ function Subscribe(props) {
   
 
   const onSubmit = (data) => {
+    console.log(data.birthday)
+
     userAuth.register(data.firstName, data.lastName, data.birthday, data.email, data.username, data.password);
     setFirstName('');
     setLastName('');
@@ -51,13 +55,6 @@ function Subscribe(props) {
   };
 
 
-  const handleDateChange = (date) => {
-    setBirthday(date);
-  };
-
-
-  
-
 
   return (
     <dialog className='subscribe'>
@@ -66,152 +63,194 @@ function Subscribe(props) {
 
           <ThemeProvider theme={theme}>
             <FormProvider {...methods}>
-
-            <div className='form-control'>
-              <h4>First Name:</h4>
-              <FormInput
-                autoFocus={true}
-                inputRef={register({
-                  required: 'This input is required',
-                  pattern: {
-                    value: /^[a-zA-Z0-9]+$/,
-                    message: 'Thats not your name!'
-                  }
-                })}
-                name='firstName'
-                type='text'
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-              />
-              {/* {errors.firstName && errors.firstName.type === 'required' && (
-                <p className='errorMsg'>Name is required</p>
-                )}
-              {errors.firstName && errors.firstName.type === 'pattern' && (
-                <p className='errorMsg'>Name must be alpha characters</p>
-                )} */}
-            </div>
-
-            <div className='form-control'>
-              <h4>Last Name:</h4>
-              <FormInput
-                inputRef={register} 
-                name='lastName'
-                type='text' 
-                value={lastName} 
-                onChange={(e) => setLastName(e.target.value)}
-                // ref={register({
-                //   required: true,
-                //   pattern: /^[a-zA-Z0-9]+$/                  
-                // })}
+              <div className='form-control'>
+                <h4>First Name:</h4>
+                <FormInput
+                  autoFocus={true}
+                  name='firstName'
+                  type='text'
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  inputRef={register({
+                    required: 'This input is required',
+                    pattern: {
+                      value: /^[A-Za-z]+$/,
+                      message: 'Thats not your name!'
+                    },
+                  })}
                 />
-              {/* {errors.lastName && errors.lastName.type === 'required' && (
-                <p className='errorMsg'>Name is required</p>
-                )}
-              {errors.lastName && errors.lastName.type === 'pattern' && (
-                <p className='errorMsg'>Name must be alpha characters</p>
-                )} */}
-            </div>
+                <ErrorMessage
+                  errors={errors}
+                  name="firstName"
+                  render={({ messages }) => {
+                    console.log("messages", messages);
+                    return messages
+                      ? _.entries(messages).map(([type, message]) => (
+                      <h6 key={type}>{message}</h6>
+                    ))
+                    : null;
+                  }}
+                />
+              </div>
 
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-              <Grid container justify="space-around">
-                <div className='form-control'>
-                  <h4>Birthday:</h4>
-                    <KeyboardDatePicker
-                      inputRef={register} 
+              <div className='form-control'>
+                <h4>Last Name:</h4>
+                <FormInput
+                  name='lastName'
+                  type='text' 
+                  value={lastName} 
+                  onChange={(e) => setLastName(e.target.value)}
+                  inputRef={register({
+                    required: 'This input is required',
+                    pattern: {
+                      value: /^[A-Za-z]+$/,
+                      message: 'Thats not your name!'
+                    },
+                  })}
+                />
+                <ErrorMessage
+                  errors={errors}
+                  name="lastName"
+                  render={({ messages }) => {
+                    console.log("messages", messages);
+                    return messages
+                      ? _.entries(messages).map(([type, message]) => (
+                        <h6 key={type}>{message}</h6>
+                    ))
+                    : null;
+                  }}
+                />
+              </div>
+
+              <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                <Fragment>
+                  <div className='form-control'>
+                    <h4>Birthday:</h4>
+                    <DatePicker
+                      disableFuture
+                      helperText={''}
                       name='birthday'
                       variant='dialog'
                       margin='none'
                       id="date-picker-dialog"
+                      openTo='year'
                       format="MM/dd/yyyy"
+                      views={['year', 'month', 'date']}
                       value={birthday}
-                      onChange={handleDateChange}
-                      KeyboardButtonProps={{
-                        'aria-label': 'change date',
-                      }}
-                      />
+                      onChange={setBirthday}
+                      inputRef={register} 
+                    />
                   </div>
-                </Grid>
+                </Fragment>
               </MuiPickersUtilsProvider>
 
               <div className='form-control'>
                 <h4>Email:</h4>
                 <FormInput
-                  inputRef={register} 
                   name='email'
                   type='text' 
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  // ref={register({
-                  //   required: true,
-                  //   pattern: /^([a-z\d.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,14})?$/
-                  // })} 
-                  />
-                {/* {errors.email && errors.email.type === "required" && (
-                  <p className="errorMsg">Email is required.</p>
-                  )}
-                {errors.email && errors.email.type === "pattern" && (
-                  <p className="errorMsg">Must enter a valid email.</p>
-                )} */}
+                  inputRef={register({
+                    required: 'This input is required',
+                    pattern: {
+                      value: /^\S+@\S+$/,
+                      message: 'Must enter valid email'
+                    },
+                  })}
+                />
+                <ErrorMessage
+                  errors={errors}
+                  name="email"
+                  render={({ messages }) => {
+                    console.log("messages", messages);
+                    return messages
+                      ? _.entries(messages).map(([type, message]) => (
+                        <h6 key={type}>{message}</h6>
+                    ))
+                    : null;
+                  }}
+                />
               </div>
 
               <div className='form-control'>
                 <h4>Username:</h4>
                 <FormInput
-                  inputRef={register} 
                   name='username'
                   type='text'
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  placeholder='3-20 alphanumeric'
-                  // ref={register({
-                  //   required: true,
-                  //   pattern: /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$/                  
-                  // })}
-                  />
-                {/* {errors.username && errors.username.type === 'required' && (
-                  <p className='errorMsg'>This will become your login</p>
-                  )}
-                {errors.username && errors.username.type === 'pattern' && (
-                  <p className='errorMsg'>Username must be 3-20 characters<br/>Letters and Numbers</p>
-                  )} */}
+                  inputRef={register({
+                    required: 'This input is required',
+                    minLength: {
+                      value: 3,
+                      message: 'Must be more than 3 characters'
+                    },
+                    maxLength: {
+                      value: 20,
+                      message: 'Must be less that 20 characters'
+                    }
+                  })}
+                />
+                <ErrorMessage
+                  errors={errors}
+                  name="username"
+                  render={({ messages }) => {
+                    console.log("messages", messages);
+                    return messages
+                      ? _.entries(messages).map(([type, message]) => (
+                        <h6 key={type}>{message}</h6>
+                    ))
+                    : null;
+                  }}
+                />
               </div>
 
               <div className='form-control'>
                 <h4>Password:</h4>
                 <FormInput
-                  inputRef={register} 
                   name='password'
                   type='password'
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder='1 of - a, A, 1, !'
-                  // ref={register({
-                  //   required: true,
-                  //   minLength: 6,
-                  //   pattern: /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$/
-                  // })}
-                  />
-                {/* {errors.password && errors.password.type === "required" && (
-                  <p className="errorMsg">Password is required.</p>
-                  )}
-                {errors.password && errors.password.type === "minLength" && (
-                  <p className="errorMsg">
-                    Password should be 8-20 characters.
-                  </p>
-                )}
-                {errors.password && errors.password.type === "pattern" && (
-                  <p className='errorMsg'>Must Contain:<br/> 1 uppercase letter,<br/>1 lowercase letter,<br/>1 number,<br/>1 special character.</p>
-                  )} */}
+                  inputRef={register({
+                    required: 'This input is required',
+                    pattern: {
+                      value: /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$/,
+                      message: 'Must contain 1- uppercase, lowercase, number, special character'
+                    },
+                    minLength: {
+                      value: 6,
+                      message: 'Must be more than 6 characters'
+                    },
+                    maxLength: {
+                      value: 20,
+                      message: 'Must be less that 20 characters'
+                    }
+                  })}
+                />
+                <ErrorMessage
+                  errors={errors}
+                  name="password"
+                  render={({ messages }) => {
+                    console.log("messages", messages);
+                    return messages
+                      ? _.entries(messages).map(([type, message]) => (
+                        <h6 key={type}>{message}</h6>
+                    ))
+                    : null;
+                  }}
+                />
               </div>
-              </FormProvider>
-            </ThemeProvider>
-          </div>
+            </FormProvider>
+          </ThemeProvider>
+        </div>
             
-          <div className='form-control'>
-            <button type='submit' className='submit-btn'>Create Account</button>
-          </div>
+        <div className='form-control'>
+          <button type='submit' className='submit-btn'>Create Account</button>
+        </div>
 
-        </form>
+      </form>
     </dialog>
   )
 }

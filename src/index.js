@@ -7,19 +7,26 @@ import {CompProvider} from './Context/CompContext';
 import {PostProvider} from './Context/PostContext';
 import {HashRouter, BrowserRouter} from 'react-router-dom';
 
+
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
+
+
 const Router = process.env.NODE_ENV === 'development' ? HashRouter : BrowserRouter
 
 
 ReactDOM.render(
   <React.StrictMode>
     <Router> 
-      <AuthProvider>
-        <CompProvider>
-          <PostProvider>
-            <App />
-          </PostProvider>
-        </CompProvider>
-      </AuthProvider>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <AuthProvider>
+          <CompProvider>
+            <PostProvider>
+              <App />
+           </PostProvider>
+         </CompProvider>
+       </AuthProvider>
+      </MuiPickersUtilsProvider> 
     </Router>
   </React.StrictMode>,
   document.getElementById('root'),

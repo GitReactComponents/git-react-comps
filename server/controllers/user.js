@@ -26,28 +26,27 @@ module.exports = {
     },
 
     login: async (req, res) => {
-        const db = req.app.get('db')
-        const {email, password} = req.body
-        const [foundUser] = await db.auth_db.get_user_by_email(email)
-        console.log(foundUser)
-        if (!foundUser) {
-            return res.status(404).send('Login failed. Please try again.')
+        const {username, password} = req.body
+        const foundUser = await req.app.get('db').auth_db.get_user_username([username])
+        const user = foundUser[0]
+        if (!user) {
+            return res.status(401).send('No user found, you must register to login.')
         }
-        const authenticated = bcrypt.compareSync(password, foundUser.password)
-        if (authenticated) {
-            req.session.user = {
-                userId: foundUser.user_id,
-                userName: foundUser.username,
-                firstName: foundUser.first_name,
-                lastName: foundUser.last_name,
-                email: foundUser.email,
-                password: foundUser.password
-            }
-            res.status(200).send(req.session.user)
-        } else {
-            res.status(401).send('Login failed. Please try again.')
+        const isAuthenticated = bcrypt.compareSync(password, user.password)
+        if (!isAuthenticated) {
+            return res.status(403).send('Incorrect password, please try again.')
         }
+        req.session.user = {
+            userId: foundUser.user_id,
+            userName: foundUser.username,
+            firstName: foundUser.first_name,
+            lastName: foundUser.last_name,
+            email: foundUser.email,
+            password: foundUser.password
+        }
+        return res.send(req.session.user)
     },
+
 
     logout: async (req, res) => {
         req.session.destroy()

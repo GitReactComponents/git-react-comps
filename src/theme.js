@@ -50,20 +50,6 @@ theme.overrides = {
       textAlign: 'center'
     }
   },
-  // MuiInputBase: {
-  //   root: {
-  //     top: theme.spacing(2),
-  //     // border: `1px solid ${grey[500]}`,
-  //     // borderRadius: 20,
-  //     padding: theme.spacing(1),
-  //     // outline: `1px solid ${theme.palette.secondary.main}`,
-  //     // outline: `1px solid ${theme.palette.primary.main}`,
-  //     '&$focused': {
-  //       // border: `1px solid ${theme.palette.primary.main}`,
-  //       // outline: `1px solid ${theme.palette.primary.main}`
-  //     }
-  //   },
-  // },
   MuiInputLabel: {
     root: {
       // backGround: `${theme.palette.primary.main}`,

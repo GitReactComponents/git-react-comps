@@ -24,13 +24,11 @@ export const AuthProvider = (props) => {
             })
     }
 
-    const login = (userName, password) => {
-        axios.post('/api/auth/login', {userName, password})
-            .then(({data}) => {
-                setUser(data)
-                push('/')
-            })
-            .catch(err => console.log(err))
+    const login = (username, password) => {
+        axios.post('/api/auth/login', {username, password}).then(({data}) => {
+            setUser(data)
+            push('/')
+        })
     }
 
     const logout = () => {
