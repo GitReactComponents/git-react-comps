@@ -62,12 +62,12 @@ module.exports = {
         }
     },
 
-    // editUser: async (req, res) => {
-    //     const db = req.app.get('db')
-    //     const { userId, isMember } = req.body
-    //     const [updatedUser] = await db.auth_db.update_user(userId, isMember)
-    //     return res.status(200).send(updatedUser)
-    // },
+    editUser: async (req, res) => {
+        const db = req.app.get('db')
+        const { userId, isMember } = req.body
+        const [updatedUser] = await db.auth_db.update_user(userId, isMember)
+        return res.status(200).send(updatedUser)
+    },
 
     deleteUser: async (req, res) => {
         const db = req.app.get('db')

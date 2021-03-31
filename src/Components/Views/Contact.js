@@ -2,15 +2,6 @@ import React from 'react'
 import axios from 'axios'
 import './SCSS/Contact.scss'
 
-<<<<<<< HEAD
-function Contact() {
-  return (
-    <div className='contact'>
-      <div>
-        This is the contact page!
-      </div>
-=======
-
 class Contact extends React.Component {
 
   constructor(){
@@ -57,7 +48,6 @@ class Contact extends React.Component {
         </div>
     <div className="actions">
       <button type="submit">Submit</button>
->>>>>>> main
     </div>
   </form>
    </div>}}
