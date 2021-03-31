@@ -6,7 +6,7 @@ export const CompContext = createContext(null)
 
 export const CompProvider = (props) => {
   const [component, setComponent] = useState([])
-  const [compType, setCompType] = useState('')
+  const [compType, setCompType] = useState('Footer')
 
   // app.get('/api/comp-nm', ctrlComp.readComp)
   // const getNmComps = () => {
@@ -17,15 +17,13 @@ export const CompProvider = (props) => {
 
   // app.get('/api/member-comp', auth.userOnly, ctrlComp.readAllComp)
   const getMemberComp = () => {
-    axios.get('/api/member-comp').then(({res}) => {
+    axios.get('/api/member-comp').then(({ res }) => {
       setComponent(res.data)
     }).catch(err => console.log(err))
   }
 
   const getCompType = (component_type) => {
-    console.log('hit')
-    axios.get(`/api/member-comp/:${component_type}`).then((res) => {
-      console.log(res.data)
+    axios.get(`/api/get_comp_type/${component_type}`).then((res) => {
       setComponent(res.data)
     }).catch(err => console.log(err))
   }
@@ -47,7 +45,7 @@ export const CompProvider = (props) => {
   }
 
   return (
-    <CompContext.Provider value={{component, getMemberComp, getCompType, createComp, deleteComp, compType, setCompType}}>
+    <CompContext.Provider value={{ component, getMemberComp, getCompType, createComp, deleteComp, compType, setCompType }}>
       {props.children}
     </CompContext.Provider>
   )

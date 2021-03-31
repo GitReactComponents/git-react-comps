@@ -5,6 +5,7 @@
 import {useState, useEffect, useContext} from 'react'
 import {CompContext} from '../../Context/CompContext'
 import ComponentTile from './ComponentTile'
+import './ComponentCategories.scss'
 
 const ComponentCategories = (props) => {
   const compContext = useContext(CompContext)
@@ -13,15 +14,16 @@ const ComponentCategories = (props) => {
 
   useEffect(() => {
     compContext.getCompType(compContext.compType)
-    setLandingComponents(compContext.component)
-  })
+      setLandingComponents(compContext.component)
+  },[])
 
 
   return (
-    <div>
-      {landingComponents.map(({component_image, component_description}) => {
-        return <ComponentTile component_image={component_image} component_description={component_description}/>
-      })}
+    
+    <div className='component_category'>
+        {landingComponents.map(({component_image, component_description}) => {
+          return <ComponentTile component_image={component_image} component_description={component_description}/>
+        })}
     </div>
   )
 }
