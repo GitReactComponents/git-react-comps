@@ -51,6 +51,7 @@ app.get('/api/comp-nm/:component_id', ctrlComp.readComp)
 app.get('/api/member-comp', auth.userOnly, ctrlComp.readAllComp)
 app.post('/api/create-comp', auth.userOnly, ctrlComp.createComp)
 app.delete('/api/delete-comp/:compId', auth.userOnly, ctrlComp.deleteComp)
+app.get('/api/get_comp_type/:component_type', auth.userOnly, ctrlComp.readCompType)
 
 
 //mailer endpoint

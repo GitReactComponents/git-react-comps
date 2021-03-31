@@ -38,7 +38,7 @@ module.exports = {
             return res.status(403).send('Incorrect password, please try again.')
         }
         req.session.user = {
-            // userId: user.user_id,
+            userId: user.user_id,
             username: user.username,
             // firstName: user.first_name,
             // lastName: user.last_name,
