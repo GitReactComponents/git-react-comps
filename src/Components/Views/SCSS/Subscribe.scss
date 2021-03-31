@@ -1,6 +1,18 @@
 @import 'helpers/variables';
 
 
+h6 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #bf1650;
+  font-size: 18px;
+  margin-top: 10px;
+  z-index: 10;
+}
+
+h6::before {
+  display: inline;
+  content: "⚠ ";
+}
 
 .form-container {
   height: 100%;
@@ -40,24 +52,6 @@
   margin-top: 3vh;
 }
 
-
-.errorMsg {
-  max-width: 200px;
-  text-align: center;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  color: $error-text-color;
-  padding: 2px 0;
-  // margin-top: 2px;
-  font-size: 14px;
-  font-weight: 200;
-}
-
-.errorMsg strong{
-  font-size: 18px;
-  margin-right: -25px;
-}
 
 .form-control {
   text-align: center;
