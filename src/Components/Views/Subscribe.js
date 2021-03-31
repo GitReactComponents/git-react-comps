@@ -1,5 +1,6 @@
 import React, {useState, useContext, Fragment} from 'react'
-// import Payment from './Payment'
+import {AuthContext} from '../../Context/AuthContext'
+import Payment from './Payment'
 import 'date-fns'
 import DateFnsUtils from '@date-io/date-fns'
 import {useForm, FormProvider} from 'react-hook-form'
@@ -9,7 +10,6 @@ import _ from "lodash/fp";
 import {ThemeProvider} from '@material-ui/core'
 import theme from '../../theme'
 import {MuiPickersUtilsProvider, DatePicker} from '@material-ui/pickers'
-import {AuthContext} from '../../Context/AuthContext'
 
 import './SCSS/Subscribe.scss'
 
@@ -46,6 +46,8 @@ function Subscribe(props) {
     setUsername('');
     setPassword('');
   };
+
+
 
 
 
@@ -240,7 +242,7 @@ function Subscribe(props) {
         </div>
             
         <div className='form-control'>
-          <button type='submit' className='submit-btn'>Create Account</button>
+          <button type='submit' className='submit-btn'>Head to Checkout</button>
         </div>
 
       </form>
