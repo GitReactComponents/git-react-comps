@@ -7,7 +7,7 @@ module.exports = {
         console.log(req.body)
         const db = req.app.get('db')
         const {firstName, lastName, birthday, email, username, password} = req.body
-        const foundUser = await db.auth_db.get_user_by_email(email)
+        const foundUser = await db.auth_db.get_user_username(username)
         if (foundUser.length > 0) {
             return res.status(403).send('User already exists. Please')
         }
@@ -37,12 +37,12 @@ module.exports = {
             return res.status(403).send('Incorrect password, please try again.')
         }
         req.session.user = {
-            userId: foundUser.user_id,
-            userName: foundUser.username,
-            firstName: foundUser.first_name,
-            lastName: foundUser.last_name,
-            email: foundUser.email,
-            password: foundUser.password
+            // userId: user.user_id,
+            username: user.username,
+            // firstName: user.first_name,
+            // lastName: user.last_name,
+            // email: user.email,
+            password: user.password
         }
         return res.send(req.session.user)
     },

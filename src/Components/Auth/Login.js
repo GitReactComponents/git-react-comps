@@ -37,42 +37,49 @@ function Login() {
     <dialog className='login'>
       <div id='login-container'>
         <h3>Member Login</h3>
+        <br />
+
           <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
             <ThemeProvider theme={theme}>
               <FormProvider {...methods}>
+                <section>
+                  <FormInput
+                    autoFocus={true}
+                    name='username'
+                    placeholder='Enter Username'
+                    type='text'
+                    autoComplete='username'
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    inputRef={register}
+                    />
+                </section>
 
-              <section>
-                <FormInput
-                  autoFocus={true}
-                  name='username'
-                  placeholder='Enter Username'
-                  type='text'
-                  autoComplete='username'
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                <br />
+
+                <section>
+                  <FormInput
+                  name='password'
+                  className='entry-text'
+                  type='password'
+                  autoComplete='current-password'
+                  placeholder='Enter Password'
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   inputRef={register}
                   />
-              </section>
-            <br />
-              <section>
-                <FormInput
-                name='password'
-                className='entry-text'
-                type='password'
-                autoComplete='current-password'
-                placeholder='Enter Password'
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                inputRef={register}
-                />
-              </section>
-            </FormProvider>
+                </section>
+              </FormProvider>
             </ThemeProvider>
+
+          <br />
+
           <button 
             className='login-btn' 
             type='submit'>
               Login
           </button>
+
         </form>
       </div>
     </dialog>
