@@ -18,7 +18,7 @@ export const CompProvider = (props) => {
   const getMemberComp = () => {
     console.log('hit')
     console.log(component)
-    axios.get('/api/member-comp').then((res) => {
+    axios.get('/api/member-comp').then(({res}) => {
       console.log(res.data)
       setComponent(res.data)
     }).catch(err => console.log(err))

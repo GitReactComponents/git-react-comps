@@ -6,11 +6,11 @@ import './SCSS/Payment.scss'
 
 const { REACT_APP_STRIPE_KEY } = process.env;
 
-const Payment = () => {
+const Payment = (props) => {
   const onToken = (token) => {
     console.log({ token });
     axios
-      .post("/api/payment", { token })
+      .post("/api/payment", { token, amount: 399 })
       .then((res) => alert("success"))
       .catch((err) => console.log(err));
   };
@@ -25,7 +25,7 @@ const Payment = () => {
         >
           <div className='checkout-box'>
             <div className='product'>
-            <img className='image' src={URL}/>
+            <img className='image' src={props.Url.URL}/>
             </div>
             <div className='description'>
               <h3 className='dsc-text'>By purchasing this membership, you will have unlimited access

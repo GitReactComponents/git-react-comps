@@ -23,6 +23,7 @@ module.exports = {
             username: newUser.username,
             password: newUser.password
         }
+        res.status(200).send(req.session.user)
     },
 
     login: async (req, res) => {
