@@ -11,14 +11,9 @@ function Home() {
   return (
     <div className='home'>
       This is the Home Page
-<<<<<<< HEAD
-      <ComponentCategories/>
-      {/* <Post/> */}
-=======
       {category.map((category) => {
         return <CategoryTile category={category}/>
       })}
->>>>>>> main
     </div>
   )
 }
