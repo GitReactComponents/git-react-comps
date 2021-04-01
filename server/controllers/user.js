@@ -40,10 +40,9 @@ module.exports = {
         req.session.user = {
             userId: user.user_id,
             username: user.username,
-            // firstName: user.first_name,
-            // lastName: user.last_name,
-            // email: user.email,
-            password: user.password
+            firstName: user.first_name,
+            lastName: user.last_name,
+            email: user.email,
         }
         return res.send(req.session.user)
     },
@@ -54,35 +53,34 @@ module.exports = {
         res.sendStatus(200)
     },
 
-    getUser: (req, res) => {
-        if (req.session.user) {
-            res.status(200).send(req.session.user)
-        } else {
-            res.status(404).send('Please Log In')
-        }
-    },
+  getUser: (req, res) => {
+    if (req.session.user) {
+      return res.status(200).send(req.session.user)
+    }
+    res.status(404).send('Please Log In')
+  },
 
-    editUser: async (req, res) => {
-    const {id} = req.session.user
-    const {firstName, lastName, email, password} = req.body
-    const db = req.app.get('db')
-    const result = await db.user.find_user([email])
-    const existingUser = result[0]
+  editUser: async (req, res) => {
+  const {username, userId} = req.session.user
+  const {firstName, lastName, email, password} = req.body
+  const db = req.app.get('db')
+  const result = await db.auth_db.get_user_username([username])
+  const existingUser = result[0]
     if(existingUser){
-      console.log(req.body)
+      // console.log(req.body, req.params)
       let newPassword = existingUser.password
       if(password){
         const salt = bcrypt.genSaltSync(10)
         newPassword = bcrypt.hashSync(password, salt)
       }
-      const updatedUser = await db.user.update_user([firstName, lastName, email, newPassword, id])
+      const updatedUser = await db.auth_db.update_user([username, firstName, lastName, email, newPassword, userId ? userId : req.session.user.userId])
       const user = updatedUser[0]
       req.session.user = {
-        id: user.id,
-        email: user.email,
+        userId: user.user_id,
+        username: user.username,
         firstName: user.first_name,
         lastName: user.last_name,
-        profilePic: user.profile_pic
+        email: user.email,
       }
       return res.status(200).send(req.session.user)
     }

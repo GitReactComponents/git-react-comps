@@ -1,10 +1,86 @@
-#edit-user{
-  height: 100vh;
-  width: 100vw;
+@import 'helpers/variables';
+
+.user-info{
+  width: 100%;
+  height: 10%;
+  position: absolute;
+  top: 20vh;
 }
 
-#user-info{
-  height: 100vh;
-  width: 100vw;
+.page-title{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
+.user-edit-grid{
+  // height: 25%;
+  width: 40%;
+  display: grid;
+  justify-content: end;
+  // justify-items: center;
+  align-content: center;
+  // align-items: flex-end;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: .5fr .5fr .5fr .5fr .5fr;
+  gap: 1em 2em;
+  grid-template-areas:
+    "first first-input"
+    "last last-input"
+    "email email-input"
+    "password password-input"
+    "update-btn update-btn";
+}
+
+.title{
+  color: $off-white;
+}
+
+.first { 
+  grid-area: first;
+}
+
+.first-input{
+  grid-area: first-input;
+  height: 3vh;
+  width: 100%;
+
+}
+
+.last { 
+  grid-area: last; 
+}
+
+.last-input { 
+  grid-area: last-input; 
+  height: 3vh;
+  width: 100%;
+
+}
+
+.email { 
+  grid-area: email; 
+}
+
+.email-input { 
+  grid-area: email-input; 
+  height: 3vh;
+  width: 100%;
+
+}
+
+.password { 
+  grid-area: password; 
+}
+
+.password-input { 
+  grid-area: password-input; 
+  height: 3vh;
+  width: 100%;
+}
+
+.update-btn{
+  grid-area: update-btn;
+}

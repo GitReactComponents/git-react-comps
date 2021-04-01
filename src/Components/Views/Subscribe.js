@@ -35,7 +35,7 @@ function Subscribe(props) {
   
 
   const onSubmit = (data) => {
-    console.log(data.birthday)
+    console.log(data)
 
     userAuth.register(data.firstName, data.lastName, data.birthday, data.email, data.username, data.password);
     setFirstName('');

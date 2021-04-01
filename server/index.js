@@ -66,11 +66,11 @@ app.post('/api/create-post', auth.userOnly, ctrlPost.createPost)
 app.delete('/api/delete-post/:postId', auth.userOnly, ctrlPost.deletePost)
 
 // * user endpoints
-app.get('/api/auth/user', auth.userOnly, ctrlUser.getUser)
+app.get('/api/auth/user', ctrlUser.getUser)
 app.post('/api/auth/register', ctrlUser.register)
 app.post('/api/auth/login', ctrlUser.login)
 app.post('/api/auth/logout', ctrlUser.logout)
-app.put('/api/auth/update/:id', ctrlUser.editUser)
+app.put('/api/auth/update/:id', auth.userOnly, ctrlUser.editUser)
 // app.put('/auth/edit_user', auth.userOnly, ctrlUser.editUser)
 app.delete('/api/auth/delete_user', auth.userOnly, ctrlUser.deleteUser)
 
