@@ -1,15 +1,16 @@
 module.exports = {
-    readAllPosts: (req, res) => {
+    readAllPosts: async (req, res) => {
         const db = req.app.get('db')
-        db.post_db.get_post().then(posts => {
-            res.status(200).send(posts)
-        })
+        const {component_id} = req.params
+        const posts = await db.post_db.get_post_by_id(component_id)
+        res.status(200).send(posts)
     },
     createPost: (req, res) => {
         const db = req.app.get('db')
         const {postText} = req.body
-        const {userId, userName} = req.session.user
-        db.post_db.add_post(postText, userId, userName).then(post => {
+        const {userId, username} = req.session.user
+        // const {component_id} = req.params
+        db.post_db.add_post(postText, userId, username).then(post => {
             res.status(200).send(post)
         })
     },

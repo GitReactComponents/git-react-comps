@@ -15,14 +15,15 @@ const ComponentCategories = (props) => {
   useEffect(() => {
     compContext.getCompType(compContext.compType)
       setLandingComponents(compContext.component)
-  },[])
+  },[compContext.component, compContext.compType])
 
 
   return (
     
-    <div className='component-category'>
-        {landingComponents.map(({component_image, component_description}) => {
-          return <ComponentTile component_image={component_image} component_description={component_description}/>
+    <div className='component_category'>
+        {landingComponents.map(({component_image, component_description, component_id}) => {
+          return <ComponentTile key={component_image} component_id={component_id} component_image={component_image} component_description={component_description}/>
+
         })}
     </div>
   )

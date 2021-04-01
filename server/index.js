@@ -52,6 +52,7 @@ app.get('/api/member-comp', auth.userOnly, ctrlComp.readAllComp)
 app.post('/api/create-comp', auth.userOnly, ctrlComp.createComp)
 app.delete('/api/delete-comp/:compId', auth.userOnly, ctrlComp.deleteComp)
 app.get('/api/get_comp_type/:component_type', auth.userOnly, ctrlComp.readCompType)
+app.get('/api/get_comp/:component_id', auth.userOnly, ctrlComp.readComp)
 
 
 //mailer endpoint
@@ -59,7 +60,7 @@ app.post('/api/mail', mailCtrl.sendEmailComp)
 app.post('/api/mail/contact', mailCtrl.sendEmailContact)
 
 // * member posts endpoint
-app.get('/api/member-posts', auth.userOnly, ctrlPost.readAllPosts)
+app.get('/api/member-posts/:component_id', auth.userOnly, ctrlPost.readAllPosts)
 app.post('/api/create-post', auth.userOnly, ctrlPost.createPost)
 // app.put('/api/edit-post/:postId', auth.userOnly, ctrlPost.editPost)
 app.delete('/api/delete-post/:postId', auth.userOnly, ctrlPost.deletePost)
