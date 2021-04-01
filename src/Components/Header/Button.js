@@ -83,7 +83,7 @@ function Button(props) {
       <section>
           <div className={loginClasses.button}>
               <button 
-                className='btn login-modal' 
+                className='btn dark-btn' 
                 onClick={() => handleLoginModal()}
                 disabled={regModal ? true : false}
                 >
