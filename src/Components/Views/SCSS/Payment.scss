@@ -3,62 +3,79 @@
 @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 
 .checkout-box {
-  background-color: $off-white;
-  width: 25vw;
-  height: 65vh;
+  width: 30vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid $red-dark;
   border-radius: 30px;
+  background-color: $nav-menu-pop;
+}
+
+
+.product {
+  height: 18vh;
+  width: 25vw;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.membership-tag {
+  width: 30vw;
+  height: 35vh;
+}
+
+.description {
+  height: 30vh;
+  width: 85%;
+  color: $off-white;
+  line-height: 5vh;
+  font-family: 'Courgette';
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+}
+
+.dsc-text {
+  height: 100%;
+  width: 100%;
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  height: 28vh;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .checkout-btn {
+  height: 5.5vh;
+  width: 13vw;
+  padding: .7rem 1rem;
+  font-family: 'Courgette', cursive;
+  font-size: 26px;
+  font-weight: 590;
+  border-radius: 13px;
+  border: none;
+  outline: none;
   background-color: $off-white;
-  width: 185px;
-  font-family: 'Courgette';
-  font-size: 15px;
-  border-radius: 30px;
-  border: $off-white;
-  transition-duration: 0.4s;
   display: flex;
   justify-content: center;
 }
 
 .checkout-btn:hover {
-  background-color: $white;
-}
-
-.product {
-  height: 175px;
-  width: 25vw;
-  border-radius: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.image {
-  width: 17vw;
-  height: 135px;
-  border-radius: 30px;
-}
-
-.description {
-  margin-left: 13%;
-  height: 175px;
-  width: 20vw;
-  font-family: 'Courgette';
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
-
-.dsc-text {
-  font-size: 17px;
-}
-
-.footer {
-  height: 105px;
-  border-radius: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 5.6vh;
+  color: $off-white;
+  transition: all 0.2s ease-in-out;
+  border: 4px solid $off-white;
+  background-color: $page-background-color;
+  padding: .5rem 1rem;
 }
