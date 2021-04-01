@@ -9,6 +9,8 @@ import './Header.scss'
 function Header(props) {
   const userAuth = useContext(AuthContext)
 
+  const [loggedIn, setLoggedIn] = useState(false)
+
   const handleLogout = () => {
     userAuth.logout()
   }
@@ -91,6 +93,8 @@ function Header(props) {
 
   return (
     <header className='main-header'>
+
+
       {!userAuth.user &&
         outHeader()
       }
