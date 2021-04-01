@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import Subscribe from '../Views/Subscribe'
 import Login from '../Auth/Login'
+
 import {Slide} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
@@ -52,7 +53,7 @@ const useRegStyles = makeStyles((theme) => ({
 }))
 
 
-function Button() {
+function Button(props) {
   const [loginModal, setLoginModal] = useState(false)
   const [regModal, setRegModal] = useState(false)
 

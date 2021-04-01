@@ -6,8 +6,8 @@ const express = require("express"),
   ctrlPost = require("./controllers/posts"),
   ctrlUser = require("./controllers/user"),
   stripeCtrl = require('./controllers/payments'),
-  auth = require("./middleware/authCheck");
-  mailCtrl = require('./controllers/mailer')
+  auth = require("./middleware/authCheck"),
+  mailCtrl = require('./controllers/mailer');
 const session = require("express-session");
 const stripe = require('stripe')(process.env.SECRET_KEY)
 
