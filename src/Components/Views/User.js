@@ -24,9 +24,9 @@ function EditUser(props) {
   }
   
   return (
-    <div id='edit-page'>
+    <div className='user'>
       <div className='user-info'>
-        <h1>You can edit your user info here</h1>
+        <h1>Edit your info here</h1>
           <label className='edit-title'>First Name</label>
           <input
             className='edit-input'
@@ -45,7 +45,6 @@ function EditUser(props) {
           <br />
           <label>Email</label>
             <input
-              disabled
               className='edit-input'
               placeholder={email}
               autoComplete='email'

@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import 'helpers/variables';
+
 
 .about-text {
   width: 75vw;
   font-family: 'Courgette';
+}
+
+.about{
+  color: $off-white;
 }
