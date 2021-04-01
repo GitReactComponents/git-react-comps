@@ -6,10 +6,6 @@ import CategoryTile from '../CompDisplay/CategoryTile'
 
 
 function Home() {
-  
-
-
-
 
   return (
     <div className='home'>

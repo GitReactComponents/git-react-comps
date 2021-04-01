@@ -5,8 +5,6 @@
 * {
   margin: 0;
   padding: 0;
-  
-  // box-sizing: border-box;
 }
 
 body {
@@ -31,7 +29,7 @@ body {
   margin-right: 70vw;
 }
 
-.about, .contact, .favorites, .home, .subscribe, .upload, .user, .payment, .component_category{
+.about, .contact, .favorites, .home, .subscribe, .upload, .payment, .component_category{
   display: flex;
   height: 82vh;
   width: 100vw;
@@ -76,3 +74,8 @@ body {
   box-shadow: 0 4px 7px 1px $reverse-shadow;
   background-color: $modal-background;
 }
+
+.contact{
+  background-color: $main-header-color;
+}
+

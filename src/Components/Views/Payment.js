@@ -5,6 +5,7 @@ import Url from '../../Url'
 // import Header from '../Header/Header'
 
 import './SCSS/Payment.scss'
+import '../Header/Button.scss'
 
 const { REACT_APP_STRIPE_KEY } = process.env;
 
@@ -31,7 +32,7 @@ const Payment = (props) => {
         >
           <div className='checkout-box'>
             <div className='product'>
-            <img className='image' src=''/>
+            <img className='membership-tag' src='/img/membership-tag.png' alt='Membership tag logo' />
             </div>
             <div className='description'>
               <h3 className='dsc-text'>By purchasing this membership, you will have unlimited access
