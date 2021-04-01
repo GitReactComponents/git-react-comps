@@ -5,33 +5,30 @@ import axios from 'axios'
 export const AuthContext = createContext(null)
 
 export const AuthProvider = (props) => {
-    const [user, setUser] = useState(null)
-    const { push } = useHistory('')
+  const [user, setUser] = useState('')
+  const { push } = useHistory()
 
-    const [loggedIn, setLoggedIn] = useState(false)
 
 
     const getUser = () => {
-        axios.get('/api/auth/user')
-            .then(({ data }) => {
-                setUser(data)
-            })
+      axios.get('/api/auth/user').then(({data}) => {
+    console.log({data})
+        setUser(data)
+      })
     }
 
     const register = (firstName, lastName, birthday, email, username, password) => {
         axios.post('/api/auth/register', {firstName, lastName, birthday, email, username, password})
             .then(({data}) => {
                 setUser(data)
-                // setLoggedIn(true)
                 push('/payment')
             })
     }
 
     const login = (username, password) => {
         axios.post('/api/auth/login', {username, password}).then(({data}) => {
-          console.log(loggedIn)
-            setUser(data)
-            // setLoggedIn(true)
+          console.log(data)
+          setUser(data)
             push('/')
         })
     }
@@ -52,25 +49,25 @@ export const AuthProvider = (props) => {
     //         })
     // }
 
-      const updateUser = (firstName, lastName, email,  password, id) => {
+  const updateUser = (firstName, lastName, email,  password, id) => {
+    // console.log('hi', firstName, lastName, email, password, id)
     axios.put(`/api/auth/update/${id}`, {firstName, lastName, email, password}).then(({data}) => {
-      getUser(user)
+      // getUser(user)
       setUser(data)
-      push('/home')
+      push('/')
     })
   }
 
-    const deleteUser = (user) => {
-        axios.delete(`/api/auth/delete_user/:${user.userId}`)
-            .then(() => {
-                setUser('')
-                push('/')
-            })
-    }
+  const deleteUser = (user) => {
+    axios.delete(`/api/auth/delete_user/:${user.userId}`).then(() => {
+      setUser('')
+      push('/')
+    })
+  }
 
 
     return (
-        <AuthContext.Provider value={{user, loggedIn, setLoggedIn, getUser, setUser, login, logout, register, updateUser, deleteUser}}>
+        <AuthContext.Provider value={{user, getUser, setUser, login, logout, register, updateUser, deleteUser}}>
             {props.children}
         </AuthContext.Provider>
     )

@@ -1,6 +1,5 @@
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
-import Url from '../../Url'
 // import {useHistory} from 'react'
 // import Header from '../Header/Header'
 

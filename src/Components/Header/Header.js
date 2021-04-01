@@ -11,6 +11,7 @@ function Header(props) {
 
   useEffect(() => {
     userAuth.getUser()
+    console.log(userAuth.getUser(userAuth.user))
   }, [])
 
 

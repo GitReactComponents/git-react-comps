@@ -26,10 +26,10 @@ function Login() {
 
 
   const onSubmit = (data) => {
-    console.log(data.username, data.password)
+    // console.log(data)
     userAuth.login(data.username, data.password)
-    setUsername('')
-    setPassword('')
+    // setUsername('')
+    // setPassword('')
   }
 
 

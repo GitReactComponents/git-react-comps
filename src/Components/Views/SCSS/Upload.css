@@ -1,0 +1,15 @@
+.input-style {
+  width: 20rem;
+  height: 2rem;
+}
+
+label {
+  float: left;
+  width: 20rem;
+  font-size: 25px;
+}
+
+select {
+  height: 2rem;
+}
+/*# sourceMappingURL=Upload.css.map */
