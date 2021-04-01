@@ -6,14 +6,14 @@ export const PostContext = createContext(null);
 export const PostProvider = (props) => {
     const [postS, setPostS] = useState([])
 
-    const readPosts = () => {
-        axios.get('/api/post-nm').then(({data}) => {
-            setPostS(...postS, data)
-        })
-    }    
+    // const readPosts = () => {
+    //     axios.get('/api/post-nm').then(({data}) => {
+    //         setPostS(...postS, data)
+    //     })
+    // }
 
-    const readAllPosts = () => {
-        axios.get('/api/member-posts').then(({data}) => {
+    const readAllPosts = (component_id) => {
+        axios.get('/api/member-posts', {component_id}).then(({data}) => {
             setPostS(...postS, data)
         })
     }
@@ -41,7 +41,7 @@ export const PostProvider = (props) => {
     }
 
     return (
-        <PostContext.Provider value={{postS, setPostS, readPosts, readAllPosts, createPost, editPost, deletePost}}>
+        <PostContext.Provider value={{postS, setPostS, readAllPosts, createPost, editPost, deletePost}}>
             {props.children}
         </PostContext.Provider>
     )
