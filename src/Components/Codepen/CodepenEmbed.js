@@ -6,7 +6,8 @@ const CodepenEmbed = (props) => {
   useCodePenEmbed();
   const compContext = useContext(CompContext)
   console.log(compContext);
-  const {component_info: {html, scss, js}} = compContext.componentToDisplay && compContext.componentToDisplay.component_info ? compContext.componentToDisplay : { component_info: {} };
+  // const {component_info: {html, scss, js}} = compContext.componentToDisplay && compContext.componentToDisplay.component_info ? compContext.componentToDisplay : { component_info: {} };
+  const {html, scss, js} =compContext.componentToDisplay.component_info
   return (
     <PrefillEmbed
       className="codepen"

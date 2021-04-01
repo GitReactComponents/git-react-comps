@@ -5,7 +5,7 @@ import axios from 'axios'
 export const CompContext = createContext(null)
 
 export const CompProvider = (props) => {
-  const [componentToDisplay, setComponentToDisplay] = useState({});
+  const [componentToDisplay, setComponentToDisplay] = useState(null);
   const [component, setComponent] = useState([])
   const [compType, setCompType] = useState('Button')
   const [singleComp, setSingleComp] = useState('')
@@ -25,7 +25,8 @@ export const CompProvider = (props) => {
 
   const getSingleComp = (component_id) => {
     const index = component.findIndex(e => e.component_id === component_id);
-    setComponentToDisplay(component[index]);
+    setComponentToDisplay(component[index])
+    console.log(component[index])
   }
 
   // app.post('/api/create-comp', auth.userOnly, ctrlComp.createComp)

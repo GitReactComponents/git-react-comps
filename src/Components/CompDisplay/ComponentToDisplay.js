@@ -9,14 +9,16 @@ const ComponentToDisplay = () => {
   const [component, setComponent] = useState({})
 
   useEffect(() => {
+    console.log(compContext.singleComp)
     compContext.getSingleComp(compContext.singleComp)
-    setComponent(compContext.component)
-  }, [])
+  }, [compContext.singleComp])
   console.log(compContext.component)
+
+  console.log(compContext.componentToDisplay)
 
   return (
     <div className='component'>
-      <CodepenEmbed componentToDisplay={compContext.componentToDisplay} />
+      {compContext.componentToDisplay && <CodepenEmbed componentToDisplay={compContext.componentToDisplay} />}
       <Post/>
     </div>
   )

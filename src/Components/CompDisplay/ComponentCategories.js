@@ -15,7 +15,7 @@ const ComponentCategories = (props) => {
   useEffect(() => {
     compContext.getCompType(compContext.compType)
       setLandingComponents(compContext.component)
-  },[])
+  },[compContext.componenet, compContext.compType])
 
 
   return (
