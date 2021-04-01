@@ -6,7 +6,7 @@ const ComponentTile = (comp) => {
 
   return (
     <div className='compTile'>
-      <div className='compImage' style={{ backgroundImage: `url('${comp.component_info}')` }}></div> 
+      <div className='compImage' style={{ backgroundImage: `url('${comp.component_image}')` }}></div> 
       <div className='compTileName' >{comp.component_description}</div>
     </div>
   )

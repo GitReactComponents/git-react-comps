@@ -8,12 +8,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 10px;
 }
 
 .compImage {
   width: 394px;
   height:144px;
   border: $red-light solid 3px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .compTileName {
