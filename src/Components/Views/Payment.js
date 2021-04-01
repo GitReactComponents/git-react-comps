@@ -3,6 +3,7 @@ import axios from "axios";
 import Url from '../../Url'
 // import {useHistory} from 'react'
 // import Header from '../Header/Header'
+import Subscribe from './Subscribe'
 
 import './SCSS/Payment.scss'
 import '../Header/Button.scss'
@@ -17,7 +18,7 @@ const Payment = (props) => {
       .post("/api/payment", { token, amount: 399 })
       .then((res) => {
         props.history.push('/')
-        
+        props.onSubmit()
       })
       .catch((err) => console.log(err));
   };

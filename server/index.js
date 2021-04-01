@@ -59,7 +59,7 @@ app.post('/api/mail', mailCtrl.sendEmailComp)
 app.post('/api/mail/contact', mailCtrl.sendEmailContact)
 
 // * member posts endpoint
-app.get('/api/member-posts', auth.userOnly, ctrlPost.readAllPosts)
+app.get('/api/member-posts/:component_id', auth.userOnly, ctrlPost.readAllPosts)
 app.post('/api/create-post', auth.userOnly, ctrlPost.createPost)
 // app.put('/api/edit-post/:postId', auth.userOnly, ctrlPost.editPost)
 app.delete('/api/delete-post/:postId', auth.userOnly, ctrlPost.deletePost)
