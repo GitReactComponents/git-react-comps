@@ -62,12 +62,32 @@ module.exports = {
         }
     },
 
-    // editUser: async (req, res) => {
-    //     const db = req.app.get('db')
-    //     const { userId, isMember } = req.body
-    //     const [updatedUser] = await db.auth_db.update_user(userId, isMember)
-    //     return res.status(200).send(updatedUser)
-    // },
+    editUser: async (req, res) => {
+    const {id} = req.session.user
+    const {firstName, lastName, email, password} = req.body
+    const db = req.app.get('db')
+    const result = await db.user.find_user([email])
+    const existingUser = result[0]
+    if(existingUser){
+      console.log(req.body)
+      let newPassword = existingUser.password
+      if(password){
+        const salt = bcrypt.genSaltSync(10)
+        newPassword = bcrypt.hashSync(password, salt)
+      }
+      const updatedUser = await db.user.update_user([firstName, lastName, email, newPassword, id])
+      const user = updatedUser[0]
+      req.session.user = {
+        id: user.id,
+        email: user.email,
+        firstName: user.first_name,
+        lastName: user.last_name,
+        profilePic: user.profile_pic
+      }
+      return res.status(200).send(req.session.user)
+    }
+    return res.sendStatus(404)
+  },
 
     deleteUser: async (req, res) => {
         const db = req.app.get('db')

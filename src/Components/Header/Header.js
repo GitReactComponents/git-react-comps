@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useEffect} from 'react'
 import {AuthContext} from '../../Context/AuthContext'
 import {Link} from 'react-router-dom'
 import Button from './Button'
@@ -8,6 +8,11 @@ import './Header.scss'
 
 function Header(props) {
   const userAuth = useContext(AuthContext)
+
+  useEffect(() => {
+    userAuth.getUser()
+  }, [])
+
 
   const handleLogout = () => {
     userAuth.logout()
@@ -28,9 +33,11 @@ function Header(props) {
           <Link to='/about' className='nav-link'>About</Link>
 
           <div className='subnav'>
+            
             <button className='subnavbtn'><span>Options </span> 
               <i className='fa fa-caret-down'></i>
             </button>
+
             <div className='subnav-content'>
               <Link to='/user'>Edit User</Link>
               <Link to='/upload'>Upload Comps</Link>
@@ -68,17 +75,10 @@ function Header(props) {
               <img className='logo' src='/img/logo.png' alt='Git-React-Comps Logo' />
             </Link>
           <div className='navbar'>
-
-          <Link to='/' className='nav-link'>Home</Link>
-
+            <Link to='/' className='nav-link'>Home</Link>
             <Link to='/about' className='nav-link'>About</Link>
-            
-
             <Link to='/contact' className='nav-link'>Contact Us</Link>
-
           </div>
-
-
 
           <section className='header-btn-container'>
             <Button />
@@ -91,12 +91,10 @@ function Header(props) {
 
   return (
     <header className='main-header'>
-      {!userAuth.user &&
-        outHeader()
-      }
-      {userAuth.user &&
-        inHeader()
-      }
+      {userAuth.user 
+        ? inHeader() 
+        : outHeader()}
+
     </header>
   )
 }

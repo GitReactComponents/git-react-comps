@@ -6,8 +6,8 @@ const express = require("express"),
   ctrlPost = require("./controllers/posts"),
   ctrlUser = require("./controllers/user"),
   stripeCtrl = require('./controllers/payments'),
-  auth = require("./middleware/authCheck");
-  mailCtrl = require('./controllers/mailer')
+  auth = require("./middleware/authCheck"),
+  mailCtrl = require('./controllers/mailer');
 const session = require("express-session");
 const stripe = require('stripe')(process.env.SECRET_KEY)
 
@@ -69,6 +69,7 @@ app.get('/api/auth/user', auth.userOnly, ctrlUser.getUser)
 app.post('/api/auth/register', ctrlUser.register)
 app.post('/api/auth/login', ctrlUser.login)
 app.post('/api/auth/logout', ctrlUser.logout)
+app.put('/api/auth/update/:id', ctrlUser.editUser)
 // app.put('/auth/edit_user', auth.userOnly, ctrlUser.editUser)
 app.delete('/api/auth/delete_user', auth.userOnly, ctrlUser.deleteUser)
 

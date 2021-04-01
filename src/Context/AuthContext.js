@@ -8,6 +8,9 @@ export const AuthProvider = (props) => {
     const [user, setUser] = useState(null)
     const { push } = useHistory('')
 
+    const [loggedIn, setLoggedIn] = useState(false)
+
+
     const getUser = () => {
         axios.get('/api/auth/user')
             .then(({ data }) => {
@@ -18,15 +21,17 @@ export const AuthProvider = (props) => {
     const register = (firstName, lastName, birthday, email, username, password) => {
         axios.post('/api/auth/register', {firstName, lastName, birthday, email, username, password})
             .then(({data}) => {
-                console.log('context', data.birthday)
                 setUser(data)
+                // setLoggedIn(true)
                 push('/payment')
             })
     }
 
     const login = (username, password) => {
         axios.post('/api/auth/login', {username, password}).then(({data}) => {
+          console.log(loggedIn)
             setUser(data)
+            // setLoggedIn(true)
             push('/')
         })
     }
@@ -39,13 +44,21 @@ export const AuthProvider = (props) => {
             })
     }
 
-    const updateUser = (user, userId) => {
-        axios.put('/api/auth/edit_user', {userId, isMember: true})
-            .then(() => {
-                setUser(...user)
-                push('/')
-            })
-    }
+    // const updateUser = (user, userId) => {
+    //     axios.put('/api/auth/edit_user', {userId, isMember: true})
+    //         .then(() => {
+    //             setUser(...user)
+    //             push('/')
+    //         })
+    // }
+
+      const updateUser = (firstName, lastName, email,  password, id) => {
+    axios.put(`/api/auth/update/${id}`, {firstName, lastName, email, password}).then(({data}) => {
+      getUser(user)
+      setUser(data)
+      push('/home')
+    })
+  }
 
     const deleteUser = (user) => {
         axios.delete(`/api/auth/delete_user/:${user.userId}`)
@@ -57,7 +70,7 @@ export const AuthProvider = (props) => {
 
 
     return (
-        <AuthContext.Provider value={{user, getUser, setUser, login, logout, register, updateUser, deleteUser}}>
+        <AuthContext.Provider value={{user, loggedIn, setLoggedIn, getUser, setUser, login, logout, register, updateUser, deleteUser}}>
             {props.children}
         </AuthContext.Provider>
     )

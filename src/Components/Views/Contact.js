@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 import './SCSS/Contact.scss'
 
-
 class Contact extends React.Component {
 
   constructor(){
