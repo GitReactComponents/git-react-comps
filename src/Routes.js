@@ -9,6 +9,7 @@ import Payment from './Components/Views/Payment'
 import Subscribe from './Components/Views/Subscribe'
 import Upload from './Components/Views/Upload'
 import User from './Components/Views/User'
+import ComponentCategories from './Components/CompDisplay/ComponentCategories'
 
 // import Landing from './Components/Landing'
 
@@ -24,6 +25,7 @@ export default (
             <Route path='/payment' component={Payment}/>
             <Route path="/upload" component={Upload} />
             <Route path="/user" component={User} />
+            <Route path="/component_category" component={ComponentCategories}/>
         </Switch>
     </HashRouter>
 )
