@@ -23,12 +23,12 @@ const CodepenEmbed = (props) => {
     >
       <PrefillLang lang="html">
         {stripIndent`
-            ${props.html}
+            ${props.component}
           `}
       </PrefillLang>
       <PrefillLang lang="scss">
         {stripIndent`
-          ${props.scss}
+          ${props.component.scss}
         `}
       </PrefillLang>
       <PrefillLang lang="babel">

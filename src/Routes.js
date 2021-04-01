@@ -10,6 +10,7 @@ import Subscribe from './Components/Views/Subscribe'
 import Upload from './Components/Views/Upload'
 import User from './Components/Views/User'
 import ComponentCategories from './Components/CompDisplay/ComponentCategories'
+import ComponentToDisplay from './Components/CompDisplay/ComponentToDisplay'
 
 // import Landing from './Components/Landing'
 
@@ -22,10 +23,11 @@ export default (
             <Route path="/contact" component={Contact} />
             <Route path="/favorites" component={Favorites} />
             <Route path="/subscribe" component={Subscribe} />
-            <Route path='/payment' component={Payment}/>
+            <Route path='/payment' component={Payment} />
             <Route path="/upload" component={Upload} />
             <Route path="/user" component={User} />
-            <Route path="/component_category" component={ComponentCategories}/>
+            <Route path="/component_category" component={ComponentCategories} />
+            <Route path='/component' component={ComponentToDisplay} />
         </Switch>
     </HashRouter>
 )
