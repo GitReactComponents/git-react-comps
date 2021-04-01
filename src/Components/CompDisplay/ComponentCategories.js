@@ -22,7 +22,7 @@ const ComponentCategories = (props) => {
     
     <div className='component_category'>
         {landingComponents.map(({component_image, component_description, component_id}) => {
-          return <ComponentTile key={component_id} component_image={component_image} component_description={component_description}/>
+          return <ComponentTile key={component_image} component_id={component_id} component_image={component_image} component_description={component_description}/>
         })}
     </div>
   )

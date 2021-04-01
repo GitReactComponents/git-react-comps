@@ -12,11 +12,11 @@ const ComponentToDisplay = () => {
     compContext.getSingleComp(compContext.singleComp)
     setComponent(compContext.component)
   }, [])
-
+  console.log(compContext.component)
 
   return (
     <div className='component'>
-      <CodepenEmbed component={component} />
+      <CodepenEmbed componentToDisplay={compContext.componentToDisplay} />
       <Post/>
     </div>
   )
