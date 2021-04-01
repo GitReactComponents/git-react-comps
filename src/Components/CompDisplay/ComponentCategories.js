@@ -5,25 +5,25 @@
 import {useState, useEffect, useContext} from 'react'
 import {CompContext} from '../../Context/CompContext'
 import ComponentTile from './ComponentTile'
+import './ComponentCategories.scss'
 
 const ComponentCategories = (props) => {
   const compContext = useContext(CompContext)
-  console.log(compContext)
 
   const [landingComponents, setLandingComponents] = useState([])
 
   useEffect(() => {
-    console.log(landingComponents)
-    console.log(compContext.component)
-    compContext.getMemberComp()
-    setLandingComponents(compContext.component)
-  })
+    compContext.getCompType(compContext.compType)
+      setLandingComponents(compContext.component)
+  },[])
 
 
   return (
-    <div>
-      {landingComponents}
-      <ComponentTile/>
+    
+    <div className='component_category'>
+        {landingComponents.map(({component_image, component_description}) => {
+          return <ComponentTile component_image={component_image} component_description={component_description}/>
+        })}
     </div>
   )
 }
