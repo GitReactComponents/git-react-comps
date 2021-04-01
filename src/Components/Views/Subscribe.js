@@ -1,6 +1,5 @@
 import React, {useState, useContext, Fragment} from 'react'
 import {AuthContext} from '../../Context/AuthContext'
-import Payment from './Payment'
 import 'date-fns'
 import DateFnsUtils from '@date-io/date-fns'
 import {useForm, FormProvider} from 'react-hook-form'
