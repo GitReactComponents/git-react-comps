@@ -15,7 +15,7 @@ const Payment = (props) => {
     axios
       .post("/api/payment", { token, amount: 399 })
       .then((res) => {
-        // push('/')
+        props.history.push('/')
         
       })
       .catch((err) => console.log(err));

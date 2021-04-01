@@ -20,7 +20,7 @@ export const AuthProvider = (props) => {
             .then(({data}) => {
                 console.log('context', data.birthday)
                 setUser(data)
-                push('/')
+                push('/payment')
             })
     }
 
@@ -39,13 +39,21 @@ export const AuthProvider = (props) => {
             })
     }
 
-    const updateUser = (user, userId) => {
-        axios.put('/api/auth/edit_user', {userId, isMember: true})
-            .then(() => {
-                setUser(...user)
-                push('/')
-            })
-    }
+    // const updateUser = (user, userId) => {
+    //     axios.put('/api/auth/edit_user', {userId, isMember: true})
+    //         .then(() => {
+    //             setUser(...user)
+    //             push('/')
+    //         })
+    // }
+
+      const updateUser = (firstName, lastName, email,  password, id) => {
+    axios.put(`/api/auth/update/${id}`, {firstName, lastName, email, password}).then(({data}) => {
+      getUser(user)
+      setUser(data)
+      push('/home')
+    })
+  }
 
     const deleteUser = (user) => {
         axios.delete(`/api/auth/delete_user/:${user.userId}`)

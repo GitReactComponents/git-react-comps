@@ -1,6 +1,6 @@
 import React, {useState, useContext, useEffect} from 'react'
 import {AuthContext} from '../../Context/AuthContext'
-
+import './SCSS/User.scss'
 
 
 function EditUser(props) {
@@ -17,7 +17,7 @@ function EditUser(props) {
     setLast(userAuth.user.lastName)
     setEmail(userAuth.user.email)
     setPassword(userAuth.user.password)
-    }, [props])
+    },[props])
 
   const updateUser = (e) => {
     userAuth.updateUser(firstName, lastName, email, password, props.id)
@@ -27,15 +27,6 @@ function EditUser(props) {
     <div id='edit-page'>
       <div className='user-info'>
         <h1>You can edit your user info here</h1>
-          <label>Account Name</label>
-            <input
-              disabled
-              className='edit-input'
-              placeholder={email}
-              autoComplete='email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              />        <br />
           <label className='edit-title'>First Name</label>
           <input
             className='edit-input'
@@ -52,6 +43,15 @@ function EditUser(props) {
               onChange={(e) => setLast(e.target.value)}
             />
           <br />
+          <label>Email</label>
+            <input
+              disabled
+              className='edit-input'
+              placeholder={email}
+              autoComplete='email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              />        <br />
             <label className='edit-title'>Password</label>
             <input
               className='edit-input'
