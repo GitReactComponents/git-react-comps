@@ -8,8 +8,8 @@ const ComponentTile = (comp) => {
   const compContext = useContext(CompContext)
   const {push} = useHistory('')
 
-  const handleClick = () => { 
-    compContext.setSingleComp(comp.component_id)
+  const handleClick = async () => { 
+    await compContext.setSingleComp(comp.component_id)
     console.log(comp)
     push('/component')
   }

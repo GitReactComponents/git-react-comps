@@ -9,10 +9,9 @@ const ComponentToDisplay = () => {
   const [component, setComponent] = useState({})
 
   useEffect(() => {
-    console.log(compContext.singleComp)
     compContext.getSingleComp(compContext.singleComp)
   }, [compContext.singleComp])
-  console.log(compContext.component)
+  
 
   console.log(compContext.componentToDisplay)
 

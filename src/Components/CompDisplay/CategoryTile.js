@@ -8,14 +8,14 @@ const CategoryTile = (props) => {
   const compContext = useContext(CompContext)
   const {push} = useHistory('')
 
-  const handleChange = () => {
-    compContext.setCompType(props.category)
+  const handleClick = async () => {
+    await compContext.setCompType(props.category)
     push('/component_category')
   }
   
   return (
     <div>
-      <button onclick={handleChange}>
+      <button onClick={handleClick}>
           {props.category}
       </button>
     </div>

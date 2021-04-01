@@ -7,7 +7,7 @@ export const CompContext = createContext(null)
 export const CompProvider = (props) => {
   const [componentToDisplay, setComponentToDisplay] = useState(null);
   const [component, setComponent] = useState([])
-  const [compType, setCompType] = useState('Button')
+  const [compType, setCompType] = useState('')
   const [singleComp, setSingleComp] = useState('')
 
   // app.get('/api/member-comp', auth.userOnly, ctrlComp.readAllComp)

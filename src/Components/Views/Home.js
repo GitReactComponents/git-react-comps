@@ -6,7 +6,7 @@ import CategoryTile from '../CompDisplay/CategoryTile'
 
 
 function Home() {
-  const [categories, setCategories] = useState(['Button', 'Header', 'Footer', 'Nav Bar', 'Forms', 'Card', 'List', 'Menus', 'Search', 'Tabs'])
+  const [categories, setCategories] = useState(['Button', 'Header', 'Footer', 'Navbar', 'Form', 'Card', 'List', 'Menu', 'Search', 'Tabs'])
   
 
   return (

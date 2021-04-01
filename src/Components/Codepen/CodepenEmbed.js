@@ -1,13 +1,14 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import { PrefillEmbed, PrefillLang, useCodePenEmbed, stripIndent } from 'react-codepen-prefill-embed';
 import {CompContext} from '../../Context/CompContext'
 
 const CodepenEmbed = (props) => {
-  useCodePenEmbed();
+  
+  useCodePenEmbed()
+
   const compContext = useContext(CompContext)
   console.log(compContext);
-  // const {component_info: {html, scss, js}} = compContext.componentToDisplay && compContext.componentToDisplay.component_info ? compContext.componentToDisplay : { component_info: {} };
-  const {html, scss, js} =compContext.componentToDisplay.component_info
+  const {html, scss, js} = compContext.componentToDisplay.component_info
   return (
     <PrefillEmbed
       className="codepen"
