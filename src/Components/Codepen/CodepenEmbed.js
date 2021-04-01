@@ -1,7 +1,14 @@
+import React, {useContext, useEffect} from 'react'
 import { PrefillEmbed, PrefillLang, useCodePenEmbed, stripIndent } from 'react-codepen-prefill-embed';
+import {CompContext} from '../../Context/CompContext'
 
 const CodepenEmbed = (props) => {
-  useCodePenEmbed();
+  
+  useCodePenEmbed()
+
+  const compContext = useContext(CompContext)
+  console.log(compContext);
+  const {html, scss, js} = compContext.componentToDisplay.component_info
   return (
     <PrefillEmbed
       className="codepen"
@@ -22,18 +29,18 @@ const CodepenEmbed = (props) => {
       stylesheets={['https://unpkg.com/normalize.css@8.0.1/normalize.css']}
     >
       <PrefillLang lang="html">
-        {stripIndent`
-            ${props.html}
+        {`
+      ${html}
           `}
       </PrefillLang>
       <PrefillLang lang="scss">
-        {stripIndent`
-          ${props.scss}
+        {`
+      ${scss}
         `}
       </PrefillLang>
       <PrefillLang lang="babel">
-        {stripIndent`
-          ${props.js}
+        {`
+      ${js}
         `}
       </PrefillLang>
     </PrefillEmbed>
