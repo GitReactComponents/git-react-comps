@@ -1,16 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 @import 'helpers/variables';
 
-.input-style{
-  width: 20rem;
-  height: 2rem;
+
+
+
+.submit-info{
+  width: 90%;
+  position: absolute;
+  top: 23vh;
 }
 
-label{
-  float: left;
-  width: 20rem;
-  font-size: 25px;
+.submit-header{
+  width: 100%;
+  color: $red-dark;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-select{
-  height: 2rem;
+.upload-form{
+  width: 100%;
+  display: grid;
+  justify-content: end;
+  text-align: center;
+  align-content: stretch;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: .5fr .5fr .5fr .5fr .5fr .5fr;
+  gap: 1em 2em;
+  margin-top: 5vh;
+  grid-template-areas:
+    "type select"
+    "title title-input"
+    "html html-input"
+    "scss scss-input"
+    "js js-input"
+    ". ."
+    "submit-btn submit-btn";
+}
+
+.type{
+  grid-area: type;
+}
+
+.select{
+  width: 100%;
+  height: 3vh;
+  grid-area: select;
+}
+
+.title{
+  grid-area: title;
+}
+
+.title-input{
+  width: 100%;
+  height: 3vh;
+  grid-area: title-input;
+}
+
+.html{
+  grid-area: html;
+}
+
+.html-input{
+  height: 3vh;
+  grid-area: html-input;
+}
+
+.scss{
+  grid-area: scss;
+}
+
+.scss-input{
+  width: 100%;
+  height: 3vh;
+  grid-area: scss-input;
+}
+
+.js{
+  grid-area: js;
+}
+
+.js-input{
+  width: 100%;
+  height: 3vh;
+  grid-area: js-input;
+}
+
+.submit-btn{
+  grid-area: submit-btn;
+  height: 5.8vh;
+  width: 40%;
+  justify-self: center;
+  padding: .7rem 1rem;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  font-size: 24px;
+  font-weight: 700;
+  color: $off-white;
+  cursor: pointer;
+  background-color: $red-dark;
+  font-family: 'Courgette', cursive;
+}
+
+.submit-btn:hover{
+  padding: .5rem 1rem;
+  transition: all 0.2s ease-in-out;
+  background-color: transparent;
+  color: $off-white;
+  border-radius: 25px;
+  border: 4px solid $red-dark;
 }

@@ -1,7 +1,10 @@
 import React, {useState, useContext, useEffect} from 'react'
 import {AuthContext} from '../../Context/AuthContext'
+
 import {TextField} from '@material-ui/core'
+
 import './SCSS/User.scss'
+
 
 
 function EditUser() {
@@ -27,15 +30,14 @@ function EditUser() {
 
   return (
     <div className='user'>
-      <div className='user-info'>
-
-        <h1 className='page-title'>You can edit your user info here</h1>
+      <div className='user-edit'>
+        <h1 className='user-edit-header'>You can edit your user info here</h1>
       </div>
 
       <div className='user-edit-grid'>
 
           <section className='first title'>
-            <label>First Name: </label>
+            <label for='first-input'>First Name: </label>
           </section>
             <input
               className='first-input'
@@ -47,7 +49,7 @@ function EditUser() {
           <br />
 
           <section className='last title'>
-            <label>Last Name: </label>
+            <label for='last-input'>Last Name: </label>
           </section>
             <input
               className='last-input'
@@ -59,7 +61,7 @@ function EditUser() {
           <br />
 
           <section className='email title'>
-            <label>Email: </label>
+            <label for='email-input'>Email: </label>
           </section>
               <input
                 className='email-input'
@@ -72,7 +74,7 @@ function EditUser() {
           <br />
             
           <section className='password title'>
-            <label>Password: </label>
+            <label for='password-input'>Password: </label>
           </section>
             <input
               className='password-input'
@@ -81,8 +83,6 @@ function EditUser() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-
-        <br />
 
           <button 
             className='update-btn' 

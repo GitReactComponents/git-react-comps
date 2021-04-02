@@ -55,7 +55,7 @@ app.get('/api/get_comp_type/:component_type', auth.userOnly, ctrlComp.readCompTy
 app.get('/api/get_comp/:component_id', auth.userOnly, ctrlComp.readComp)
 
 
-//mailer endpoint
+// * mailer endpoint
 app.post('/api/mail', mailCtrl.sendEmailComp)
 app.post('/api/mail/contact', mailCtrl.sendEmailContact)
 

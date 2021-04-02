@@ -1,6 +1,15 @@
 @import 'helpers/variables';
 
-.compTile {
+
+.comp-tile-display{
+  height: 100%;
+  width: 50%;
+  // display: flex;
+  flex-wrap: wrap;
+  background-color: $page-background-color;
+}
+
+.comp-tile {
   background-color: $white;
   width: 400px;
   height: 200px;
@@ -11,7 +20,7 @@
   margin: 10px;
 }
 
-.compImage {
+.comp-image {
   width: 394px;
   height:144px;
   border: $red-light solid 3px;
@@ -19,7 +28,7 @@
   background-repeat: no-repeat;
 }
 
-.compTileName {
+.comp-tile-name {
   font-size: 30px;
   height: 50px;
   width:400px;
