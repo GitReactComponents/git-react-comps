@@ -1,7 +1,7 @@
 import {useContext} from 'react'
 import {CompContext} from '../../Context/CompContext'
 import {useHistory} from 'react-router-dom'
-
+import './CategoryTile.scss'
 
 
 const CategoryTile = (props) => {
@@ -14,8 +14,8 @@ const CategoryTile = (props) => {
   }
   
   return (
-    <div>
-      <button onClick={handleClick}>
+    <div className='button-area'>
+      <button className='category-buttons' onClick={handleClick}>
           {props.category}
       </button>
     </div>

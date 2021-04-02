@@ -4,7 +4,7 @@ import {AuthContext} from '../../Context/AuthContext'
 import {useForm, FormProvider} from 'react-hook-form'
 import FormInput from '../Views/inputController/index'
 
-import {ThemeProvider, TextField} from '@material-ui/core'
+import {ThemeProvider} from '@material-ui/core'
 import theme from '../../theme'
 
 import './Login.scss'
