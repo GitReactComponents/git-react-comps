@@ -84,3 +84,20 @@
 .update-btn{
   grid-area: update-btn;
 }
+
+.update-btn{
+  // grid-area: update-btn;
+  height: 5.8vh;
+  width: 40%;
+  justify-self: center;
+  padding: .7rem 1rem;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  font-size: 24px;
+  font-weight: 700;
+  color: $off-white;
+  cursor: pointer;
+  background-color: $red-dark;
+  font-family: 'Courgette', cursive;
+}
