@@ -30,26 +30,42 @@ class Contact extends React.Component {
   }
 
   render(){
-    return <div className='contact'>
+    return (
+      <div className='contact'>
+        <div className='contact-us'>
+          <h1 className='contact-header'>Contact Us</h1>
+        </div>
+      
+
+        <div className='contact-grid-box'>
+          <form className='contact-grid' onSubmit={this.sendEmail}>
+
+            <section className='contact-name'>
+              <label for="name">Name: </label>
+            </section>  
+              <input className='contact-name-input' value={this.state.name} onChange={this.changeHandler} name="name" type="text" placeholder="Name" required/>
+
+            <section className="contact-email">
+              <label for="email">Email: </label>
+            </section>
+              <input className='contact-email-input' value={this.state.email} onChange={this.changeHandler} name="email" type="email" placeholder="Email" required/>
+
+            <section className="contact-msg">
+              <label for="message">Message: </label>
+            </section>
+              <textarea className='contact-msg-input' value={this.state.message} onChange={this.changeHandler} name="message" type="text" placeholder="Message" required/>
+
+            <button 
+              className='contact-us-btn'
+              type="submit">
+                Submit
+            </button>
+
+          </form>
+        </div>
+      </div>
     
-      <form onSubmit={this.sendEmail} className="entry">
-    <h1>Contact Us</h1>
-    <div className="form-set">
-      <label className='labels' for="name">Name</label>
-      <input className='input-style' value={this.state.name} onChange={this.changeHandler} name="name" type="text" placeholder="Name" required/>
-    </div>    
-    <div className="form-set">
-      <label className='labels' for="email">Email</label>
-      <input className='input-style' value={this.state.email} onChange={this.changeHandler} name="email" type="email" placeholder="Email" required/>
-        <div className="form-set">
-        <label className='labels' for="message">Message</label>
-        <textarea className='message-area' value={this.state.message} onChange={this.changeHandler} name="message" type="text" placeholder="Message" required/>
-        </div>
-        </div>
-    <div className="actions">
-      <button type="submit">Submit</button>
-    </div>
-  </form>
-   </div>}}
+  )}
+}
 
 export default Contact
