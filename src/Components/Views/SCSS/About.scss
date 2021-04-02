@@ -1,6 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&display=swap');
+@import 'helpers/variables';
+
+
+.about-box{
+  height: 75vh;
+  width: 55vw;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background-color: $menu-popup;
+  border: 2px solid $red-dark;
+  border-radius: 43px;
+  padding: 2%;
+}
 
 .about-text {
-  width: 75vw;
-  font-family: 'Courgette';
+  width: 100%;
+  font-size: 37px;
+  font-weight: 700;
+  line-height: 3.45rem;
+  color: $form-text-color;
+  font-family: 'Noto Serif', serif;
 }

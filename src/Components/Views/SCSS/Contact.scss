@@ -1,12 +1,114 @@
 @import 'helpers/variables';
 
-form{
+
+label{
   color: $off-white;
 }
 
-.contact{
-  width: 60vw;
+.contact-us{
+  width: 90%;
+  height: 10%;
+  position: absolute;
+  top: 23vh;
 }
+
+.contact-header{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: $red-dark;
+}
+
+.contact-grid-box{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // width: 100%;
+}
+
+.contact-grid{
+  width: 100%;
+  display: grid;
+  justify-content: end;
+  text-align: center;
+  align-content: stretch;
+  grid-template-columns: .5fr 2fr;
+  grid-template-rows: .5fr .5fr .5fr .5fr .5fr .5fr;
+  gap: 1em 2em;
+  margin-top: 5vh;
+  grid-template-areas:
+    "contact-name contact-name-input"
+    "contact-email contact-email-input"
+    "contact-msg contact-msg-input"
+    "contact-msg contact-msg-input"
+    ". ."
+    "contact-us-btn contact-us-btn";
+}
+
+.contact-name{
+  grid-area: contact-name;
+}
+
+.contact-name-input{
+  grid-area: contact-name-input;
+  height: 3vh;
+  width: 100%;
+}
+
+.contact-email{
+  grid-area: contact-email;
+}
+
+.contact-email-input{
+  grid-area: contact-email-input;
+  height: 3vh;
+  width: 100%;
+}
+
+.contact-msg{
+  grid-area: contact-msg;
+}
+
+.contact-msg-input{
+  grid-area: contact-msg-input;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  resize: both;
+  min-height: 40px;
+  line-height: 20px;
+}
+
+.contact-us-btn{
+  grid-area: contact-us-btn;
+  height: 5.8vh;
+  width: 40%;
+  justify-self: center;
+  padding: .7rem 1rem;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  font-size: 24px;
+  font-weight: 700;
+  color: $off-white;
+  cursor: pointer;
+  background-color: $red-dark;
+  font-family: 'Courgette', cursive;
+}
+
+.contact-us-btn:hover{
+  padding: .5rem 1rem;
+  transition: all 0.2s ease-in-out;
+  background-color: transparent;
+  color: $off-white;
+  border-radius: 25px;
+  border: 4px solid $red-dark;
+}
+
+
 
 .labels{
   float: left;

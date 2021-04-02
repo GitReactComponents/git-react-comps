@@ -4,3 +4,17 @@
   display: flex;
   flex-direction: column;
 }
+
+.favorites-info{
+  font-size: 44px;
+  text-align: center;
+  line-height: 2em;
+  color: $off-white;
+}
+
+strong{
+  font-size: 50px;
+  color: $red-dark;
+  text-decoration: underline;
+  line-height: 7rem;
+}
