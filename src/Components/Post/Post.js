@@ -15,7 +15,7 @@ const Post = () => {
 
   useEffect(() => {
     // Todo Finish ComponentToDisplay so we can finish and start front-end styling the Post component
-    postContext.readAllPosts(component_id)
+    // postContext.readAllPosts(component_id)
     setPost(postContext.postS)
   }, [post])
 
