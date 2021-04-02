@@ -90,9 +90,7 @@ function EditUser() {
               Update User
           </button>
 
-        </div>
-
-
+      </div>
     </div>
   )
 }
