@@ -35,8 +35,8 @@ class Upload extends React.Component {
     return (
       <div className='upload'>
   
-        <div className='submit-info'>
-          <h1 className='submit-header'>Submit Component</h1>
+        <div className='page-header-section'>
+          <h1 className='page-header'>Submit Component</h1>
         </div>
   
         <div className='upload-grid'>
@@ -78,7 +78,6 @@ class Upload extends React.Component {
               <label for="js">Javascript: </label>
             </section>
               <input className='js-input' type="text" value={this.state.js} name='js' onChange={this.changeHandler} placeholder="Javascript Code"/>
-
 
             <button 
               className='submit-btn'

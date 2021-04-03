@@ -15,16 +15,12 @@ const ComponentTile = (comp) => {
   }
 
   return (
-    <div>
-      <div>
-        <div className='comp-tile'>
-          <button onClick={handleClick}>
-            <div className='comp-image' style={{ backgroundImage: `url('${comp.component_image}')` }}></div> 
-            <div className='comp-tile-name' >{comp.component_description}</div>
-          </button>
-        </div>
+      <div className='comp-tile'>
+        <button className='comp-btn' onClick={handleClick}>
+          <div className='comp-image' style={{ backgroundImage: `url('${comp.component_image}')` }}></div> 
+          <div className='comp-tile-name' >{comp.component_description}</div>
+        </button>
       </div>
-    </div>
   )
 }
 

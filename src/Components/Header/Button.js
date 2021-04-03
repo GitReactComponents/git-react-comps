@@ -81,39 +81,39 @@ function Button(props) {
   return (
     <ClickAwayListener onClickAway={clickAway}>
       <section>
-          <div className={loginClasses.button}>
-              <button 
-                className='btn dark-btn' 
-                onClick={() => handleLoginModal()}
-                disabled={regModal ? true : false}
-                >
-                Login
-              </button>
-            <div className={loginClasses.wrapper}>
-              <Slide direction="left" in={loginModal} timeout={500} mountOnEnter unmountOnExit>
-                <section className={loginClasses.modalSpace}>
-                  {loginModal ? <Login /> : <Login />}
-                </section>
-              </Slide>
-            </div>
+        <div className={loginClasses.button}>
+          <button 
+            className='btn dark-btn' 
+            onClick={() => handleLoginModal()}
+            disabled={regModal ? true : false}
+          >
+            Login
+          </button>
+          <div className={loginClasses.wrapper}>
+            <Slide direction="left" in={loginModal} timeout={500} mountOnEnter unmountOnExit>
+              <section className={loginClasses.modalSpace}>
+                {loginModal ? <Login /> : <Login />}
+              </section>
+            </Slide>
           </div>
+        </div>
 
-          <div className={regClasses.button}>
-              <button 
-                className='btn' 
-                onClick={() => handleRegModal()}
-                disabled={loginModal ? true : false}
-              >
-                Become a Member!
-              </button>
-            <div className={regClasses.wrapper}>
-                <Slide direction="down" in={regModal} timeout={700} mountOnEnter unmountOnExit>
-                  <section className={regClasses.modalSpace}>
-                    {regModal ? <Subscribe /> : <Subscribe />}
-                  </section>
-                </Slide>
-            </div>
+        <div className={regClasses.button}>
+          <button 
+            className='btn' 
+            onClick={() => handleRegModal()}
+            disabled={loginModal ? true : false}
+          >
+            Become a Member!
+          </button>
+          <div className={regClasses.wrapper}>
+            <Slide direction="down" in={regModal} timeout={700} mountOnEnter unmountOnExit>
+              <section className={regClasses.modalSpace}>
+                {regModal ? <Subscribe /> : <Subscribe />}
+              </section>
+            </Slide>
           </div>
+        </div>
       </section>
     </ClickAwayListener>
   )

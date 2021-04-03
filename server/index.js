@@ -41,12 +41,6 @@ massive({
 });
 
 
-// * comps endpoints for non members
-app.get('/api/comp-nm/:component_id', ctrlComp.readComp)
-
-// * posts endpoints for non members
-// app.get('/api/post-nm', ctrlPost.readPost)
-
 // * member comps endpoint
 app.get('/api/member-comp', auth.userOnly, ctrlComp.readAllComp)
 app.post('/api/create-comp', auth.userOnly, ctrlComp.createComp)
@@ -59,11 +53,13 @@ app.get('/api/get_comp/:component_id', auth.userOnly, ctrlComp.readComp)
 app.post('/api/mail', mailCtrl.sendEmailComp)
 app.post('/api/mail/contact', mailCtrl.sendEmailContact)
 
+
 // * member posts endpoint
 app.get('/api/member-posts/:component_id', auth.userOnly, ctrlPost.readAllPosts)
 app.post('/api/create-post', auth.userOnly, ctrlPost.createPost)
 // app.put('/api/edit-post/:postId', auth.userOnly, ctrlPost.editPost)
 app.delete('/api/delete-post/:postId', auth.userOnly, ctrlPost.deletePost)
+
 
 // * user endpoints
 app.get('/api/auth/user', ctrlUser.getUser)
@@ -74,11 +70,6 @@ app.put('/api/auth/update/:id', auth.userOnly, ctrlUser.editUser)
 // app.put('/auth/edit_user', auth.userOnly, ctrlUser.editUser)
 app.delete('/api/auth/delete_user', auth.userOnly, ctrlUser.deleteUser)
 
-// * admin endpoints
-// app.get('/api/admin-get', auth.adminOnly, ctrlAdmin.getUser)
-// app.post('/api/admin-create', auth.adminOnly, ctrlAdmin.create)
-// app.put('/api/admin-edit/:id', auth.adminOnly, ctrlAdmin.edit)
-// app.delete('/api/admin-delete/:id', auth.adminOnly, ctrlAdmin.delete)
 
 // * stripe endpoint
 app.post('/api/payment', stripeCtrl.makePayment)

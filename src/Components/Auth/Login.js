@@ -26,10 +26,7 @@ function Login() {
 
 
   const onSubmit = (data) => {
-    // console.log(data)
     userAuth.login(data.username, data.password)
-    // setUsername('')
-    // setPassword('')
   }
 
 
@@ -37,40 +34,40 @@ function Login() {
     <dialog className='login'>
       <div id='login-container'>
         <h3>Member Login</h3>
-        <br />
+      <br />
 
-          <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
-            <ThemeProvider theme={theme}>
-              <FormProvider {...methods}>
-                <section>
-                  <FormInput
-                    autoFocus={true}
-                    name='username'
-                    placeholder='Enter Username'
-                    type='text'
-                    autoComplete='username'
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    inputRef={register}
-                    />
-                </section>
-
-                <br />
-
-                <section>
-                  <FormInput
-                  name='password'
-                  className='entry-text'
-                  type='password'
-                  autoComplete='current-password'
-                  placeholder='Enter Password'
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+        <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
+          <ThemeProvider theme={theme}>
+            <FormProvider {...methods}>
+              <section>
+                <FormInput
+                  autoFocus={true}
+                  name='username'
+                  placeholder='Enter Username'
+                  type='text'
+                  autoComplete='username'
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   inputRef={register}
-                  />
-                </section>
-              </FormProvider>
-            </ThemeProvider>
+                />
+              </section>
+
+              <br />
+
+              <section>
+                <FormInput
+                name='password'
+                className='entry-text'
+                type='password'
+                autoComplete='current-password'
+                placeholder='Enter Password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                inputRef={register}
+              />
+              </section>
+            </FormProvider>
+          </ThemeProvider>
 
           <br />
 
@@ -79,7 +76,6 @@ function Login() {
             type='submit'>
               Login
           </button>
-
         </form>
       </div>
     </dialog>

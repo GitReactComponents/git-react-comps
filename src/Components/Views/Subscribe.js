@@ -35,8 +35,6 @@ function Subscribe(props) {
   
 
   const onSubmit = (data) => {
-    console.log(data)
-
     userAuth.register(data.firstName, data.lastName, data.birthday, data.email, data.username, data.password);
     setFirstName('');
     setLastName('');
@@ -47,17 +45,15 @@ function Subscribe(props) {
   };
 
 
-
-
-
   return (
     <dialog className='subscribe'>
       <form className='form-container' onSubmit={handleSubmit(onSubmit)}>
+
         <div className='grid-container'>
 
           <ThemeProvider theme={theme}>
             <FormProvider {...methods}>
-              <div className='form-control'>
+              <div className='form-control first-name'>
                 <h4>First Name:</h4>
                 <FormInput
                   autoFocus={true}
@@ -80,14 +76,14 @@ function Subscribe(props) {
                     console.log("messages", messages);
                     return messages
                       ? _.entries(messages).map(([type, message]) => (
-                      <h6 key={type}>{message}</h6>
+                      <h5 key={type}>{message}</h5>
                     ))
                     : null;
                   }}
                 />
               </div>
 
-              <div className='form-control'>
+              <div className='form-control last-name'>
                 <h4>Last Name:</h4>
                 <FormInput
                   name='lastName'
@@ -109,7 +105,7 @@ function Subscribe(props) {
                     console.log("messages", messages);
                     return messages
                       ? _.entries(messages).map(([type, message]) => (
-                        <h6 key={type}>{message}</h6>
+                        <h5 key={type}>{message}</h5>
                     ))
                     : null;
                   }}
@@ -118,7 +114,7 @@ function Subscribe(props) {
 
               <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <Fragment>
-                  <div className='form-control'>
+                  <div className='form-control birthday'>
                     <h4>Birthday:</h4>
                     <DatePicker
                       disableFuture
@@ -138,7 +134,7 @@ function Subscribe(props) {
                 </Fragment>
               </MuiPickersUtilsProvider>
 
-              <div className='form-control'>
+              <div className='form-control email'>
                 <h4>Email:</h4>
                 <FormInput
                   name='email'
@@ -160,14 +156,14 @@ function Subscribe(props) {
                     console.log("messages", messages);
                     return messages
                       ? _.entries(messages).map(([type, message]) => (
-                        <h6 key={type}>{message}</h6>
+                        <h5 key={type}>{message}</h5>
                     ))
                     : null;
                   }}
                 />
               </div>
 
-              <div className='form-control'>
+              <div className='form-control username'>
                 <h4>Username:</h4>
                 <FormInput
                   name='username'
@@ -193,14 +189,14 @@ function Subscribe(props) {
                     console.log("messages", messages);
                     return messages
                       ? _.entries(messages).map(([type, message]) => (
-                        <h6 key={type}>{message}</h6>
+                        <h5 key={type}>{message}</h5>
                     ))
                     : null;
                   }}
                 />
               </div>
 
-              <div className='form-control'>
+              <div className='form-control password'>
                 <h4>Password:</h4>
                 <FormInput
                   name='password'
@@ -230,7 +226,7 @@ function Subscribe(props) {
                     console.log("messages", messages);
                     return messages
                       ? _.entries(messages).map(([type, message]) => (
-                        <h6 key={type}>{message}</h6>
+                        <h5 key={type}>{message}</h5>
                     ))
                     : null;
                   }}
@@ -238,12 +234,10 @@ function Subscribe(props) {
               </div>
             </FormProvider>
           </ThemeProvider>
+          <button type='submit' className='submit-btn'>
+            Head to Checkout
+          </button>
         </div>
-            
-        <div className='form-control'>
-          <button type='submit' className='submit-btn'>Head to Checkout</button>
-        </div>
-
       </form>
     </dialog>
   )

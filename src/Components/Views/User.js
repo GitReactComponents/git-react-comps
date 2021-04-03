@@ -1,15 +1,12 @@
 import React, {useState, useContext, useEffect} from 'react'
 import {AuthContext} from '../../Context/AuthContext'
 
-import {TextField} from '@material-ui/core'
-
 import './SCSS/User.scss'
 
 
 
 function EditUser() {
   const userAuth = useContext(AuthContext)
-  console.log(userAuth.user)
   
   const [firstName, setFirst] = useState('')
   const [lastName, setLast] = useState('')
@@ -30,23 +27,20 @@ function EditUser() {
 
   return (
     <div className='user'>
-      <div className='user-edit'>
-        <h1 className='user-edit-header'>You can edit your user info here</h1>
+      <div className='page-header-section'>
+        <h1 className='page-header'>You can edit your user info here</h1>
       </div>
 
       <div className='user-edit-grid'>
-
-          <section className='first title'>
-            <label for='first-input'>First Name: </label>
-          </section>
-            <input
-              className='first-input'
-              placeholder={userAuth.user.firstName}
-              value={firstName}
-              onChange={(e) => setFirst(e.target.value)}
-            />
-
-          <br />
+        <section className='first title'>
+          <label for='first-input'>First Name: </label>
+        </section>
+          <input
+            className='first-input'
+            placeholder={userAuth.user.firstName}
+            value={firstName}
+            onChange={(e) => setFirst(e.target.value)}
+          />
 
           <section className='last title'>
             <label for='last-input'>Last Name: </label>
@@ -56,22 +50,18 @@ function EditUser() {
               placeholder={userAuth.user.lastName}
               value={lastName}
               onChange={(e) => setLast(e.target.value)}
-            />
-          
-          <br />
+          />
 
           <section className='email title'>
             <label for='email-input'>Email: </label>
           </section>
-              <input
-                className='email-input'
-                placeholder={userAuth.user.email}
-                autoComplete='email'
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />        
-
-          <br />
+            <input
+              className='email-input'
+              placeholder={userAuth.user.email}
+              autoComplete='email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />        
             
           <section className='password title'>
             <label for='password-input'>Password: </label>
@@ -89,7 +79,6 @@ function EditUser() {
             onClick={() => updateUser()}>
               Update User
           </button>
-
       </div>
     </div>
   )

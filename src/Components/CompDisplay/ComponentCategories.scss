@@ -1,6 +1,11 @@
 @import 'helpers/variables';
 
-.component-category {
+
+.component-container{
+  height: 80%;
+  width: 90%;
   display: flex;
+  justify-content: space-around;
   flex-wrap: wrap;
+  margin: 50px;
 }
