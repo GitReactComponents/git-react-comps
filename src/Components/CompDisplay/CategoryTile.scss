@@ -1,67 +1,33 @@
 @import 'helpers/variables';
+@import url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
+
+
 
 .button-area {
-  display: inline-block;
-  margin-right: 2rem;
-  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 30px;
 }
 
 .category-buttons{
-  height: 10vh;
+  height: 20vh;
   width: 14vw;
   padding: .7rem 1rem;
   border-radius: 10px;
   outline: none;
   border: none;
-  font-size: 30px;
+  font-size: 3rem;
   font-weight: 700;
-  color: $off-white;
+  color: $form-text-color;
   cursor: pointer;
-  background-color: $red-dark;
-  font-family: 'Courgette', cursive;
-}
+  background-color: $menu-popup;
+  font-family: 'Yatra One', cursive;}
 
 .category-buttons:hover{
-  padding: .7rem 1rem;
   transition: all 0.2s ease-in-out;
   background-color: transparent;
-  color: $off-white;
+  color: $white;
   border-radius: 25px;
-  border: 4px solid $red-dark;
+  border: 4px double $red-dark;
 }
-
-
-
-
-// @import 'helpers/variables';
-// @import url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
-
-// .button-area {
-//   display: inline-block;
-//   margin-right: 2rem;
-//   margin-bottom: 2rem;
-// }
-
-// .category-buttons{
-//   height: 14vh;
-//   width: 20vw;
-//   padding: .7rem 1rem;
-//   border-radius: 10px;
-//   outline: none;
-//   border: none;
-//   font-size: 4rem;
-//   font-weight: 700;
-//   color: $off-white;
-//   cursor: pointer;
-//   background-color: $red-dark;
-//   font-family: 'Yatra One', cursive;
-// }
-
-// .category-buttons:hover{
-//   padding: .7rem 1rem;
-//   transition: all 0.2s ease-in-out;
-//   background-color: transparent;
-//   color: $off-white;
-//   border-radius: 25px;
-//   border: 4px solid $red-dark;
-// }

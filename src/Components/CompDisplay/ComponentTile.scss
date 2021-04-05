@@ -1,36 +1,43 @@
 @import 'helpers/variables';
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 
-
-.comp-tile-display{
-  height: 100%;
-  width: 50%;
-  // display: flex;
-  flex-wrap: wrap;
-  background-color: $page-background-color;
+.comp-btn{
+  height: 35vh;
+  border-radius: 25px;
+  background-color: $comp-color;
+  // margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .comp-tile {
-  background-color: $white;
-  width: 400px;
-  height: 200px;
+  width: 20vw;
+  height: 45%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin: 10px;
+  margin: 0px 40px 70px 40px;
 }
 
 .comp-image {
-  width: 394px;
-  height:144px;
-  border: $red-light solid 3px;
+  width: 20vw;
+  height: 67%;
+  border: $red-light solid .1rem;
+  border-radius: 25px;
   background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
 }
 
 .comp-tile-name {
-  font-size: 30px;
+  font-size: 20px;
   height: 50px;
-  width:400px;
+  font-size: 25px;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 700;
+  color: $form-text-color;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px 0px 20px 0px;
 }

@@ -11,7 +11,6 @@ function Header(props) {
 
   useEffect(() => {
     userAuth.getUser()
-    console.log(userAuth.getUser(userAuth.user))
   }, [])
 
 
@@ -24,17 +23,15 @@ function Header(props) {
     return (
       <nav id='in-container'>
       
-      <Link to='/'>
-          <img className='logo' src='/img/logo.png' alt='Git-React-Comps Logo' />
-      </Link>
+        <Link to='/'>
+            <img className='logo' src='/img/logo.png' alt='Git-React-Comps Logo' />
+        </Link>
 
         <div className='navbar'>
-
           <Link to='/' className='nav-link'>Home</Link>
           <Link to='/about' className='nav-link'>About</Link>
 
           <div className='subnav'>
-            
             <button className='subnavbtn'><span>Options </span> 
               <i className='fa fa-caret-down'></i>
             </button>
@@ -50,16 +47,15 @@ function Header(props) {
 
         </div>
       
-          <section className='header-btn-container'>
-            <button
-              className='logout-btn'
-              type='submit'
-              onClick={handleLogout}
-              >
-              Logout
-            </button>
-          </section>
-
+        <section className='header-btn-container'>
+          <button
+            className='logout-btn'
+            type='submit'
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
+        </section>
       </nav>
     )}
 
@@ -72,9 +68,9 @@ function Header(props) {
             <h3>Welcome to</h3>
           </div>
 
-            <Link to='/'>
-              <img className='logo' src='/img/logo.png' alt='Git-React-Comps Logo' />
-            </Link>
+          <Link to='/'>
+            <img className='logo' src='/img/logo.png' alt='Git-React-Comps Logo' />
+          </Link>
           <div className='navbar'>
             <Link to='/' className='nav-link'>Home</Link>
             <Link to='/about' className='nav-link'>About</Link>
@@ -92,10 +88,11 @@ function Header(props) {
 
   return (
     <header className='main-header'>
-      {userAuth.user 
-        ? inHeader() 
-        : outHeader()}
-
+      {
+        userAuth.user 
+          ? inHeader() 
+          : outHeader()
+      }
     </header>
   )
 }

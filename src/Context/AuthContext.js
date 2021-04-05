@@ -8,51 +8,35 @@ export const AuthProvider = (props) => {
   const [user, setUser] = useState('')
   const { push } = useHistory()
 
+  const getUser = () => {
+    axios.get('/api/auth/user').then(({data}) => {
+      setUser(data)
+    })
+  }
 
+  const register = (firstName, lastName, birthday, email, username, password) => {
+    axios.post('/api/auth/register', {firstName, lastName, birthday, email, username, password}).then(({data}) => {
+      setUser(data)
+      push('/payment')
+    })
+  }
 
-    const getUser = () => {
-      axios.get('/api/auth/user').then(({data}) => {
-    console.log({data})
-        setUser(data)
-      })
-    }
+  const login = (username, password) => {
+    axios.post('/api/auth/login', {username, password}).then(({data}) => {
+      setUser(data)
+      push('/')
+    })
+  }
 
-    const register = (firstName, lastName, birthday, email, username, password) => {
-        axios.post('/api/auth/register', {firstName, lastName, birthday, email, username, password})
-            .then(({data}) => {
-                setUser(data)
-                push('/payment')
-            })
-    }
-
-    const login = (username, password) => {
-        axios.post('/api/auth/login', {username, password}).then(({data}) => {
-          console.log(data)
-          setUser(data)
-            push('/')
-        })
-    }
-
-    const logout = () => {
-        axios.post('/api/auth/logout')
-            .then(() => {
-                setUser('')
-                push('/')
-            })
-    }
-
-    // const updateUser = (user, userId) => {
-    //     axios.put('/api/auth/edit_user', {userId, isMember: true})
-    //         .then(() => {
-    //             setUser(...user)
-    //             push('/')
-    //         })
-    // }
+  const logout = () => {
+    axios.post('/api/auth/logout').then(() => {
+      setUser('')
+      push('/')
+    })
+  }
 
   const updateUser = (firstName, lastName, email,  password, id) => {
-    // console.log('hi', firstName, lastName, email, password, id)
     axios.put(`/api/auth/update/${id}`, {firstName, lastName, email, password}).then(({data}) => {
-      // getUser(user)
       setUser(data)
       push('/')
     })
@@ -66,9 +50,9 @@ export const AuthProvider = (props) => {
   }
 
 
-    return (
-        <AuthContext.Provider value={{user, getUser, setUser, login, logout, register, updateUser, deleteUser}}>
-            {props.children}
-        </AuthContext.Provider>
-    )
+  return (
+    <AuthContext.Provider value={{user, getUser, setUser, login, logout, register, updateUser, deleteUser}}>
+      {props.children}
+    </AuthContext.Provider>
+  )
 }

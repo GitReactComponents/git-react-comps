@@ -10,7 +10,7 @@ export const CompProvider = (props) => {
   const [compType, setCompType] = useState('')
   const [singleComp, setSingleComp] = useState('')
 
-  // app.get('/api/member-comp', auth.userOnly, ctrlComp.readAllComp)
+
   const getMemberComp = () => {
     axios.get('/api/member-comp').then(({ res }) => {
       setComponent(res.data)
@@ -29,7 +29,6 @@ export const CompProvider = (props) => {
     console.log(component[index])
   }
 
-  // app.post('/api/create-comp', auth.userOnly, ctrlComp.createComp)
   const createComp = (component_type, component_image, component_info, userId, username) => {
     axios.post('/api/create-comp', { component_type, component_image, component_info, userId, username })
       .then(({ data }) => {
@@ -37,11 +36,10 @@ export const CompProvider = (props) => {
       }).catch(err => console.log(err))
   }
 
-  // app.delete('/api/delete-comp/:compId', auth.userOnly, ctrlComp.deleteComp)
   const deleteComp = (component_id) => {
     axios.delete(`/api/delete-comp/:${component_id}`).then(res => {
       console.log(res.data)
-      setComponent(res.data) // ? not usre about this line. Should we be setting the componet sate with res.data here?
+      setComponent(res.data)           // ? not sure about this line. Should we be setting the component sate with res.data here?
     }).catch(err => console.log(err))
   }
 

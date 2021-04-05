@@ -5,28 +5,12 @@ label{
   color: $off-white;
 }
 
-.contact-us{
-  width: 90%;
-  height: 10%;
-  position: absolute;
-  top: 23vh;
-}
-
-.contact-header{
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  color: $red-dark;
-}
 
 .contact-grid-box{
   width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  // width: 100%;
 }
 
 .contact-grid{
