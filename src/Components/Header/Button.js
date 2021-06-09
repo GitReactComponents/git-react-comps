@@ -104,7 +104,7 @@ function Button(props) {
             onClick={() => handleRegModal()}
             disabled={loginModal ? true : false}
           >
-            Become a Member!
+            Register
           </button>
           <div className={regClasses.wrapper}>
             <Slide direction="down" in={regModal} timeout={700} mountOnEnter unmountOnExit>
