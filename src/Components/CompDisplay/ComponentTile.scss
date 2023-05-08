@@ -1,11 +1,10 @@
-@import 'helpers/variables';
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+@import "helpers/variables";
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
 
-.comp-btn{
+.comp-btn {
   height: 35vh;
   border-radius: 25px;
   background-color: $comp-color;
-  // margin-bottom: 20px;
   cursor: pointer;
 }
 
@@ -20,7 +19,7 @@
 .comp-image {
   width: 20vw;
   height: 67%;
-  border: $red-light solid .1rem;
+  border: $red-light solid 0.1rem;
   border-radius: 25px;
   background-size: contain;
   background-position: center;
@@ -31,7 +30,7 @@
   font-size: 20px;
   height: 50px;
   font-size: 25px;
-  font-family: 'PT Sans', sans-serif;
+  font-family: "PT Sans", sans-serif;
   font-weight: 700;
   color: $form-text-color;
   text-align: center;
